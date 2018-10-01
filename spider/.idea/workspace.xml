@@ -2,537 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a54e1c57-bedf-4d8f-9029-7af6b338a077" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/dcrawl/novel_bean.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/golang.org/x/net/.gitattributes" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/golang.org/x/net/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/golang.org/x/net/AUTHORS" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/golang.org/x/net/CONTRIBUTING.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/golang.org/x/net/CONTRIBUTORS" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/golang.org/x/net/LICENSE" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/golang.org/x/net/PATENTS" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/golang.org/x/net/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/andybalholm/cascadia/.travis.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/andybalholm/cascadia/LICENSE" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/andybalholm/cascadia/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/andybalholm/cascadia/benchmark_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/andybalholm/cascadia/fuzz/corpus/test0" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/andybalholm/cascadia/fuzz/corpus/test1" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/andybalholm/cascadia/fuzz/corpus/test10" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/andybalholm/cascadia/fuzz/corpus/test11" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/andybalholm/cascadia/fuzz/corpus/test12" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/andybalholm/cascadia/fuzz/corpus/test13" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/andybalholm/cascadia/fuzz/corpus/test14" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/andybalholm/cascadia/fuzz/corpus/test15" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/andybalholm/cascadia/fuzz/corpus/test16" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/andybalholm/cascadia/fuzz/corpus/test17" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/andybalholm/cascadia/fuzz/corpus/test18" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/andybalholm/cascadia/fuzz/corpus/test19" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/andybalholm/cascadia/fuzz/corpus/test2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/andybalholm/cascadia/fuzz/corpus/test20" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/andybalholm/cascadia/fuzz/corpus/test21" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/andybalholm/cascadia/fuzz/corpus/test22" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/andybalholm/cascadia/fuzz/corpus/test23" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/andybalholm/cascadia/fuzz/corpus/test24" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/andybalholm/cascadia/fuzz/corpus/test25" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/andybalholm/cascadia/fuzz/corpus/test26" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/andybalholm/cascadia/fuzz/corpus/test27" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/andybalholm/cascadia/fuzz/corpus/test28" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/andybalholm/cascadia/fuzz/corpus/test29" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/andybalholm/cascadia/fuzz/corpus/test3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/andybalholm/cascadia/fuzz/corpus/test30" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/andybalholm/cascadia/fuzz/corpus/test31" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/andybalholm/cascadia/fuzz/corpus/test32" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/andybalholm/cascadia/fuzz/corpus/test33" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/andybalholm/cascadia/fuzz/corpus/test34" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/andybalholm/cascadia/fuzz/corpus/test35" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/andybalholm/cascadia/fuzz/corpus/test36" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/andybalholm/cascadia/fuzz/corpus/test37" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/andybalholm/cascadia/fuzz/corpus/test38" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/andybalholm/cascadia/fuzz/corpus/test39" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/andybalholm/cascadia/fuzz/corpus/test4" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/andybalholm/cascadia/fuzz/corpus/test40" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/andybalholm/cascadia/fuzz/corpus/test41" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/andybalholm/cascadia/fuzz/corpus/test42" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/andybalholm/cascadia/fuzz/corpus/test43" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/andybalholm/cascadia/fuzz/corpus/test44" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/andybalholm/cascadia/fuzz/corpus/test45" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/andybalholm/cascadia/fuzz/corpus/test46" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/andybalholm/cascadia/fuzz/corpus/test47" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/andybalholm/cascadia/fuzz/corpus/test48" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/andybalholm/cascadia/fuzz/corpus/test49" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/andybalholm/cascadia/fuzz/corpus/test5" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/andybalholm/cascadia/fuzz/corpus/test50" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/andybalholm/cascadia/fuzz/corpus/test51" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/andybalholm/cascadia/fuzz/corpus/test52" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/andybalholm/cascadia/fuzz/corpus/test53" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/andybalholm/cascadia/fuzz/corpus/test54" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/andybalholm/cascadia/fuzz/corpus/test55" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/andybalholm/cascadia/fuzz/corpus/test56" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/andybalholm/cascadia/fuzz/corpus/test57" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/andybalholm/cascadia/fuzz/corpus/test58" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/andybalholm/cascadia/fuzz/corpus/test59" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/andybalholm/cascadia/fuzz/corpus/test6" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/andybalholm/cascadia/fuzz/corpus/test60" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/andybalholm/cascadia/fuzz/corpus/test61" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/andybalholm/cascadia/fuzz/corpus/test7" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/andybalholm/cascadia/fuzz/corpus/test8" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/andybalholm/cascadia/fuzz/corpus/test9" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/andybalholm/cascadia/fuzz/fuzz.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/andybalholm/cascadia/go.mod" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/andybalholm/cascadia/parser.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/andybalholm/cascadia/parser_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/andybalholm/cascadia/selector.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/andybalholm/cascadia/selector_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/cascadia/.travis.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/cascadia/LICENSE" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/cascadia/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/cascadia/benchmark_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/cascadia/fuzz/corpus/test0" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/cascadia/fuzz/corpus/test1" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/cascadia/fuzz/corpus/test10" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/cascadia/fuzz/corpus/test11" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/cascadia/fuzz/corpus/test12" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/cascadia/fuzz/corpus/test13" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/cascadia/fuzz/corpus/test14" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/cascadia/fuzz/corpus/test15" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/cascadia/fuzz/corpus/test16" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/cascadia/fuzz/corpus/test17" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/cascadia/fuzz/corpus/test18" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/cascadia/fuzz/corpus/test19" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/cascadia/fuzz/corpus/test2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/cascadia/fuzz/corpus/test20" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/cascadia/fuzz/corpus/test21" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/cascadia/fuzz/corpus/test22" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/cascadia/fuzz/corpus/test23" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/cascadia/fuzz/corpus/test24" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/cascadia/fuzz/corpus/test25" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/cascadia/fuzz/corpus/test26" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/cascadia/fuzz/corpus/test27" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/cascadia/fuzz/corpus/test28" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/cascadia/fuzz/corpus/test29" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/cascadia/fuzz/corpus/test3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/cascadia/fuzz/corpus/test30" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/cascadia/fuzz/corpus/test31" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/cascadia/fuzz/corpus/test32" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/cascadia/fuzz/corpus/test33" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/cascadia/fuzz/corpus/test34" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/cascadia/fuzz/corpus/test35" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/cascadia/fuzz/corpus/test36" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/cascadia/fuzz/corpus/test37" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/cascadia/fuzz/corpus/test38" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/cascadia/fuzz/corpus/test39" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/cascadia/fuzz/corpus/test4" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/cascadia/fuzz/corpus/test40" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/cascadia/fuzz/corpus/test41" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/cascadia/fuzz/corpus/test42" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/cascadia/fuzz/corpus/test43" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/cascadia/fuzz/corpus/test44" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/cascadia/fuzz/corpus/test45" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/cascadia/fuzz/corpus/test46" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/cascadia/fuzz/corpus/test47" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/cascadia/fuzz/corpus/test48" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/cascadia/fuzz/corpus/test49" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/cascadia/fuzz/corpus/test5" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/cascadia/fuzz/corpus/test50" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/cascadia/fuzz/corpus/test51" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/cascadia/fuzz/corpus/test52" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/cascadia/fuzz/corpus/test53" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/cascadia/fuzz/corpus/test54" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/cascadia/fuzz/corpus/test55" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/cascadia/fuzz/corpus/test56" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/cascadia/fuzz/corpus/test57" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/cascadia/fuzz/corpus/test58" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/cascadia/fuzz/corpus/test59" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/cascadia/fuzz/corpus/test6" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/cascadia/fuzz/corpus/test60" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/cascadia/fuzz/corpus/test61" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/cascadia/fuzz/corpus/test7" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/cascadia/fuzz/corpus/test8" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/cascadia/fuzz/corpus/test9" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/cascadia/fuzz/fuzz.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/cascadia/go.mod" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/cascadia/parser.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/cascadia/parser_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/cascadia/selector.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/cascadia/selector_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/go-logging/.travis.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/go-logging/CHANGELOG.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/go-logging/CONTRIBUTORS" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/go-logging/LICENSE" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/go-logging/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/go-logging/backend.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/go-logging/example_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/go-logging/examples/example.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/go-logging/examples/example.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/go-logging/format.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/go-logging/format_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/go-logging/level.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/go-logging/level_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/go-logging/log_nix.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/go-logging/log_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/go-logging/log_windows.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/go-logging/logger.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/go-logging/logger_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/go-logging/memory.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/go-logging/memory_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/go-logging/multi.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/go-logging/multi_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/go-logging/syslog.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/go-logging/syslog_fallback.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/gocolly/colly/.codecov.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/gocolly/colly/.github/ISSUE_TEMPLATE.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/gocolly/colly/.travis.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/gocolly/colly/CHANGELOG.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/gocolly/colly/CONTRIBUTING.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/gocolly/colly/LICENSE.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/gocolly/colly/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/gocolly/colly/VERSION" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/gocolly/colly/_examples/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/gocolly/colly/_examples/basic/basic.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/gocolly/colly/_examples/coursera_courses/coursera_courses.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/gocolly/colly/_examples/cryptocoinmarketcap/cryptocoinmarketcap.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/gocolly/colly/_examples/error_handling/error_handling.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/gocolly/colly/_examples/factba.se/factbase.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/gocolly/colly/_examples/google_groups/google_groups.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/gocolly/colly/_examples/hackernews_comments/hackernews_comments.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/gocolly/colly/_examples/instagram/instagram.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/gocolly/colly/_examples/local_files/html/child_page/one.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/gocolly/colly/_examples/local_files/html/child_page/three.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/gocolly/colly/_examples/local_files/html/child_page/two.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/gocolly/colly/_examples/local_files/html/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/gocolly/colly/_examples/local_files/local_files" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/gocolly/colly/_examples/local_files/local_files.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/gocolly/colly/_examples/login/login.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/gocolly/colly/_examples/max_depth/max_depth.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/gocolly/colly/_examples/multipart/asciimoo.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/gocolly/colly/_examples/multipart/multipart.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/gocolly/colly/_examples/openedx_courses/openedx_courses.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/gocolly/colly/_examples/parallel/parallel.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/gocolly/colly/_examples/proxy_switcher/proxy_switcher.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/gocolly/colly/_examples/queue/queue.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/gocolly/colly/_examples/random_delay/random_delay.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/gocolly/colly/_examples/rate_limit/rate_limit.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/gocolly/colly/_examples/reddit/reddit.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/gocolly/colly/_examples/request_context/request_context.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/gocolly/colly/_examples/scraper_server/scraper_server.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/gocolly/colly/_examples/shopify_sitemap/shopify_sitemap.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/gocolly/colly/_examples/url_filter/url_filter.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/gocolly/colly/_examples/xkcd_store/xkcd_store.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/gocolly/colly/cmd/colly/colly.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/gocolly/colly/colly.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/gocolly/colly/colly_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/gocolly/colly/context.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/gocolly/colly/context_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/gocolly/colly/debug/debug.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/gocolly/colly/debug/logdebugger.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/gocolly/colly/debug/webdebugger.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/gocolly/colly/extensions/extensions.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/gocolly/colly/extensions/random_user_agent.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/gocolly/colly/extensions/referrer.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/gocolly/colly/extensions/url_length_filter.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/gocolly/colly/htmlelement.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/gocolly/colly/http_backend.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/gocolly/colly/proxy/proxy.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/gocolly/colly/queue/queue.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/gocolly/colly/request.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/gocolly/colly/response.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/gocolly/colly/storage/storage.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/gocolly/colly/unmarshal.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/gocolly/colly/unmarshal_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/gocolly/colly/xmlelement.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/gocolly/colly/xmlelement_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/goquery/.gitattributes" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/goquery/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/goquery/.travis.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/goquery/LICENSE" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/goquery/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/goquery/array.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/goquery/array_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/goquery/bench/v0.1.0" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/goquery/bench/v0.1.1" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/goquery/bench/v0.1.1-v0.2.1-go1.1rc1.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/goquery/bench/v0.2.0" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/goquery/bench/v0.2.0-v0.2.1-go1.1rc1.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/goquery/bench/v0.2.1-go1.1rc1" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/goquery/bench/v0.3.0" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/goquery/bench/v0.3.2-go1.2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/goquery/bench/v0.3.2-go1.2-take2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/goquery/bench/v0.3.2-go1.2rc1" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/goquery/bench/v1.0.0-go1.7" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/goquery/bench/v1.0.1a-go1.7" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/goquery/bench/v1.0.1b-go1.7" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/goquery/bench/v1.0.1c-go1.7" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/goquery/bench_array_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/goquery/bench_example_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/goquery/bench_expand_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/goquery/bench_filter_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/goquery/bench_iteration_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/goquery/bench_property_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/goquery/bench_query_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/goquery/bench_traversal_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/goquery/doc.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/goquery/doc/tips.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/goquery/example_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/goquery/expand.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/goquery/expand_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/goquery/filter.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/goquery/filter_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/goquery/iteration.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/goquery/iteration_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/goquery/manipulation.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/goquery/manipulation_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/goquery/misc/git/pre-commit" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/goquery/property.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/goquery/property_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/goquery/query.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/goquery/query_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/goquery/testdata/gotesting.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/goquery/testdata/gowiki.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/goquery/testdata/metalreview.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/goquery/testdata/page.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/goquery/testdata/page2.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/goquery/testdata/page3.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/goquery/traversal.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/goquery/traversal_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/goquery/type.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/goquery/type_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/goquery/utilities.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/goquery/utilities_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/htmlquery/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/htmlquery/.travis.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/htmlquery/LICENSE" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/htmlquery/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/htmlquery/query.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/htmlquery/query_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/iconv-go/LICENSE" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/iconv-go/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/iconv-go/converter.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/iconv-go/examples/sample.ebcdic-us" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/iconv-go/examples/sample.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/iconv-go/examples/sample.utf8" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/iconv-go/iconv.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/iconv-go/iconv_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/iconv-go/reader.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/iconv-go/writer.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/mahonia/8bit.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/mahonia/ASCII.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/mahonia/LICENSE" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/mahonia/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/mahonia/big5-data.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/mahonia/big5.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/mahonia/charset.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/mahonia/convert_string.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/mahonia/entity.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/mahonia/entity_data.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/mahonia/euc-jp.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/mahonia/fallback.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/mahonia/gb18030-data.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/mahonia/gb18030.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/mahonia/gbk-data.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/mahonia/gbk.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/mahonia/jis0201-data.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/mahonia/jis0208-data.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/mahonia/jis0212-data.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/mahonia/mahonia_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/mahonia/mahoniconv/mahoniconv.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/mahonia/mbcs.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/mahonia/reader.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/mahonia/shiftjis.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/mahonia/translate.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/mahonia/utf16.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/mahonia/utf8.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/mahonia/writer.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/xmlquery/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/xmlquery/.travis.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/xmlquery/LICENSE" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/xmlquery/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/xmlquery/books.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/xmlquery/node.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/xmlquery/node_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/xmlquery/query.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/xmlquery/query_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/xpath/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/xpath/.travis.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/xpath/LICENSE" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/xpath/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/xpath/build.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/xpath/doc_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/xpath/func.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/xpath/func_go110.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/xpath/func_pre_go110.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/xpath/operator.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/xpath/parse.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/xpath/query.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/xpath/xpath.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/library/xpath/xpath_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dcrawl/crawl.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/dcrawl/crawl.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dcrawl/log.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/dcrawl/log.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ddb/mongo.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/dcrawl/mongo.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ditem/novel_bean.go" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/dspider/mzhu8.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/dspider/mzhu8.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/golang.org/x/net/html/atom/gen.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/golang.org/x/net/html/atom/gen.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/golang.org/x/net/http2/h2demo/h2demo.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/golang.org/x/net/http2/h2demo/h2demo.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/golang.org/x/net/http2/h2demo/launch.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/golang.org/x/net/http2/h2demo/launch.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/golang.org/x/net/http2/h2demo/tmpl.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/golang.org/x/net/http2/h2demo/tmpl.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/golang.org/x/net/http2/testdata/draft-ietf-httpbis-http2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/golang.org/x/net/http2/testdata/draft-ietf-httpbis-http2.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/golang.org/x/net/internal/iana/gen.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/golang.org/x/net/internal/iana/gen.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/golang.org/x/net/ipv4/gen.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/golang.org/x/net/ipv4/gen.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/golang.org/x/net/ipv6/gen.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/golang.org/x/net/ipv6/gen.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/golang.org/x/net/publicsuffix/gen.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/golang.org/x/net/publicsuffix/gen.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/golang.org/x/net/webdav/litmus_test_server.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/golang.org/x/net/webdav/litmus_test_server.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gopkg.in/mgo.v2/.travis.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/.travis.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gopkg.in/mgo.v2/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gopkg.in/mgo.v2/auth.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/auth.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gopkg.in/mgo.v2/auth_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/auth_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gopkg.in/mgo.v2/bson/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/bson/LICENSE" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gopkg.in/mgo.v2/bson/bson.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/bson/bson.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gopkg.in/mgo.v2/bson/bson_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/bson/bson_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gopkg.in/mgo.v2/bson/decimal.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/bson/decimal.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gopkg.in/mgo.v2/bson/decimal_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/bson/decimal_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gopkg.in/mgo.v2/bson/decode.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/bson/decode.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gopkg.in/mgo.v2/bson/encode.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/bson/encode.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gopkg.in/mgo.v2/bson/json.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/bson/json.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gopkg.in/mgo.v2/bson/json_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/bson/json_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gopkg.in/mgo.v2/bson/specdata/update.sh" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/bson/specdata/update.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gopkg.in/mgo.v2/bson/specdata_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/bson/specdata_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gopkg.in/mgo.v2/bulk.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/bulk.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gopkg.in/mgo.v2/bulk_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/bulk_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gopkg.in/mgo.v2/cluster.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/cluster.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gopkg.in/mgo.v2/cluster_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/cluster_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gopkg.in/mgo.v2/dbtest/dbserver.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/dbtest/dbserver.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gopkg.in/mgo.v2/dbtest/dbserver_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/dbtest/dbserver_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gopkg.in/mgo.v2/dbtest/export_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/dbtest/export_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gopkg.in/mgo.v2/doc.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/doc.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gopkg.in/mgo.v2/export_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/export_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gopkg.in/mgo.v2/gridfs.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/gridfs.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gopkg.in/mgo.v2/gridfs_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/gridfs_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gopkg.in/mgo.v2/harness/certs/client.crt" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/harness/certs/client.crt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gopkg.in/mgo.v2/harness/certs/client.key" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/harness/certs/client.key" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gopkg.in/mgo.v2/harness/certs/client.pem" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/harness/certs/client.pem" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gopkg.in/mgo.v2/harness/certs/client.req" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/harness/certs/client.req" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gopkg.in/mgo.v2/harness/certs/server.crt" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/harness/certs/server.crt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gopkg.in/mgo.v2/harness/certs/server.key" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/harness/certs/server.key" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gopkg.in/mgo.v2/harness/certs/server.pem" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/harness/certs/server.pem" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gopkg.in/mgo.v2/harness/daemons/.env" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/harness/daemons/.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gopkg.in/mgo.v2/harness/daemons/cfg1/db/.empty" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/harness/daemons/cfg1/db/.empty" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gopkg.in/mgo.v2/harness/daemons/cfg1/db/journal/tempLatencyTest" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/harness/daemons/cfg1/db/journal/tempLatencyTest" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gopkg.in/mgo.v2/harness/daemons/cfg1/db/mongod.lock" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/harness/daemons/cfg1/db/mongod.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gopkg.in/mgo.v2/harness/daemons/cfg1/log/run" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/harness/daemons/cfg1/log/run" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gopkg.in/mgo.v2/harness/daemons/cfg1/run" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/harness/daemons/cfg1/run" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gopkg.in/mgo.v2/harness/daemons/cfg2/db/.empty" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/harness/daemons/cfg2/db/.empty" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gopkg.in/mgo.v2/harness/daemons/cfg2/log/run" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/harness/daemons/cfg2/log/run" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gopkg.in/mgo.v2/harness/daemons/cfg2/run" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/harness/daemons/cfg2/run" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gopkg.in/mgo.v2/harness/daemons/cfg3/db/.empty" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/harness/daemons/cfg3/db/.empty" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gopkg.in/mgo.v2/harness/daemons/cfg3/log/run" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/harness/daemons/cfg3/log/run" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gopkg.in/mgo.v2/harness/daemons/cfg3/run" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/harness/daemons/cfg3/run" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gopkg.in/mgo.v2/harness/daemons/db1/db/.empty" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/harness/daemons/db1/db/.empty" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gopkg.in/mgo.v2/harness/daemons/db1/log/run" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/harness/daemons/db1/log/run" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gopkg.in/mgo.v2/harness/daemons/db1/run" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/harness/daemons/db1/run" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gopkg.in/mgo.v2/harness/daemons/db2/db/.empty" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/harness/daemons/db2/db/.empty" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gopkg.in/mgo.v2/harness/daemons/db2/log/run" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/harness/daemons/db2/log/run" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gopkg.in/mgo.v2/harness/daemons/db2/run" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/harness/daemons/db2/run" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gopkg.in/mgo.v2/harness/daemons/db3/db/.empty" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/harness/daemons/db3/db/.empty" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gopkg.in/mgo.v2/harness/daemons/db3/log/run" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/harness/daemons/db3/log/run" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gopkg.in/mgo.v2/harness/daemons/db3/run" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/harness/daemons/db3/run" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gopkg.in/mgo.v2/harness/daemons/rs1a/db/.empty" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/harness/daemons/rs1a/db/.empty" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gopkg.in/mgo.v2/harness/daemons/rs1a/log/run" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/harness/daemons/rs1a/log/run" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gopkg.in/mgo.v2/harness/daemons/rs1a/run" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/harness/daemons/rs1a/run" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gopkg.in/mgo.v2/harness/daemons/rs1b/db/.empty" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/harness/daemons/rs1b/db/.empty" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gopkg.in/mgo.v2/harness/daemons/rs1b/log/run" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/harness/daemons/rs1b/log/run" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gopkg.in/mgo.v2/harness/daemons/rs1b/run" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/harness/daemons/rs1b/run" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gopkg.in/mgo.v2/harness/daemons/rs1c/db/.empty" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/harness/daemons/rs1c/db/.empty" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gopkg.in/mgo.v2/harness/daemons/rs1c/log/run" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/harness/daemons/rs1c/log/run" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gopkg.in/mgo.v2/harness/daemons/rs1c/run" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/harness/daemons/rs1c/run" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gopkg.in/mgo.v2/harness/daemons/rs2a/db/.empty" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/harness/daemons/rs2a/db/.empty" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gopkg.in/mgo.v2/harness/daemons/rs2a/log/run" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/harness/daemons/rs2a/log/run" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gopkg.in/mgo.v2/harness/daemons/rs2a/run" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/harness/daemons/rs2a/run" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gopkg.in/mgo.v2/harness/daemons/rs2b/db/.empty" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/harness/daemons/rs2b/db/.empty" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gopkg.in/mgo.v2/harness/daemons/rs2b/log/run" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/harness/daemons/rs2b/log/run" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gopkg.in/mgo.v2/harness/daemons/rs2b/run" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/harness/daemons/rs2b/run" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gopkg.in/mgo.v2/harness/daemons/rs2c/db/.empty" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/harness/daemons/rs2c/db/.empty" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gopkg.in/mgo.v2/harness/daemons/rs2c/log/run" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/harness/daemons/rs2c/log/run" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gopkg.in/mgo.v2/harness/daemons/rs2c/run" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/harness/daemons/rs2c/run" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gopkg.in/mgo.v2/harness/daemons/rs3a/db/.empty" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/harness/daemons/rs3a/db/.empty" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gopkg.in/mgo.v2/harness/daemons/rs3a/log/run" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/harness/daemons/rs3a/log/run" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gopkg.in/mgo.v2/harness/daemons/rs3a/run" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/harness/daemons/rs3a/run" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gopkg.in/mgo.v2/harness/daemons/rs3b/db/.empty" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/harness/daemons/rs3b/db/.empty" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gopkg.in/mgo.v2/harness/daemons/rs3b/log/run" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/harness/daemons/rs3b/log/run" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gopkg.in/mgo.v2/harness/daemons/rs3b/run" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/harness/daemons/rs3b/run" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gopkg.in/mgo.v2/harness/daemons/rs3c/db/.empty" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/harness/daemons/rs3c/db/.empty" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gopkg.in/mgo.v2/harness/daemons/rs3c/log/run" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/harness/daemons/rs3c/log/run" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gopkg.in/mgo.v2/harness/daemons/rs3c/run" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/harness/daemons/rs3c/run" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gopkg.in/mgo.v2/harness/daemons/rs4a/db/.empty" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/harness/daemons/rs4a/db/.empty" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gopkg.in/mgo.v2/harness/daemons/rs4a/log/run" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/harness/daemons/rs4a/log/run" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gopkg.in/mgo.v2/harness/daemons/rs4a/run" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/harness/daemons/rs4a/run" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gopkg.in/mgo.v2/harness/daemons/s1/log/run" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/harness/daemons/s1/log/run" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gopkg.in/mgo.v2/harness/daemons/s1/run" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/harness/daemons/s1/run" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gopkg.in/mgo.v2/harness/daemons/s2/log/run" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/harness/daemons/s2/log/run" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gopkg.in/mgo.v2/harness/daemons/s2/run" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/harness/daemons/s2/run" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gopkg.in/mgo.v2/harness/daemons/s3/log/run" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/harness/daemons/s3/log/run" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gopkg.in/mgo.v2/harness/daemons/s3/run" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/harness/daemons/s3/run" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gopkg.in/mgo.v2/harness/mongojs/dropall.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/harness/mongojs/dropall.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gopkg.in/mgo.v2/harness/mongojs/init.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/harness/mongojs/init.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gopkg.in/mgo.v2/harness/mongojs/wait.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/harness/mongojs/wait.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gopkg.in/mgo.v2/harness/setup.sh" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/harness/setup.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gopkg.in/mgo.v2/internal/json/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/internal/json/LICENSE" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gopkg.in/mgo.v2/internal/json/bench_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/internal/json/bench_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gopkg.in/mgo.v2/internal/json/decode.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/internal/json/decode.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gopkg.in/mgo.v2/internal/json/decode_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/internal/json/decode_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gopkg.in/mgo.v2/internal/json/encode.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/internal/json/encode.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gopkg.in/mgo.v2/internal/json/encode_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/internal/json/encode_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gopkg.in/mgo.v2/internal/json/example_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/internal/json/example_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gopkg.in/mgo.v2/internal/json/extension.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/internal/json/extension.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gopkg.in/mgo.v2/internal/json/extension_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/internal/json/extension_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gopkg.in/mgo.v2/internal/json/fold.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/internal/json/fold.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gopkg.in/mgo.v2/internal/json/fold_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/internal/json/fold_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gopkg.in/mgo.v2/internal/json/indent.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/internal/json/indent.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gopkg.in/mgo.v2/internal/json/number_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/internal/json/number_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gopkg.in/mgo.v2/internal/json/scanner.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/internal/json/scanner.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gopkg.in/mgo.v2/internal/json/scanner_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/internal/json/scanner_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gopkg.in/mgo.v2/internal/json/stream.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/internal/json/stream.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gopkg.in/mgo.v2/internal/json/stream_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/internal/json/stream_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gopkg.in/mgo.v2/internal/json/tagkey_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/internal/json/tagkey_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gopkg.in/mgo.v2/internal/json/tags.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/internal/json/tags.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gopkg.in/mgo.v2/internal/json/tags_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/internal/json/tags_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gopkg.in/mgo.v2/internal/json/testdata/code.json.gz" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/internal/json/testdata/code.json.gz" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gopkg.in/mgo.v2/internal/sasl/sasl.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/internal/sasl/sasl.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gopkg.in/mgo.v2/internal/sasl/sasl.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/internal/sasl/sasl.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gopkg.in/mgo.v2/internal/sasl/sasl_windows.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/internal/sasl/sasl_windows.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gopkg.in/mgo.v2/internal/sasl/sasl_windows.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/internal/sasl/sasl_windows.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gopkg.in/mgo.v2/internal/sasl/sasl_windows.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/internal/sasl/sasl_windows.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gopkg.in/mgo.v2/internal/sasl/sspi_windows.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/internal/sasl/sspi_windows.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gopkg.in/mgo.v2/internal/sasl/sspi_windows.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/internal/sasl/sspi_windows.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gopkg.in/mgo.v2/internal/scram/scram.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/internal/scram/scram.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gopkg.in/mgo.v2/internal/scram/scram_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/internal/scram/scram_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gopkg.in/mgo.v2/log.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/log.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gopkg.in/mgo.v2/queue.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/queue.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gopkg.in/mgo.v2/queue_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/queue_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gopkg.in/mgo.v2/raceoff.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/raceoff.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gopkg.in/mgo.v2/raceon.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/raceon.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gopkg.in/mgo.v2/saslimpl.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/saslimpl.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gopkg.in/mgo.v2/saslstub.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/saslstub.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gopkg.in/mgo.v2/server.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/server.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gopkg.in/mgo.v2/session.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/session.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gopkg.in/mgo.v2/session_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/session_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gopkg.in/mgo.v2/socket.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/socket.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gopkg.in/mgo.v2/stats.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/stats.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gopkg.in/mgo.v2/suite_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/suite_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gopkg.in/mgo.v2/syscall_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/syscall_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gopkg.in/mgo.v2/syscall_windows_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/syscall_windows_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gopkg.in/mgo.v2/txn/chaos.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/txn/chaos.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gopkg.in/mgo.v2/txn/debug.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/txn/debug.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gopkg.in/mgo.v2/txn/dockey_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/txn/dockey_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gopkg.in/mgo.v2/txn/flusher.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/txn/flusher.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gopkg.in/mgo.v2/txn/output.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/txn/output.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gopkg.in/mgo.v2/txn/sim_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/txn/sim_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gopkg.in/mgo.v2/txn/tarjan.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/txn/tarjan.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gopkg.in/mgo.v2/txn/tarjan_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/txn/tarjan_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gopkg.in/mgo.v2/txn/txn.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/txn/txn.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gopkg.in/mgo.v2/txn/txn_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/txn/txn_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/norm/norm_info.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/norm/norm_info.go" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -559,20 +29,20 @@
       <content type="file-editors">
         <state>
           <leaf>
-            <file pinned="false" current-in-tab="false">
+            <file pinned="false" current-in-tab="true">
               <entry file="file://$PROJECT_DIR$/src/dcrawl/crawl.go">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="259">
-                    <caret line="25" column="73" selection-start-line="25" selection-start-column="73" selection-end-line="25" selection-end-column="73" />
+                  <state relative-caret-position="240">
+                    <caret line="83" column="31" selection-start-line="83" selection-start-column="16" selection-end-line="83" selection-end-column="31" />
                   </state>
                 </provider>
               </entry>
             </file>
-            <file pinned="false" current-in-tab="true">
+            <file pinned="false" current-in-tab="false">
               <entry file="file://$PROJECT_DIR$/src/dcrawl/novel_bean.go">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="114">
-                    <caret line="13" column="26" selection-start-line="13" selection-start-column="26" selection-end-line="13" selection-end-column="26" />
+                  <state relative-caret-position="247">
+                    <caret line="13" column="26" lean-forward="true" selection-start-line="13" selection-start-column="26" selection-end-line="13" selection-end-column="26" />
                     <folding>
                       <element signature="e#16#68#0" expanded="true" />
                     </folding>
@@ -589,7 +59,7 @@
     <session id="-906188954">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="5" />
+          <entry key="project.closed" value="6" />
           <entry key="project.open.time.0" value="1" />
           <entry key="project.open.time.16" value="1" />
           <entry key="project.open.time.17" value="1" />
@@ -603,6 +73,7 @@
         <counts>
           <entry key="LICENSE" value="3" />
           <entry key="go" value="74" />
+          <entry key="jpg" value="1" />
           <entry key="md" value="1" />
           <entry key="test0" value="2" />
         </counts>
@@ -610,17 +81,18 @@
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="Go" value="74" />
+          <entry key="Image" value="1" />
           <entry key="PLAIN_TEXT" value="6" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="go" value="14899" />
+          <entry key="go" value="16595" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Go" value="14899" />
+          <entry key="Go" value="16595" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.vcs.git.usages" />
@@ -637,20 +109,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/main.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="168">
-              <caret line="22" column="41" selection-start-line="22" selection-start-column="41" selection-end-line="22" selection-end-column="41" />
+            <state relative-caret-position="532">
+              <caret line="43" lean-forward="true" selection-start-line="43" selection-end-line="43" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/dspider/mzhu8.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-60">
-              <caret line="55" column="49" selection-start-line="55" selection-start-column="49" selection-end-line="55" selection-end-column="49" />
+            <state relative-caret-position="358">
+              <caret line="187" column="24" lean-forward="true" selection-start-line="187" selection-start-column="24" selection-end-line="187" selection-end-column="24" />
               <folding>
                 <element signature="e#17#95#0" expanded="true" />
               </folding>
@@ -708,8 +180,8 @@
         <option value="$PROJECT_DIR$/src/library/goquery/type.go" />
         <option value="$PROJECT_DIR$/src/dcrawl/crawl.go" />
         <option value="$PROJECT_DIR$/src/dcrawl/novel_bean.go" />
-        <option value="$PROJECT_DIR$/src/dspider/mzhu8.go" />
         <option value="$PROJECT_DIR$/src/main/main.go" />
+        <option value="$PROJECT_DIR$/src/dspider/mzhu8.go" />
       </list>
     </option>
   </component>
@@ -720,8 +192,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="494" />
-    <option name="y" value="248" />
+    <option name="x" value="96" />
+    <option name="y" value="51" />
     <option name="width" value="1496" />
     <option name="height" value="833" />
   </component>
@@ -826,15 +298,14 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="404" y="99" width="1496" height="833" extended-state="0" />
-    <editor active="true" />
+    <frame x="96" y="51" width="1496" height="833" extended-state="0" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49885583" visible="true" weight="0.20752089" />
       <window_info id="Structure" order="1" sideWeight="0.50153375" side_tool="true" weight="0.25373134" />
       <window_info id="Favorites" order="2" sideWeight="0.5011442" side_tool="true" weight="0.25373134" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32961586" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.28510028" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.28510028" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3990755" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -1057,37 +528,40 @@
     <entry file="file://$PROJECT_DIR$/src/library/mahonia/gbk.go">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/dcrawl/crawl.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="259">
-          <caret line="25" column="73" selection-start-line="25" selection-start-column="73" selection-end-line="25" selection-end-column="73" />
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/光明纪元.jpg">
+      <provider selected="true" editor-type-id="images" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/dcrawl/novel_bean.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="13" column="26" selection-start-line="13" selection-start-column="26" selection-end-line="13" selection-end-column="26" />
+        <state relative-caret-position="247">
+          <caret line="13" column="26" lean-forward="true" selection-start-line="13" selection-start-column="26" selection-end-line="13" selection-end-column="26" />
           <folding>
             <element signature="e#16#68#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/dspider/mzhu8.go">
+    <entry file="file://$PROJECT_DIR$/src/dcrawl/crawl.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-60">
-          <caret line="55" column="49" selection-start-line="55" selection-start-column="49" selection-end-line="55" selection-end-column="49" />
-          <folding>
-            <element signature="e#17#95#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="240">
+          <caret line="83" column="31" selection-start-line="83" selection-start-column="16" selection-end-line="83" selection-end-column="31" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/main.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="22" column="41" selection-start-line="22" selection-start-column="41" selection-end-line="22" selection-end-column="41" />
+        <state relative-caret-position="532">
+          <caret line="43" lean-forward="true" selection-start-line="43" selection-end-line="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/dspider/mzhu8.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="358">
+          <caret line="187" column="24" lean-forward="true" selection-start-line="187" selection-start-column="24" selection-end-line="187" selection-end-column="24" />
+          <folding>
+            <element signature="e#17#95#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
