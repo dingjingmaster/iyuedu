@@ -1,7 +1,7 @@
 package dcrawl
 
 import (
-	"github.com/op/go-logging"
+	"library/go-logging"
 	"os"
 )
 

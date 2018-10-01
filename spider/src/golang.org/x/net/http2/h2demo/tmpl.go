@@ -4,7 +4,7 @@
 
 // +build h2demo
 
-package main
+package h2demo
 
 import "html/template"
 

@@ -9,28 +9,32 @@
 package dcrawl
 
 import (
-	"ditem"
-	"github.com/PuerkitoBio/goquery"
-	"github.com/axgle/mahonia"
 	"io/ioutil"
+	"library/goquery"
+	"library/mahonia"
 	"net/http"
 	"strings"
+	"sync"
 )
 
+//
 
-type GetUrls func(sc *SpiderContent) bool						// 获取 url
-type FilterUrl func(urls []string) []string					// url 过滤器
-type HtmlParse func(url string) ditem.NovelBean				// url 数据解析
-
+type SpiderRun func(np *SpiderContent)
 
 type SpiderContent struct {
-	BaseUrl				string									// 首页url
-	SeedUrl				map[string]int							// 种子 url
-	BookUrl				map[string]bool							// 书籍 url
-
-	MGetUrls			GetUrls									// 获取 url
-	MHtmlParse			HtmlParse								// 网页解析
+	BaseUrl					string								// 首页url
+	SeedUrl					map[string]int						// 种子 url
 }
+
+var SpiderGroup = sync.WaitGroup{}
+
+
+
+
+
+
+
+
 
 // 根据 url 获取页面 html 字符串
 func GetHTMLByUrl(url *string) (bool, string) {

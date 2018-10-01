@@ -94,3 +94,10 @@ func NormChapterName(mstr string) string {
 
 	return mstr
 }
+
+/* 检查是否为 篇、部 */
+func CheckSection(mstr string) bool {
+	reg := regexp.MustCompile(`^(第.+[部章篇集卷辑季]|代序|序)`)
+	if len(reg.FindAllString(mstr, -1)) > 0 {return true}
+	return false
+}

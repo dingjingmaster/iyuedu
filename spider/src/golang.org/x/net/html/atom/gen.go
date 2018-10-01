@@ -7,7 +7,7 @@
 //go:generate go run gen.go
 //go:generate go run gen.go -test
 
-package main
+package atom
 
 import (
 	"bytes"

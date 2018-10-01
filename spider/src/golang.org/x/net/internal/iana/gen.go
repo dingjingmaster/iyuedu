@@ -8,7 +8,7 @@
 
 // This program generates internet protocol constants and tables by
 // reading IANA protocol registries.
-package main
+package iana
 
 import (
 	"bytes"
