@@ -25,7 +25,7 @@ func mzhu8GetUrl(baseUrl string, seedUrl *map[string]int, bookUrl *map[string]bo
 
 	// 获取书籍 bookUrl
 	for _, v := range mulu {
-		ret, html :=dcrawl.GetHTMLByUrl(&v)
+		ret, html :=dcrawl.GetHTMLByUrl(&v, nil)
 		if !ret {
 			dcrawl.Log.Errorf("获取html失败:%s", v)
 			continue
@@ -57,7 +57,10 @@ func mzhu8ParseBook(baseUrl string, bookUrl *map[string]bool, data chan dcrawl.N
 	for url, _ := range *bookUrl {
 		novelInfo := dcrawl.NovelField{}
 		novelInfo.ChapterUrl = map[string]string{}
-		ret, html :=dcrawl.GetHTMLByUrl(&url)
+		novelInfo.ImgContent = []byte{}
+		novelInfo.ErrorChapterUrl = map[string]string{}
+		novelInfo.ChapterContent = map[string]string{}
+		ret, html :=dcrawl.GetHTMLByUrl(&url, nil)
 		if !ret {
 			dcrawl.Log.Errorf("获取html失败:%s", url)
 			continue
@@ -119,29 +122,11 @@ func mzhu8ParseBook(baseUrl string, bookUrl *map[string]bool, data chan dcrawl.N
 	close(data)
 }
 
+
 /* 获取内容、下载图片 和 章节 */
-func downloadData(baseUrl string, dn sync.WaitGroup, nd chan dcrawl.NovelField, toMongo chan dcrawl.NovelBean) {
+func downloadData(baseUrl string, dn sync.WaitGroup, nd chan dcrawl.NovelField, toMongo chan dcrawl.NovelField) {
 	for info := range nd {
-
-		// 章节缓冲
-		//chapterContent := map[string]string{}
-
-		novelBean := dcrawl.NovelBean{}
-
-
-		// id 要重新做 n + a + yuan
-
-		novelBean.Info.Name = info.Name
-		novelBean.Info.Author = info.Author
-		novelBean.Info.NovelUrl = info.NovelUrl
-		novelBean.Info.NovelParse = "mzhu8"
-
-		novelBean.Info.Tags = info.Tags
-		novelBean.Info.Status = info.Status
-		novelBean.Info.Desc = info.Desc
-
-		novelBean.Info.ChapterUrl = info.ChapterUrl
-
+		info.NovelParse = "mzhu8"
 
 		/* 下载图片 */
 		img := info.ImgUrl
@@ -158,45 +143,73 @@ func downloadData(baseUrl string, dn sync.WaitGroup, nd chan dcrawl.NovelField, 
 		if nil != err {
 			dcrawl.Log.Errorf("读取图片: %s 失败", img)
 		}
-		novelBean.Info.ImgUrl = img
-		novelBean.Info.ImgType = imgType
-		novelBean.Info.ImgContent = imgContent
+		info.ImgType = imgType
+		info.ImgContent = imgContent
 
 		/* 下载章节 */
 		for url, cname := range info.ChapterUrl {
 			url = baseUrl + url
+			post := "http://www.mzhu8.com/modules/article/show.php"
+			head1 := map[string]string{}
 
-			client := &http.Client{}
-			request, _ := http.NewRequest("Get", url, nil)
-			request.Header.Add("Set-Cookie", "UM_distinctid=1660e90cb9f7c-05bcac472ed42a-8383268-1fa400-1660e90cba05fe; PHPSESSID=85cdb747bc14135ba65b2983576e1ae4; jieqiUserInfo=jieqiUserId%3D5723%2CjieqiUserName%3Ddingjing%2CjieqiUserGroup%3D3%2CjieqiUserName_un%3Ddingjing%2CjieqiUserLogin%3D1538402456%2CjieqiUserVip%3D0%2CjieqiUserPassword%3D25d55ad283aa400af464c76d713c07ad%2CjieqiUserHonor_un%3D%26%23x79C0%3B%26%23x624D%3B%2CjieqiUserGroupName_un%3D%26%23x666E%3B%26%23x901A%3B%26%23x4F1A%3B%26%23x5458%3B; jieqiVisitInfo=jieqiUserLogin%3D1538402456%2CjieqiUserId%3D5723; CNZZDATA4695146=cnzz_eid%3D764393492-1537838282-%26ntime%3D1538409214")
-			request.Header.Add("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36")
-			request.Header.Add("Referer", info.NovelUrl)
+			head1["Set-Cookie"] = "UM_distinctid=1660e90cb9f7c-05bcac472ed42a-8383268-1fa400-1660e90cba05fe; PHPSESSID=85cdb747bc14135ba65b2983576e1ae4; jieqiUserInfo=jieqiUserId%3D5723%2CjieqiUserName%3Ddingjing%2CjieqiUserGroup%3D3%2CjieqiUserName_un%3Ddingjing%2CjieqiUserLogin%3D1538402456%2CjieqiUserVip%3D0%2CjieqiUserPassword%3D25d55ad283aa400af464c76d713c07ad%2CjieqiUserHonor_un%3D%26%23x79C0%3B%26%23x624D%3B%2CjieqiUserGroupName_un%3D%26%23x666E%3B%26%23x901A%3B%26%23x4F1A%3B%26%23x5458%3B; jieqiVisitInfo=jieqiUserLogin%3D1538402456%2CjieqiUserId%3D5723; CNZZDATA4695146=cnzz_eid%3D764393492-1537838282-%26ntime%3D1538409214"
+			head1["User-Agent"] = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36"
+			head1["Referer"] = info.NovelUrl
 
-			resp, _ := client.Do(request)
-			hc, _ := ioutil.ReadAll(resp.Body)
+			ret, body := dcrawl.GetHTMLByUrl(&url, &head1)
+			if !ret {
+				dcrawl.Log.Errorf("请求错误: %s", url)
+				// 错误链接张保存
+				continue
+			}
 
-			//ret, html := dcrawl.GetHTMLByUrl(&url)
-			//if !ret {
-			//	dcrawl.Log.Errorf("章节(%s): %s 获取失败", cname, url)
-			//}
+			doc, err:= NewDocumentFromReader(strings.NewReader(body))
+			if nil != err {
+				dcrawl.Log.Errorf("解析html失败:%s",url)
+				// 错误链接
+				continue
+			}
 
-			fmt.Println(cname)
-			fmt.Println(dcrawl.ConvertToString(string(hc), "gbk", "utf8"))
+			/* 解析post参数 */
+			script := doc.Find("#chapterContent>script").Text()
+			arr := strings.Split(script, "\"")
+			if len(arr) < 5 {
+				dcrawl.Log.Errorf("错误的script:%s", url)
+				continue
+			}
+
+			/* 获取文章内容 */
+			head2 := map[string]string{}
+			para := map[string]string{}
+			head2["Cookie"] = "UM_distinctid=1660e90cb9f7c-05bcac472ed42a-8383268-1fa400-1660e90cba05fe; PHPSESSID=85cdb747bc14135ba65b2983576e1ae4; CNZZDATA4695146=cnzz_eid%3D764393492-1537838282-%26ntime%3D1538526303; jieqiUserInfo=jieqiUserId%3D5723%2CjieqiUserName%3Ddingjing%2CjieqiUserGroup%3D3%2CjieqiUserName_un%3Ddingjing%2CjieqiUserLogin%3D1538528772%2CjieqiUserVip%3D0%2CjieqiUserPassword%3D25d55ad283aa400af464c76d713c07ad%2CjieqiUserHonor_un%3D%26%23x79C0%3B%26%23x624D%3B%2CjieqiUserGroupName_un%3D%26%23x666E%3B%26%23x901A%3B%26%23x4F1A%3B%26%23x5458%3B; jieqiVisitInfo=jieqiUserLogin%3D1538528772%2CjieqiUserId%3D5723"
+			head2["Content-Type"] = "application/x-www-form-urlencoded"
+			head2["Cache-Control"] = "no-cache"
+			head2["Referer"] = url
+			head2["User-Agent"] = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36"
+
+			para["aid"] = arr[1]
+			para["cid"] = arr[3]
+			para["r"] = "0.4814884913447719"
+
+			ret, body = dcrawl.Post(&post, &head2, &para)
+			if !ret {
+				dcrawl.Log.Errorf("错误的响应: %s", url)
+				continue
+			}
+
+			info.ChapterContent[cname] = norm.NormContent(body)
 		}
-		return
-		fmt.Println(imgContent)
-		fmt.Println(img)
-		fmt.Println(imgType)
-
-
+		toMongo <- info
 	}
 	dn.Done()
 }
 
-
 /* 存储 这里会进行检查，相对复杂 */
-func saveToMongo()  {
-	
+func saveToMongo(mongo dcrawl.SMongoInfo, data chan dcrawl.NovelField)  {
+	for info := range data {
+		fmt.Println(info.Name)
+	}
+	close(data)
 }
 
 
@@ -208,7 +221,7 @@ func Mzhu8Run(np *dcrawl.SpiderContent) {
 	bookUrl := map[string]bool{}
 	novelData := make(chan dcrawl.NovelField, 1000)
 	downloadGroup := sync.WaitGroup{}
-	saveData := make(chan dcrawl.NovelBean, 100)
+	saveData := make(chan dcrawl.NovelField, 100)
 
 
 	/* 获取url */
@@ -222,10 +235,11 @@ func Mzhu8Run(np *dcrawl.SpiderContent) {
 		downloadGroup.Add(1)
 		go downloadData(np.BaseUrl, downloadGroup, novelData, saveData)
 	}
-	downloadGroup.Wait()
 
 	/* 保存小说 */
+	go saveToMongo(np.MI, saveData)
 
+	downloadGroup.Wait()
 	dcrawl.SpiderGroup.Done()
 }
 

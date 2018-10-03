@@ -11,6 +11,7 @@ import (
  *
  */
 
+var MI = dcrawl.SMongoInfo {"127.0.0.1", 27017, "", "", "novel_online", "online"}
 
 var SC = map[*dcrawl.SpiderContent]dcrawl.SpiderRun{}
 
@@ -19,6 +20,7 @@ func main() {
 	/* mzhu8 爬虫 */
 	mzhu8 := dcrawl.SpiderContent{}
 	mzhu8.BaseUrl = "http://www.mzhu8.com"
+	mzhu8.MI = MI
 	mzhu8.SeedUrl = map[string]int{
 		"http://www.mzhu8.com/mulu/1/":8,
 		//"http://www.mzhu8.com/mulu/2/":8,

@@ -101,3 +101,13 @@ func CheckSection(mstr string) bool {
 	if len(reg.FindAllString(mstr, -1)) > 0 {return true}
 	return false
 }
+
+/* 处理文章内容中的 HTML 标签 */
+func NormContent(mstr string) string {
+
+	reg := regexp.MustCompile(`<br\s*/>`)
+	mstr = reg.ReplaceAllString(mstr, "")
+	mstr = strings.Replace(mstr, "&nbsp;", " ", -1)
+
+	return mstr
+}

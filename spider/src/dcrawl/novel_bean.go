@@ -11,17 +11,24 @@ type NovelField struct {
 	Author 			string
 	NovelUrl		string
 
+	NovelParse		string
+
 	ImgUrl			string
+	ImgContent		[]byte
+	ImgType			string
 
 	Tags			string
 	Status 			string
 	Desc			string
 
 	ChapterUrl		map[string]string
+	ErrorChapterUrl	map[string]string
+
+	ChapterContent	map[string]string
 }
 
 type NovelInfo struct {
-	Id 				bson.ObjectId		`bson:"_id,omitempty"`		// 主键
+	Id 				bson.ObjectId		`bson:"_id,omitempty"`		// 主键 name + author + yuan 上线要映射
 	Name			string				`bson:"name"`				// 书名
 	Author			string				`bson:"author"`				// 作者名
 	NormName		string				`bson:"norm_name"`			// 归一书名
