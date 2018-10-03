@@ -82,3 +82,42 @@ func UpdateDoc(mi SMongoInfo, id bson.ObjectId, doc NovelBean) bool {
 	return flag
 }
 
+
+func FindDocById (mi SMongoInfo, id string, doc *NovelBean) bool {
+	flag := true
+	session, error := mgo.Dial(getStandaloneUrl(mi))
+	if nil != error {
+		panic(error)
+	}
+
+	defer session.Close()
+
+	session.SetMode(mgo.Monotonic, true)
+
+	ninfo := NovelInfo{}
+	cinfo := session.DB(mi.DatabaseName).C(mi.PrefixCollect + "_info")
+
+	err := cinfo.Find(bson.M{"_id": bson.ObjectId(id)}).One(&ninfo)
+	if nil != err {
+		flag = false
+		return flag
+	}
+
+	ndata := []NovelData{}
+	cdata := session.DB(mi.DatabaseName).C(mi.PrefixCollect + "_data")
+
+	for _, did := range ninfo.Blocks{
+		tmp := NovelData{}
+		err = cdata.Find(bson.M{"_id":bson.ObjectId(did)}).One(&tmp)
+		if nil == err{
+			ndata = append(ndata, tmp)
+		} else {
+			flag = false
+		}
+	}
+
+	doc.Info = ninfo
+	doc.Data = ndata
+
+	return flag
+}

@@ -23,6 +23,7 @@ type SpiderRun func(np *SpiderContent)
 
 type SpiderContent struct {
 	BaseUrl					string								// 首页url
+	SpiderName				string								// 爬虫名字
 	SeedUrl					map[string]int						// 种子 url
 	MI						SMongoInfo							// mongodb 连接信息
 }

@@ -51,7 +51,7 @@ type NovelInfo struct {
 	Intime			string				`bson:"intime"`				// 入库时间
 	Uptime			string				`bson:"uptime"`				// 更新时间
 
-	MaskLevel		int					`bson:"mask_level"`			// 是否限制
+	MaskLevel		int					`bson:"mask_level"`			// 是否限制 1-表示不再展示 2-表示精修展示
 	Blocks 			[]string			`bson:"blocks"`				// 子块 id
 	BlockVolume 	int					`bson:"block_volume"`		// 子块容量
 	ChapterNum		int					`bson:"chapter_num"`		// 总章节数
@@ -69,6 +69,14 @@ type NovelBean struct {
 	Data 			[]NovelData
 }
 
+/* 封装章节内容信息 */
+func GeneratorChapterContent(name string, author string, spiderName string, chapterContent map[string]string, data *[]NovelData) {
+
+	//flag := 1
+
+
+	
+}
 
 
 

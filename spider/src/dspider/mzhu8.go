@@ -1,6 +1,7 @@
 package dspider
 
 import (
+	"crypto/md5"
 	"dcrawl"
 	"fmt"
 	"io/ioutil"
@@ -10,6 +11,7 @@ import (
 	"strconv"
 	"strings"
 	"sync"
+	"time"
 )
 
 // 获取书籍 url
@@ -124,9 +126,9 @@ func mzhu8ParseBook(baseUrl string, bookUrl *map[string]bool, data chan dcrawl.N
 
 
 /* 获取内容、下载图片 和 章节 */
-func downloadData(baseUrl string, dn sync.WaitGroup, nd chan dcrawl.NovelField, toMongo chan dcrawl.NovelField) {
+func downloadData(baseUrl string, spiderName string, dn sync.WaitGroup, nd chan dcrawl.NovelField, toMongo chan dcrawl.NovelField) {
 	for info := range nd {
-		info.NovelParse = "mzhu8"
+		info.NovelParse = spiderName
 
 		/* 下载图片 */
 		img := info.ImgUrl
@@ -197,7 +199,7 @@ func downloadData(baseUrl string, dn sync.WaitGroup, nd chan dcrawl.NovelField, 
 				continue
 			}
 
-			info.ChapterContent[cname] = norm.NormContent(body)
+			info.ChapterContent[para["cid"] + "{]" + cname] = norm.NormContent(body)
 		}
 		toMongo <- info
 	}
@@ -205,8 +207,80 @@ func downloadData(baseUrl string, dn sync.WaitGroup, nd chan dcrawl.NovelField, 
 }
 
 /* 存储 这里会进行检查，相对复杂 */
-func saveToMongo(mongo dcrawl.SMongoInfo, data chan dcrawl.NovelField)  {
+func saveToMongo(mongo dcrawl.SMongoInfo, spiderName string, data chan dcrawl.NovelField)  {
 	for info := range data {
+		tmd5 := md5.New()
+		tmd5.Write([]byte(info.Name + info.Author + spiderName))
+		id := string(tmd5.Sum(nil))
+		times := time.Now().Format("20060102150405")
+
+		// 是否已有该书籍
+		novelTmp := dcrawl.NovelBean{}
+		ret := dcrawl.FindDocById(mongo, id, &novelTmp)
+		if ret {
+			// 已有这一条信息
+			if novelTmp.Info.MaskLevel > 0 {
+				dcrawl.Log.Infof("不需要更新的书籍: %s|%s", novelTmp.Info.Name, novelTmp.Info.Author)
+				continue
+			}
+			/* 更新主要字段 */
+			// 图片
+			if "" == novelTmp.Info.ImgType {
+				novelTmp.Info.ImgType = info.ImgType
+				novelTmp.Info.ImgContent = info.ImgContent
+				novelTmp.Info.ImgUrl = info.ImgUrl
+			}
+
+			if "" != info.Tags {novelTmp.Info.Tags = info.Tags}								// 类别
+			if "" != info.Status {novelTmp.Info.Status = info.Status}						// 状态
+			if "" != info.Desc {novelTmp.Info.Desc = info.Desc}								// 简介
+			info.Desc = times
+
+			/* 检查章节数 */
+			chapterAll := map[string]string{}
+			for _, data := range novelTmp.Data {
+				for k, v := range data.ChapterContent {
+					chapterAll[k] = v
+				}
+			}
+			if len(info.ChapterContent) > len(chapterAll) {
+				// 更新章节内容
+				for ik, iv := range info.ChapterContent {
+					if _, exist := chapterAll[ik]; !exist {
+						chapterAll[ik] = iv
+					}
+				}
+				// 更新章节ChapterUrl
+				for ik, iv := range info.ChapterUrl {
+					if _, exist := novelTmp.Info.ChapterUrl[ik]; !exist {
+						novelTmp.Info.ChapterUrl[ik] = iv
+					}
+				}
+				// 更新错误章节信息
+				for ik, iv := range info.ErrorChapterUrl {
+					novelTmp.Info.ErrorChapter[ik] = iv
+				}
+				for ik, iv := range novelTmp.Info.ErrorChapter {
+					arr := strings.Split(ik, "/")
+					ii := strings.Split(arr[len(arr) - 1], ".")[0]
+					if _, exits := chapterAll[ii + "{]" + iv]; exits {
+						delete(novelTmp.Info.ErrorChapter, ii + "{]" + iv)
+					}
+				}
+			}
+
+			novelTmp.Info.ChapterNum = len(info.ChapterUrl)
+			novelTmp.Info.BlockVolume = dcrawl.NovelContentNum
+
+			/* 重新封装章节内容 */
+
+
+		}
+
+
+		novel := dcrawl.NovelBean{}
+		ninfo := dcrawl.NovelInfo{}
+		ndata := []dcrawl.NovelData{}
 		fmt.Println(info.Name)
 	}
 	close(data)
@@ -233,11 +307,11 @@ func Mzhu8Run(np *dcrawl.SpiderContent) {
 	/* 获取小说基本信息 */
 	for i := 0; i < downloadNum; i ++ {
 		downloadGroup.Add(1)
-		go downloadData(np.BaseUrl, downloadGroup, novelData, saveData)
+		go downloadData(np.BaseUrl, np.SpiderName, downloadGroup, novelData, saveData)
 	}
 
 	/* 保存小说 */
-	go saveToMongo(np.MI, saveData)
+	go saveToMongo(np.MI, np.SpiderName, saveData)
 
 	downloadGroup.Wait()
 	dcrawl.SpiderGroup.Done()

@@ -3,10 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="a54e1c57-bedf-4d8f-9029-7af6b338a077" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/src/dcrawl/crawl.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/dcrawl/crawl.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dcrawl/mongo.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/dcrawl/mongo.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/dcrawl/novel_bean.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/dcrawl/novel_bean.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/dspider/mzhu8.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/dspider/mzhu8.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/norm/norm_info.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/norm/norm_info.go" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -29,45 +29,15 @@
     <select />
   </component>
   <component name="DockManager">
-    <window id="5">
+    <window id="1">
       <content type="file-editors">
         <state>
-          <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <leaf>
             <file pinned="false" current-in-tab="true">
-              <entry file="file://$PROJECT_DIR$/src/dcrawl/crawl.go">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="361">
-                    <caret line="26" column="79" selection-start-line="26" selection-start-column="79" selection-end-line="26" selection-end-column="79" />
-                  </state>
-                </provider>
-              </entry>
-            </file>
-            <file pinned="false" current-in-tab="false">
-              <entry file="file://$PROJECT_DIR$/src/dcrawl/mongo.go">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="171">
-                    <caret line="15" column="28" lean-forward="true" selection-start-line="15" selection-start-column="28" selection-end-line="15" selection-end-column="28" />
-                    <folding>
-                      <element signature="e#16#85#0" expanded="true" />
-                    </folding>
-                  </state>
-                </provider>
-              </entry>
-            </file>
-            <file pinned="false" current-in-tab="false">
               <entry file="file://$PROJECT_DIR$/src/dcrawl/novel_bean.go">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="304">
-                    <caret line="24" column="23" lean-forward="true" selection-start-line="24" selection-start-column="23" selection-end-line="24" selection-end-column="23" />
-                  </state>
-                </provider>
-              </entry>
-            </file>
-            <file pinned="false" current-in-tab="false">
-              <entry file="file://$PROJECT_DIR$/src/norm/norm_info.go">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="341">
-                    <caret line="108" column="39" selection-start-line="108" selection-start-column="39" selection-end-line="108" selection-end-column="39" />
+                  <state relative-caret-position="254">
+                    <caret line="75" lean-forward="true" selection-start-line="75" selection-end-line="75" />
                   </state>
                 </provider>
               </entry>
@@ -81,21 +51,22 @@
     <session id="-906188954">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="6" />
+          <entry key="project.closed" value="7" />
           <entry key="project.open.time.0" value="1" />
           <entry key="project.open.time.16" value="1" />
           <entry key="project.open.time.17" value="1" />
+          <entry key="project.open.time.18" value="1" />
           <entry key="project.open.time.20" value="1" />
           <entry key="project.open.time.22" value="1" />
           <entry key="project.open.time.4" value="2" />
           <entry key="project.open.time.54" value="1" />
-          <entry key="project.opened" value="8" />
+          <entry key="project.opened" value="9" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="LICENSE" value="3" />
-          <entry key="go" value="82" />
+          <entry key="go" value="86" />
           <entry key="jpg" value="1" />
           <entry key="md" value="1" />
           <entry key="test0" value="2" />
@@ -103,25 +74,25 @@
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Go" value="82" />
+          <entry key="Go" value="86" />
           <entry key="Image" value="1" />
           <entry key="PLAIN_TEXT" value="6" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="go" value="18286" />
+          <entry key="go" value="20193" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Go" value="18286" />
+          <entry key="Go" value="20193" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.vcs.git.usages" />
       <usages-collector id="statistics.go.postfix.template.usages.trigger">
         <counts>
-          <entry key=".append" value="6" />
+          <entry key=".append" value="7" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.js.language.service.starts" />
@@ -132,20 +103,44 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/main.go">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/dcrawl/crawl.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="216">
-              <caret line="50" column="24" lean-forward="true" selection-start-line="50" selection-start-column="24" selection-end-line="50" selection-end-column="24" />
+            <state relative-caret-position="368">
+              <caret line="132" column="23" selection-start-line="132" selection-start-column="23" selection-end-line="132" selection-end-column="23" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/main.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="368">
+              <caret line="58" column="46" lean-forward="true" selection-start-line="58" selection-start-column="46" selection-end-line="58" selection-end-column="46" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/dspider/mzhu8.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="335">
-              <caret line="224" lean-forward="true" selection-start-line="224" selection-end-line="224" />
+            <state relative-caret-position="140">
+              <caret line="274" column="23" selection-start-line="274" selection-start-column="23" selection-end-line="274" selection-end-column="23" />
+              <folding>
+                <element signature="e#17#128#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/dcrawl/mongo.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="95">
+              <caret line="92" column="25" lean-forward="true" selection-start-line="92" selection-start-column="25" selection-end-line="92" selection-end-column="25" />
+              <folding>
+                <element signature="e#16#85#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -183,7 +178,6 @@
         <option value="$PROJECT_DIR$/src/spider.go" />
         <option value="$PROJECT_DIR$/src/ditem/novel_bean.go" />
         <option value="$PROJECT_DIR$/src/main.go" />
-        <option value="$PROJECT_DIR$/src/dcrawl/mongo.go" />
         <option value="$PROJECT_DIR$/src/library/mgo.v2/bson/json.go" />
         <option value="$PROJECT_DIR$/src/library/mgo.v2/auth.go" />
         <option value="$PROJECT_DIR$/src/library/mgo.v2/bulk.go" />
@@ -198,10 +192,11 @@
         <option value="$PROJECT_DIR$/src/library/andybalholm/cascadia/parser.go" />
         <option value="$PROJECT_DIR$/src/library/goquery/type.go" />
         <option value="$PROJECT_DIR$/src/norm/norm_info.go" />
-        <option value="$PROJECT_DIR$/src/dcrawl/novel_bean.go" />
+        <option value="$PROJECT_DIR$/src/dcrawl/mongo.go" />
         <option value="$PROJECT_DIR$/src/dcrawl/crawl.go" />
-        <option value="$PROJECT_DIR$/src/main/main.go" />
         <option value="$PROJECT_DIR$/src/dspider/mzhu8.go" />
+        <option value="$PROJECT_DIR$/src/main/main.go" />
+        <option value="$PROJECT_DIR$/src/dcrawl/novel_bean.go" />
       </list>
     </option>
   </component>
@@ -211,9 +206,9 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="1">
-    <option name="x" value="59" />
-    <option name="y" value="74" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="351" />
+    <option name="y" value="79" />
     <option name="width" value="1496" />
     <option name="height" value="809" />
   </component>
@@ -330,15 +325,15 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="59" y="74" width="1496" height="809" extended-state="1" />
+    <frame x="351" y="79" width="1496" height="809" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49885583" visible="true" weight="0.2103064" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49885583" visible="true" weight="0.21309192" />
       <window_info id="Structure" order="1" sideWeight="0.50153375" side_tool="true" weight="0.25373134" />
       <window_info id="Favorites" order="2" sideWeight="0.5011442" side_tool="true" weight="0.25373134" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32961586" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4993036" visible="true" weight="0.29525223" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4993036" weight="0.29525223" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3990755" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -468,24 +463,12 @@
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/library/net/html/const.go" />
-    <entry file="file://$USER_HOME$/go/src/github.com/andybalholm/cascadia/parser.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$USER_HOME$/go/src/github.com/andybalholm/cascadia/parser.go" />
     <entry file="file://$PROJECT_DIR$/src/library/net/bpf/vm.go" />
     <entry file="file://$PROJECT_DIR$/src/library/andybalholm/cascadia/fuzz/corpus/test0">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$USER_HOME$/go/src/github.com/andybalholm/cascadia/selector.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="8" column="5" selection-start-line="8" selection-start-column="5" selection-end-line="8" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$USER_HOME$/go/src/github.com/andybalholm/cascadia/selector.go" />
     <entry file="file://$PROJECT_DIR$/src/library/go-logging/LICENSE">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -557,22 +540,25 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/norm/norm_info.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="341">
+        <state relative-caret-position="1995">
           <caret line="108" column="39" selection-start-line="108" selection-start-column="39" selection-end-line="108" selection-end-column="39" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/dcrawl/novel_bean.go">
+    <entry file="file://$PROJECT_DIR$/src/dspider/mzhu8.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="24" column="23" lean-forward="true" selection-start-line="24" selection-start-column="23" selection-end-line="24" selection-end-column="23" />
+        <state relative-caret-position="140">
+          <caret line="274" column="23" selection-start-line="274" selection-start-column="23" selection-end-line="274" selection-end-column="23" />
+          <folding>
+            <element signature="e#17#128#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/dcrawl/mongo.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="15" column="28" lean-forward="true" selection-start-line="15" selection-start-column="28" selection-end-line="15" selection-end-column="28" />
+        <state relative-caret-position="95">
+          <caret line="92" column="25" lean-forward="true" selection-start-line="92" selection-start-column="25" selection-end-line="92" selection-end-column="25" />
           <folding>
             <element signature="e#16#85#0" expanded="true" />
           </folding>
@@ -581,22 +567,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/main.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="50" column="24" lean-forward="true" selection-start-line="50" selection-start-column="24" selection-end-line="50" selection-end-column="24" />
+        <state relative-caret-position="368">
+          <caret line="58" column="46" lean-forward="true" selection-start-line="58" selection-start-column="46" selection-end-line="58" selection-end-column="46" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/dspider/mzhu8.go">
+    <entry file="file://$PROJECT_DIR$/src/dcrawl/novel_bean.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="335">
-          <caret line="224" lean-forward="true" selection-start-line="224" selection-end-line="224" />
+        <state relative-caret-position="254">
+          <caret line="75" lean-forward="true" selection-start-line="75" selection-end-line="75" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/dcrawl/crawl.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="361">
-          <caret line="26" column="79" selection-start-line="26" selection-start-column="79" selection-end-line="26" selection-end-column="79" />
+        <state relative-caret-position="368">
+          <caret line="132" column="23" selection-start-line="132" selection-start-column="23" selection-end-line="132" selection-end-column="23" />
         </state>
       </provider>
     </entry>
