@@ -1,7 +1,6 @@
 package dcrawl
 
 import (
-	"fmt"
 	"library/mgo.v2"
 	"library/mgo.v2/bson"
 	"strconv"
@@ -23,15 +22,16 @@ func getStandaloneUrl(mi SMongoInfo) string {
 	} else {
 		url += mi.IP + ":" + strconv.Itoa(mi.Port)
 	}
-	fmt.Println(url)
 	return url
 }
 
 func InserDoc(mi SMongoInfo, doc *NovelBean) bool {
 	flag := true
-	session, error := mgo.Dial(getStandaloneUrl(mi))
-	if nil != error {
-		panic(error)
+	session, err := mgo.Dial(getStandaloneUrl(mi))
+	if nil != err {
+		flag = false
+		Log.Errorf("mongo获取session失败: %s", err)
+		return flag
 	}
 
 	defer session.Close()
@@ -39,28 +39,32 @@ func InserDoc(mi SMongoInfo, doc *NovelBean) bool {
 	session.SetMode(mgo.Monotonic, true)
 
 	cinfo := session.DB(mi.DatabaseName).C(mi.PrefixCollect + "_info")
-	error = cinfo.Insert(doc.Info)
-	if nil != error {
+	err = cinfo.Insert(doc.Info)
+	if nil != err {
 		flag = false
-		panic(error)
+		Log.Errorf("mongo插入info数据失败: %s", err)
+		return flag
 	}
 
 	cdata := session.DB(mi.DatabaseName).C(mi.PrefixCollect + "_data")
 	for _, info := range doc.Data {
-		error = cdata.Insert(info)
-		if nil != error {
+		err = cdata.Insert(info)
+		if nil != err {
 			flag = false
-			panic(error)
+			Log.Errorf("mongo插入data数据失败: %s", err)
+			return flag
 		}
 	}
 	return flag
 }
 
-func UpdateDoc(mi SMongoInfo, id bson.ObjectId, doc *NovelBean) bool {
+func UpdateDoc(mi SMongoInfo, id string, doc *NovelBean) bool {
 	flag := true
 	session, err := mgo.Dial(getStandaloneUrl(mi))
 	if nil != err {
-		panic(err)
+		flag = false
+		Log.Errorf("mongo获取session失败: %s", err)
+		return flag
 	}
 
 	defer session.Close()
@@ -71,12 +75,16 @@ func UpdateDoc(mi SMongoInfo, id bson.ObjectId, doc *NovelBean) bool {
 	err = cinfo.Update(id, doc.Info)
 	if nil != err {
 		flag = false
+		Log.Errorf("mongo更新数据失败: %s", err)
+		return flag
 	}
 
 	cdata := session.DB(mi.DatabaseName).C(mi.PrefixCollect + "_data")
 	err = cdata.Update(id, doc.Data)
 	if nil != err {
 		flag = false
+		Log.Errorf("mongo更新数据失败: %s", err)
+		return flag
 	}
 	return flag
 }
@@ -86,7 +94,9 @@ func FindDocById (mi SMongoInfo, id string, doc *NovelBean) bool {
 	flag := true
 	session, err := mgo.Dial(getStandaloneUrl(mi))
 	if nil != err {
-		panic(err)
+		flag = false
+		Log.Errorf("mongo获取session失败: %s", err)
+		return flag
 	}
 
 	defer session.Close()
@@ -96,9 +106,10 @@ func FindDocById (mi SMongoInfo, id string, doc *NovelBean) bool {
 	ninfo := NovelInfo{}
 	cinfo := session.DB(mi.DatabaseName).C(mi.PrefixCollect + "_info")
 
-	err = cinfo.Find(bson.M{"_id": bson.ObjectId(id)}).One(&ninfo)
+	err = cinfo.Find(bson.M{"_id": id}).One(&ninfo)
 	if nil != err {
 		flag = false
+		Log.Errorf("mongo查找数据info失败: %s", err)
 		return flag
 	}
 
@@ -107,7 +118,7 @@ func FindDocById (mi SMongoInfo, id string, doc *NovelBean) bool {
 
 	for _, did := range ninfo.Blocks{
 		tmp := NovelData{}
-		err = cdata.Find(bson.M{"_id":bson.ObjectId(did)}).One(&tmp)
+		err = cdata.Find(bson.M{"_id":did}).One(&tmp)
 		if nil == err{
 			ndata = append(ndata, tmp)
 		} else {

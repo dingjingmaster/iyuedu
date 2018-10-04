@@ -2,7 +2,7 @@ package dcrawl
 
 import (
 	"crypto/md5"
-	"library/mgo.v2/bson"
+	"encoding/hex"
 	"strconv"
 )
 
@@ -30,7 +30,7 @@ type NovelField struct {
 }
 
 type NovelInfo struct {
-	Id 				bson.ObjectId		`bson:"_id,omitempty"`		// 主键 name + author + yuan 上线要映射
+	Id 				string				`bson:"_id,omitempty"`		// 主键 name + author + yuan 上线要映射
 	Name			string				`bson:"name"`				// 书名
 	Author			string				`bson:"author"`				// 作者名
 	NormName		string				`bson:"norm_name"`			// 归一书名
@@ -60,7 +60,7 @@ type NovelInfo struct {
 }
 
 type NovelData struct {
-	Id 				bson.ObjectId		`bson:"_id,omitempty"`		// 主键
+	Id 				string 				`bson:"_id,omitempty"`		// 主键
 	Name			string				`bson:"name"`				// 书名
 	Author			string				`bson:"author"`				// 作者名
 	ChapterContent	map[string]string	`bson:"chapter_content"`	// 章节信息
@@ -86,8 +86,8 @@ func GeneratorChapterContent(name string, author string, spiderName string, chap
 			tmd5 := md5.New()
 			novelDatat := NovelData{}
 			tmd5.Write([]byte(name + author + spiderName + strconv.Itoa(count)))
-			id := tmd5.Sum(nil)
-			novelDatat.Id = bson.ObjectId(string(id))
+			id :=  hex.EncodeToString(tmd5.Sum(nil))
+			novelDatat.Id = string(id)
 			novelDatat.Name = name
 			novelDatat.Author = author
 			novelDatat.ChapterContent = tmpContent
@@ -102,8 +102,8 @@ func GeneratorChapterContent(name string, author string, spiderName string, chap
 		tmd5 := md5.New()
 		novelDatat := NovelData{}
 		tmd5.Write([]byte(name + author + spiderName + strconv.Itoa(count)))
-		id := tmd5.Sum(nil)
-		novelDatat.Id = bson.ObjectId(string(id))
+		id :=  hex.EncodeToString(tmd5.Sum(nil))
+		novelDatat.Id = string(id)
 		novelDatat.Name = name
 		novelDatat.Author = author
 		novelDatat.ChapterContent = tmpContent

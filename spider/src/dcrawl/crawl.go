@@ -26,6 +26,7 @@ type SpiderContent struct {
 	SpiderName				string								// 爬虫名字
 	SeedUrl					map[string]int						// 种子 url
 	MI						SMongoInfo							// mongodb 连接信息
+	Exit 					bool								// 检测是否可以退出
 }
 
 var SpiderGroup = sync.WaitGroup{}

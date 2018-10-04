@@ -3,9 +3,9 @@ package dspider
 import (
 	"crypto/md5"
 	"dcrawl"
+	"encoding/hex"
 	"io/ioutil"
 	. "library/goquery"
-	"library/mgo.v2/bson"
 	"net/http"
 	"norm"
 	"strconv"
@@ -120,6 +120,7 @@ func mzhu8ParseBook(baseUrl string, bookUrl *map[string]bool, data chan dcrawl.N
 		})
 
 		data <- novelInfo
+		dcrawl.Log.Infof("解析书籍信息:%s|%s成功!!!", novelInfo.Name, novelInfo.Author)
 	}
 	close(data)
 }
@@ -129,6 +130,7 @@ func mzhu8ParseBook(baseUrl string, bookUrl *map[string]bool, data chan dcrawl.N
 func downloadData(baseUrl string, spiderName string, dn sync.WaitGroup, nd chan dcrawl.NovelField, toMongo chan dcrawl.NovelField) {
 	for info := range nd {
 		info.NovelParse = spiderName
+		dcrawl.Log.Infof("开始下载书籍内容: %s|%s", info.Name, info.Author)
 
 		/* 下载图片 */
 		img := info.ImgUrl
@@ -204,16 +206,19 @@ func downloadData(baseUrl string, spiderName string, dn sync.WaitGroup, nd chan 
 			info.ChapterContent[para["cid"] + "{]" + cname] = norm.NormContent(body)
 		}
 		toMongo <- info
+		dcrawl.Log.Infof("下载书籍%s|%s成功!!!", info.Name, info.Author)
 	}
+	close(toMongo)
 	dn.Done()
 }
 
 /* 存储 这里会进行检查，相对复杂 */
 func saveToMongo(mongo dcrawl.SMongoInfo, spiderName string, data chan dcrawl.NovelField)  {
 	for info := range data {
+		dcrawl.Log.Infof("开始保存书籍: %s|%s|%s 到mongodb!!!", spiderName, info.Name, info.Author)
 		tmd5 := md5.New()
 		tmd5.Write([]byte(info.Name + info.Author + spiderName))
-		id := string(tmd5.Sum(nil))
+		id :=  hex.EncodeToString(tmd5.Sum(nil))
 		times := time.Now().Format("20060102150405")
 
 		// 是否已有该书籍
@@ -280,11 +285,11 @@ func saveToMongo(mongo dcrawl.SMongoInfo, spiderName string, data chan dcrawl.No
 			dcrawl.GeneratorChapterContent(info.Name, info.Author, spiderName, chapterAll, &blockIds, &data)
 			novelTmp.Info.Blocks = blockIds
 			novelTmp.Data = data
-			if !dcrawl.UpdateDoc(mongo, bson.ObjectId(id), &novelTmp) {
-				dcrawl.Log.Errorf("更新mongodb数据错误: %s|%s", info.Name, info.Author)
+			if dcrawl.UpdateDoc(mongo, id, &novelTmp) {
+				dcrawl.Log.Infof("更新mongodb数据成功: %s|%s|%s", spiderName, info.Name, info.Author)
 			}
 		} else {
-			novelTmp.Info.Id = bson.ObjectId(id)
+			novelTmp.Info.Id = id
 			novelTmp.Info.Name = info.Name
 			novelTmp.Info.Author = info.Author
 			novelTmp.Info.NovelUrl = info.NovelUrl
@@ -314,29 +319,26 @@ func saveToMongo(mongo dcrawl.SMongoInfo, spiderName string, data chan dcrawl.No
 			novelTmp.Info.Blocks = blockIds
 			novelTmp.Data = data
 
-			if !dcrawl.InserDoc(mongo, &novelTmp) {
-				dcrawl.Log.Errorf("插入mongodb数据错误: %s|%s", info.Name, info.Author)
+			if dcrawl.InserDoc(mongo, &novelTmp) {
+				dcrawl.Log.Infof("插入mongodb数据成功: %s|%s|%s", spiderName, info.Name, info.Author)
 			}
 		}
-
 	}
-	close(data)
 }
 
 
-
 func Mzhu8Run(np *dcrawl.SpiderContent) {
-	dcrawl.Log.Infof("mzhu8开始执行,base url: %s", np.BaseUrl)
-
 	downloadNum := 10
 	bookUrl := map[string]bool{}
-	novelData := make(chan dcrawl.NovelField, 1000)
+	novelData := make(chan dcrawl.NovelField, 2)
 	downloadGroup := sync.WaitGroup{}
-	saveData := make(chan dcrawl.NovelField, 100)
+	saveData := make(chan dcrawl.NovelField, 2)
 
+	dcrawl.Log.Infof("mzhu8开始执行,base url: %s", np.BaseUrl)
 
 	/* 获取url */
 	mzhu8GetUrl(np.BaseUrl, &np.SeedUrl, &bookUrl)
+	dcrawl.Log.Infof("mzhu8获取url成功")
 
 	/* 解析小说 */
 	go mzhu8ParseBook(np.BaseUrl, &bookUrl, novelData)
@@ -352,6 +354,7 @@ func Mzhu8Run(np *dcrawl.SpiderContent) {
 
 	downloadGroup.Wait()
 	dcrawl.SpiderGroup.Done()
+	dcrawl.Log.Infof("mzhu8 爬虫执行完毕!!!")
 }
 
 
