@@ -1,7 +1,9 @@
 package dcrawl
 
 import (
+	"crypto/md5"
 	"library/mgo.v2/bson"
+	"strconv"
 )
 
 var NovelContentNum = 600
@@ -70,12 +72,45 @@ type NovelBean struct {
 }
 
 /* 封装章节内容信息 */
-func GeneratorChapterContent(name string, author string, spiderName string, chapterContent map[string]string, data *[]NovelData) {
+func GeneratorChapterContent(name string, author string, spiderName string, chapterContent map[string]string, blockIds *[]string, data *[]NovelData) {
 
-	//flag := 1
+	flag := 0
+	count := 0
 
+	tmpContent := map[string]string{}
+	for cname, ccontent := range chapterContent{
+		flag ++
+		tmpContent[cname] = ccontent
+		if (flag % NovelContentNum) == 0 {
+			count ++
+			tmd5 := md5.New()
+			novelDatat := NovelData{}
+			tmd5.Write([]byte(name + author + spiderName + strconv.Itoa(count)))
+			id := tmd5.Sum(nil)
+			novelDatat.Id = bson.ObjectId(string(id))
+			novelDatat.Name = name
+			novelDatat.Author = author
+			novelDatat.ChapterContent = tmpContent
+			tmpContent = map[string]string{}
+			*data = append(*data, novelDatat)
+			*blockIds = append(*blockIds, string(id))
+		}
+	}
 
-	
+	if len(tmpContent) > 0 {
+		count ++
+		tmd5 := md5.New()
+		novelDatat := NovelData{}
+		tmd5.Write([]byte(name + author + spiderName + strconv.Itoa(count)))
+		id := tmd5.Sum(nil)
+		novelDatat.Id = bson.ObjectId(string(id))
+		novelDatat.Name = name
+		novelDatat.Author = author
+		novelDatat.ChapterContent = tmpContent
+		tmpContent = nil
+		*data = append(*data, novelDatat)
+		*blockIds = append(*blockIds, string(id))
+	}
 }
 
 

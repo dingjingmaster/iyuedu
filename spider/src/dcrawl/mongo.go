@@ -53,15 +53,14 @@ func InserDoc(mi SMongoInfo, doc *NovelBean) bool {
 			panic(error)
 		}
 	}
-
 	return flag
 }
 
-func UpdateDoc(mi SMongoInfo, id bson.ObjectId, doc NovelBean) bool {
+func UpdateDoc(mi SMongoInfo, id bson.ObjectId, doc *NovelBean) bool {
 	flag := true
-	session, error := mgo.Dial(getStandaloneUrl(mi))
-	if nil != error {
-		panic(error)
+	session, err := mgo.Dial(getStandaloneUrl(mi))
+	if nil != err {
+		panic(err)
 	}
 
 	defer session.Close()
@@ -69,14 +68,14 @@ func UpdateDoc(mi SMongoInfo, id bson.ObjectId, doc NovelBean) bool {
 	session.SetMode(mgo.Monotonic, true)
 
 	cinfo := session.DB(mi.DatabaseName).C(mi.PrefixCollect + "_info")
-	error = cinfo.Update(id, doc.Info)
-	if nil != error {
+	err = cinfo.Update(id, doc.Info)
+	if nil != err {
 		flag = false
 	}
 
 	cdata := session.DB(mi.DatabaseName).C(mi.PrefixCollect + "_data")
-	error = cdata.Update(id, doc.Data)
-	if nil != error {
+	err = cdata.Update(id, doc.Data)
+	if nil != err {
 		flag = false
 	}
 	return flag
@@ -85,9 +84,9 @@ func UpdateDoc(mi SMongoInfo, id bson.ObjectId, doc NovelBean) bool {
 
 func FindDocById (mi SMongoInfo, id string, doc *NovelBean) bool {
 	flag := true
-	session, error := mgo.Dial(getStandaloneUrl(mi))
-	if nil != error {
-		panic(error)
+	session, err := mgo.Dial(getStandaloneUrl(mi))
+	if nil != err {
+		panic(err)
 	}
 
 	defer session.Close()
@@ -97,7 +96,7 @@ func FindDocById (mi SMongoInfo, id string, doc *NovelBean) bool {
 	ninfo := NovelInfo{}
 	cinfo := session.DB(mi.DatabaseName).C(mi.PrefixCollect + "_info")
 
-	err := cinfo.Find(bson.M{"_id": bson.ObjectId(id)}).One(&ninfo)
+	err = cinfo.Find(bson.M{"_id": bson.ObjectId(id)}).One(&ninfo)
 	if nil != err {
 		flag = false
 		return flag

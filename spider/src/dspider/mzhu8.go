@@ -3,9 +3,9 @@ package dspider
 import (
 	"crypto/md5"
 	"dcrawl"
-	"fmt"
 	"io/ioutil"
 	. "library/goquery"
+	"library/mgo.v2/bson"
 	"net/http"
 	"norm"
 	"strconv"
@@ -160,15 +160,15 @@ func downloadData(baseUrl string, spiderName string, dn sync.WaitGroup, nd chan 
 
 			ret, body := dcrawl.GetHTMLByUrl(&url, &head1)
 			if !ret {
+				info.ErrorChapterUrl[url] = cname
 				dcrawl.Log.Errorf("请求错误: %s", url)
-				// 错误链接张保存
 				continue
 			}
 
 			doc, err:= NewDocumentFromReader(strings.NewReader(body))
 			if nil != err {
+				info.ErrorChapterUrl[url] = cname
 				dcrawl.Log.Errorf("解析html失败:%s",url)
-				// 错误链接
 				continue
 			}
 
@@ -176,6 +176,7 @@ func downloadData(baseUrl string, spiderName string, dn sync.WaitGroup, nd chan 
 			script := doc.Find("#chapterContent>script").Text()
 			arr := strings.Split(script, "\"")
 			if len(arr) < 5 {
+				info.ErrorChapterUrl[url] = cname
 				dcrawl.Log.Errorf("错误的script:%s", url)
 				continue
 			}
@@ -195,6 +196,7 @@ func downloadData(baseUrl string, spiderName string, dn sync.WaitGroup, nd chan 
 
 			ret, body = dcrawl.Post(&post, &head2, &para)
 			if !ret {
+				info.ErrorChapterUrl[url] = cname
 				dcrawl.Log.Errorf("错误的响应: %s", url)
 				continue
 			}
@@ -273,15 +275,50 @@ func saveToMongo(mongo dcrawl.SMongoInfo, spiderName string, data chan dcrawl.No
 			novelTmp.Info.BlockVolume = dcrawl.NovelContentNum
 
 			/* 重新封装章节内容 */
+			blockIds := []string{}
+			data := [] dcrawl.NovelData{}
+			dcrawl.GeneratorChapterContent(info.Name, info.Author, spiderName, chapterAll, &blockIds, &data)
+			novelTmp.Info.Blocks = blockIds
+			novelTmp.Data = data
+			if !dcrawl.UpdateDoc(mongo, bson.ObjectId(id), &novelTmp) {
+				dcrawl.Log.Errorf("更新mongodb数据错误: %s|%s", info.Name, info.Author)
+			}
+		} else {
+			novelTmp.Info.Id = bson.ObjectId(id)
+			novelTmp.Info.Name = info.Name
+			novelTmp.Info.Author = info.Author
+			novelTmp.Info.NovelUrl = info.NovelUrl
+			novelTmp.Info.NovelParse = spiderName
 
+			novelTmp.Info.ImgUrl = info.ImgUrl
+			novelTmp.Info.ImgContent = info.ImgContent
+			novelTmp.Info.ImgType = info.ImgType
 
+			novelTmp.Info.Tags = info.Tags
+			novelTmp.Info.Status = info.Status
+			novelTmp.Info.Desc = info.Desc
+
+			novelTmp.Info.ChapterUrl = info.ChapterUrl
+			novelTmp.Info.ErrorChapter = info.ErrorChapterUrl
+
+			novelTmp.Info.Intime = times
+			novelTmp.Info.Uptime = times
+
+			novelTmp.Info.MaskLevel = 0
+			novelTmp.Info.BlockVolume = dcrawl.NovelContentNum
+			novelTmp.Info.ChapterNum = len(info.ChapterUrl)
+
+			blockIds := []string{}
+			data := [] dcrawl.NovelData{}
+			dcrawl.GeneratorChapterContent(info.Name, info.Author, spiderName, info.ChapterContent, &blockIds, &data)
+			novelTmp.Info.Blocks = blockIds
+			novelTmp.Data = data
+
+			if !dcrawl.InserDoc(mongo, &novelTmp) {
+				dcrawl.Log.Errorf("插入mongodb数据错误: %s|%s", info.Name, info.Author)
+			}
 		}
 
-
-		novel := dcrawl.NovelBean{}
-		ninfo := dcrawl.NovelInfo{}
-		ndata := []dcrawl.NovelData{}
-		fmt.Println(info.Name)
 	}
 	close(data)
 }
