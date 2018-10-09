@@ -120,17 +120,17 @@ func mzhu8ParseBook(baseUrl string, bookUrl *map[string]bool, data chan dcrawl.N
 		})
 
 		data <- novelInfo
-		dcrawl.Log.Infof("解析书籍信息:%s|%s成功!!!", novelInfo.Name, novelInfo.Author)
+		dcrawl.Log.Infof("解析 %s|%s 信息成功!!!", novelInfo.Name, novelInfo.Author)
 	}
 	close(data)
 }
 
 
 /* 获取内容、下载图片 和 章节 */
-func downloadData(baseUrl string, spiderName string, dn sync.WaitGroup, nd chan dcrawl.NovelField, toMongo chan dcrawl.NovelField) {
-	for info := range nd {
+func downloadData(baseUrl string, spiderName string, info dcrawl.NovelField, /*nd chan dcrawl.NovelField,*/ download sync.WaitGroup, toMongo chan dcrawl.NovelField) {
+	//for info := range nd {
 		info.NovelParse = spiderName
-		dcrawl.Log.Infof("开始下载书籍内容: %s|%s", info.Name, info.Author)
+		dcrawl.Log.Infof("开始下载 %s|%s 内容", info.Name, info.Author)
 
 		/* 下载图片 */
 		img := info.ImgUrl
@@ -170,7 +170,7 @@ func downloadData(baseUrl string, spiderName string, dn sync.WaitGroup, nd chan 
 			doc, err:= NewDocumentFromReader(strings.NewReader(body))
 			if nil != err {
 				info.ErrorChapterUrl[url] = cname
-				dcrawl.Log.Errorf("解析html失败:%s",url)
+				dcrawl.Log.Errorf("解析html失败: %s",url)
 				continue
 			}
 
@@ -206,16 +206,15 @@ func downloadData(baseUrl string, spiderName string, dn sync.WaitGroup, nd chan 
 			info.ChapterContent[para["cid"] + "{]" + cname] = norm.NormContent(body)
 		}
 		toMongo <- info
-		dcrawl.Log.Infof("下载书籍%s|%s成功!!!", info.Name, info.Author)
-	}
-	close(toMongo)
-	dn.Done()
+		dcrawl.Log.Infof("下载 %s|%s 成功!!!", info.Name, info.Author)
+		download.Done()
+	//}
 }
 
 /* 存储 这里会进行检查，相对复杂 */
-func saveToMongo(mongo dcrawl.SMongoInfo, spiderName string, data chan dcrawl.NovelField)  {
+func saveToMongo(mongo dcrawl.SMongoInfo, spiderName string, dn sync.WaitGroup, data chan dcrawl.NovelField)  {
 	for info := range data {
-		dcrawl.Log.Infof("开始保存书籍: %s|%s|%s 到mongodb!!!", spiderName, info.Name, info.Author)
+		dcrawl.Log.Infof("开始保存书籍: %s|%s|%s !!!", spiderName, info.Name, info.Author)
 		tmd5 := md5.New()
 		tmd5.Write([]byte(info.Name + info.Author + spiderName))
 		id :=  hex.EncodeToString(tmd5.Sum(nil))
@@ -286,7 +285,7 @@ func saveToMongo(mongo dcrawl.SMongoInfo, spiderName string, data chan dcrawl.No
 			novelTmp.Info.Blocks = blockIds
 			novelTmp.Data = data
 			if dcrawl.UpdateDoc(mongo, id, &novelTmp) {
-				dcrawl.Log.Infof("更新mongodb数据成功: %s|%s|%s", spiderName, info.Name, info.Author)
+				dcrawl.Log.Infof("更新 %s|%s|%s 成功!!!", spiderName, info.Name, info.Author)
 			}
 		} else {
 			novelTmp.Info.Id = id
@@ -320,19 +319,22 @@ func saveToMongo(mongo dcrawl.SMongoInfo, spiderName string, data chan dcrawl.No
 			novelTmp.Data = data
 
 			if dcrawl.InserDoc(mongo, &novelTmp) {
-				dcrawl.Log.Infof("插入mongodb数据成功: %s|%s|%s", spiderName, info.Name, info.Author)
+				dcrawl.Log.Infof("插入 %s|%s|%s 成功!!!", spiderName, info.Name, info.Author)
 			}
 		}
 	}
+
+	dn.Done()
 }
 
 
 func Mzhu8Run(np *dcrawl.SpiderContent) {
-	downloadNum := 10
+	//downloadNum := 10
 	bookUrl := map[string]bool{}
-	novelData := make(chan dcrawl.NovelField, 2)
+	saveGroup := sync.WaitGroup{}
 	downloadGroup := sync.WaitGroup{}
-	saveData := make(chan dcrawl.NovelField, 2)
+	novelData := make(chan dcrawl.NovelField, 10)
+	saveData := make(chan dcrawl.NovelField, 10)
 
 	dcrawl.Log.Infof("mzhu8开始执行,base url: %s", np.BaseUrl)
 
@@ -344,23 +346,16 @@ func Mzhu8Run(np *dcrawl.SpiderContent) {
 	go mzhu8ParseBook(np.BaseUrl, &bookUrl, novelData)
 
 	/* 获取小说基本信息 */
-	for i := 0; i < downloadNum; i ++ {
+	for info := range novelData {
 		downloadGroup.Add(1)
-		go downloadData(np.BaseUrl, np.SpiderName, downloadGroup, novelData, saveData)
+		go downloadData(np.BaseUrl, np.SpiderName, info, downloadGroup, saveData)
 	}
 
 	/* 保存小说 */
-	go saveToMongo(np.MI, np.SpiderName, saveData)
+	saveGroup.Add(1)
+	go saveToMongo(np.MI, np.SpiderName, saveGroup, saveData)
 
-	downloadGroup.Wait()
-	dcrawl.SpiderGroup.Done()
+	downloadGroup.Wait(); close(saveData)
+	saveGroup.Wait(); dcrawl.SpiderGroup.Done()
 	dcrawl.Log.Infof("mzhu8 爬虫执行完毕!!!")
 }
-
-
-
-
-
-
-
-

@@ -55,6 +55,7 @@ func InserDoc(mi SMongoInfo, doc *NovelBean) bool {
 			return flag
 		}
 	}
+
 	return flag
 }
 
@@ -71,21 +72,26 @@ func UpdateDoc(mi SMongoInfo, id string, doc *NovelBean) bool {
 
 	session.SetMode(mgo.Monotonic, true)
 
+	selector := bson.M{"_id": id}
 	cinfo := session.DB(mi.DatabaseName).C(mi.PrefixCollect + "_info")
-	err = cinfo.Update(id, doc.Info)
+	err = cinfo.Update(selector, doc.Info)
 	if nil != err {
 		flag = false
-		Log.Errorf("mongo更新数据失败: %s", err)
+		Log.Errorf("mongo更新基本信息失败: %s", err)
 		return flag
 	}
 
 	cdata := session.DB(mi.DatabaseName).C(mi.PrefixCollect + "_data")
-	err = cdata.Update(id, doc.Data)
-	if nil != err {
-		flag = false
-		Log.Errorf("mongo更新数据失败: %s", err)
-		return flag
+	for _, sdata := range doc.Data {
+		selectort := bson.M{"_id": sdata.Id}
+		err = cdata.Update(selectort, sdata)
+		if nil != err {
+			flag = false
+			Log.Errorf("mongo更新内容失败: %s", err)
+			return flag
+		}
 	}
+
 	return flag
 }
 

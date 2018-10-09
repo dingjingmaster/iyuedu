@@ -39,7 +39,7 @@ func GetHTMLByUrl(url *string, head *map[string]string) (bool, string) {
 	ret := true
 
 	RET: if !ret {
-			return ret, ""
+		return ret, ""
 	}
 
 	if (nil == url) || ("" == *url) {
@@ -60,13 +60,12 @@ func GetHTMLByUrl(url *string, head *map[string]string) (bool, string) {
 	}
 
 	resp, err := client.Do(request)
-	defer resp.Body.Close()
 	if (nil != err) || (200 != resp.StatusCode) {
 		ret = false
 		Log.Errorf("无法访问url: %s|%s\n", url, err)
-		resp.Body.Close()
 		goto RET
 	}
+	defer resp.Body.Close()
 	body, err := ioutil.ReadAll(resp.Body)
 	if nil != err {
 		ret = false
@@ -128,13 +127,12 @@ RET: if !ret {
 	}
 
 	resp, err := client.Do(request)
-	defer resp.Body.Close()
 	if (nil != err) || (200 != resp.StatusCode) {
 		ret = false
 		Log.Errorf("无法访问url: %s|%s\n", url, err)
-		resp.Body.Close()
 		goto RET
 	}
+	defer resp.Body.Close()
 	body, err := ioutil.ReadAll(resp.Body)
 	if nil != err {
 		ret = false

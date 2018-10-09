@@ -22,7 +22,7 @@ func main() {
 	mzhu8.BaseUrl = "http://www.mzhu8.com"
 	mzhu8.MI = MI
 	mzhu8.SeedUrl = map[string]int{
-		"http://www.mzhu8.com/mulu/1/":1,
+		"http://www.mzhu8.com/mulu/18/":1,
 		//"http://www.mzhu8.com/mulu/1/":8,
 		//"http://www.mzhu8.com/mulu/2/":8,
 		//"http://www.mzhu8.com/mulu/3/":3,
