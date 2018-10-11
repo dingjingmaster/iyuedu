@@ -68,8 +68,6 @@ func UpdateDoc(mi SMongoInfo, id string, doc *NovelBean) bool {
 		return flag
 	}
 
-	defer session.Close()
-
 	session.SetMode(mgo.Monotonic, true)
 
 	selector := bson.M{"_id": id}
@@ -92,6 +90,9 @@ func UpdateDoc(mi SMongoInfo, id string, doc *NovelBean) bool {
 		}
 	}
 
+
+	defer session.Close()
+
 	return flag
 }
 
@@ -104,8 +105,6 @@ func FindDocById (mi SMongoInfo, id string, doc *NovelBean) bool {
 		Log.Errorf("mongo获取session失败: %s", err)
 		return flag
 	}
-
-	defer session.Close()
 
 	session.SetMode(mgo.Monotonic, true)
 
@@ -131,6 +130,9 @@ func FindDocById (mi SMongoInfo, id string, doc *NovelBean) bool {
 			flag = false
 		}
 	}
+
+
+	defer session.Close()
 
 	doc.Info = ninfo
 	doc.Data = ndata
