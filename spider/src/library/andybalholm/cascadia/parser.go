@@ -8,7 +8,6 @@ import (
 	"regexp"
 	"strconv"
 	"strings"
-
 )
 
 // a parser for CSS selectors

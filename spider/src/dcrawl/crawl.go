@@ -22,23 +22,22 @@ import (
 type SpiderRun func(np *SpiderContent)
 
 type SpiderContent struct {
-	BaseUrl					string								// 首页url
-	SpiderName				string								// 爬虫名字
-	SeedUrl					map[string]int						// 种子 url
-	MI						SMongoInfo							// mongodb 连接信息
-	Exit 					bool								// 检测是否可以退出
+	BaseUrl    string         // 首页url
+	SpiderName string         // 爬虫名字
+	SeedUrl    map[string]int // 种子 url
+	MI         SMongoInfo     // mongodb 连接信息
+	Exit       bool           // 检测是否可以退出
 }
 
 var SpiderGroup = sync.WaitGroup{}
-
-
 
 // 根据 url 获取页面 html 字符串
 func GetHTMLByUrl(url *string, head *map[string]string) (bool, string) {
 	charset := "utf8"
 	ret := true
 
-	RET: if !ret {
+RET:
+	if !ret {
 		return ret, ""
 	}
 
@@ -94,15 +93,15 @@ func GetHTMLByUrl(url *string, head *map[string]string) (bool, string) {
 	return ret, ConvertToString(string(body), charset, "utf8")
 }
 
-
 // 根据 url 获取页面 html 字符串
 func Post(url *string, head *map[string]string, para *map[string]string) (bool, string) {
 	charset := "utf8"
 	ret := true
 
-RET: if !ret {
-	return ret, ""
-}
+RET:
+	if !ret {
+		return ret, ""
+	}
 
 	if (nil == url) || ("" == *url) || (nil == para) {
 		Log.Errorf("错误的输入参数: %s", url)
@@ -110,8 +109,8 @@ RET: if !ret {
 	}
 
 	paras := []string{}
-	for k, v := range *para{
-		paras = append(paras,  k + "=" + v)
+	for k, v := range *para {
+		paras = append(paras, k+"="+v)
 	}
 	client := &http.Client{}
 	request, err := http.NewRequest("POST", *url, strings.NewReader(strings.Join(paras, "&")))
@@ -161,8 +160,6 @@ RET: if !ret {
 	return ret, ConvertToString(string(body), charset, "utf8")
 }
 
-
-
 func ConvertToString(src string, srcCode string, tagCode string) string {
 	srcCoder := mahonia.NewDecoder(srcCode)
 	srcResult := srcCoder.ConvertString(src)
@@ -171,6 +168,3 @@ func ConvertToString(src string, srcCode string, tagCode string) string {
 	result := string(cdata)
 	return result
 }
-
-
-

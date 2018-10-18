@@ -21,28 +21,30 @@ func mzhu8GetUrl(baseUrl string, seedUrl *map[string]int, bookUrl *map[string]bo
 
 	for k, v := range *seedUrl {
 		for i := 1; i <= v; i++ {
-			mulu = append(mulu, k + strconv.Itoa(i) + ".html")
+			mulu = append(mulu, k+strconv.Itoa(i)+".html")
 		}
 	}
 
 	// 获取书籍 bookUrl
 	for _, v := range mulu {
-		ret, html :=dcrawl.GetHTMLByUrl(&v, nil)
+		ret, html := dcrawl.GetHTMLByUrl(&v, nil)
 		if !ret {
 			dcrawl.Log.Errorf("获取html失败:%s", v)
 			continue
 		}
 
-		doc, err:= NewDocumentFromReader(strings.NewReader(html))
+		doc, err := NewDocumentFromReader(strings.NewReader(html))
 		if nil != err {
-			dcrawl.Log.Errorf("解析html失败:%s",v)
+			dcrawl.Log.Errorf("解析html失败:%s", v)
 		}
 
 		doc.Find("a").Each(func(i int, selection *Selection) {
 			url, ret := selection.Attr("href")
-			if ret && strings.HasPrefix(url, "http://"){
+			if ret && strings.HasPrefix(url, "http://") {
 				// 过滤掉目录url + baseUrl
-				if strings.HasPrefix(url, baseUrl + "/mulu/") || (url == baseUrl) || (url == baseUrl + "/") {return}
+				if strings.HasPrefix(url, baseUrl+"/mulu/") || (url == baseUrl) || (url == baseUrl+"/") {
+					return
+				}
 				(*bookUrl)[url] = false
 			}
 		})
@@ -62,15 +64,15 @@ func mzhu8ParseBook(baseUrl string, bookUrl *map[string]bool, data chan dcrawl.N
 		novelInfo.ImgContent = []byte{}
 		novelInfo.ErrorChapterUrl = map[string]string{}
 		novelInfo.ChapterContent = map[string]string{}
-		ret, html :=dcrawl.GetHTMLByUrl(&url, nil)
+		ret, html := dcrawl.GetHTMLByUrl(&url, nil)
 		if !ret {
 			dcrawl.Log.Errorf("获取html失败:%s", url)
 			continue
 		}
 
-		doc, err:= NewDocumentFromReader(strings.NewReader(html))
+		doc, err := NewDocumentFromReader(strings.NewReader(html))
 		if nil != err {
-			dcrawl.Log.Errorf("解析html失败:%s",url)
+			dcrawl.Log.Errorf("解析html失败:%s", url)
 			continue
 		}
 
@@ -125,10 +127,9 @@ func mzhu8ParseBook(baseUrl string, bookUrl *map[string]bool, data chan dcrawl.N
 	close(data)
 }
 
-
 /* 获取内容、下载图片 和 章节 */
 func downloadData(baseUrl string, downNum int, spiderName string, download *sync.WaitGroup, novelInfo chan dcrawl.NovelField, toMongo chan dcrawl.NovelField) {
-	for i := 0; i < downNum; i ++ {
+	for i := 0; i < downNum; i++ {
 		download.Add(1)
 		go func() {
 			for {
@@ -145,7 +146,7 @@ func downloadData(baseUrl string, downNum int, spiderName string, download *sync
 				/* 下载图片 */
 				img := info.ImgUrl
 				it := strings.Split(img, ".")
-				imgType := it[len(it) -1 ]
+				imgType := it[len(it)-1]
 
 				resp, err := http.Get(img)
 				if nil != err {
@@ -177,10 +178,10 @@ func downloadData(baseUrl string, downNum int, spiderName string, download *sync
 						continue
 					}
 
-					doc, err:= NewDocumentFromReader(strings.NewReader(body))
+					doc, err := NewDocumentFromReader(strings.NewReader(body))
 					if nil != err {
 						info.ErrorChapterUrl[url] = cname
-						dcrawl.Log.Errorf("解析html失败: %s",url)
+						dcrawl.Log.Errorf("解析html失败: %s", url)
 						continue
 					}
 
@@ -213,7 +214,7 @@ func downloadData(baseUrl string, downNum int, spiderName string, download *sync
 						continue
 					}
 
-					info.ChapterContent[para["cid"] + "{]" + cname] = norm.NormContent(body)
+					info.ChapterContent[para["cid"]+"{]"+cname] = norm.NormContent(body)
 				}
 				toMongo <- info
 				dcrawl.Log.Infof("下载 %s|%s 成功!!!", info.Name, info.Author)
@@ -223,11 +224,11 @@ func downloadData(baseUrl string, downNum int, spiderName string, download *sync
 }
 
 /* 存储 这里会进行检查，相对复杂 */
-func saveToMongo(mongo dcrawl.SMongoInfo, spiderName string, dn *sync.WaitGroup, info dcrawl.NovelField)  {
+func saveToMongo(mongo dcrawl.SMongoInfo, spiderName string, dn *sync.WaitGroup, info dcrawl.NovelField) {
 	dcrawl.Log.Infof("开始保存书籍: %s|%s|%s !!!", spiderName, info.Name, info.Author)
 	tmd5 := md5.New()
 	tmd5.Write([]byte(info.Name + info.Author + spiderName))
-	id :=  hex.EncodeToString(tmd5.Sum(nil))
+	id := hex.EncodeToString(tmd5.Sum(nil))
 	times := time.Now().Format("20060102150405")
 
 	// 是否已有该书籍
@@ -247,9 +248,15 @@ func saveToMongo(mongo dcrawl.SMongoInfo, spiderName string, dn *sync.WaitGroup,
 			novelTmp.Info.ImgUrl = info.ImgUrl
 		}
 
-		if "" != info.Tags {novelTmp.Info.Tags = info.Tags}								// 类别
-		if "" != info.Status {novelTmp.Info.Status = info.Status}						// 状态
-		if "" != info.Desc {novelTmp.Info.Desc = info.Desc}								// 简介
+		if "" != info.Tags {
+			novelTmp.Info.Tags = info.Tags
+		} // 类别
+		if "" != info.Status {
+			novelTmp.Info.Status = info.Status
+		} // 状态
+		if "" != info.Desc {
+			novelTmp.Info.Desc = info.Desc
+		} // 简介
 		info.Desc = times
 
 		/* 检查章节数 */
@@ -278,9 +285,9 @@ func saveToMongo(mongo dcrawl.SMongoInfo, spiderName string, dn *sync.WaitGroup,
 			}
 			for ik, iv := range novelTmp.Info.ErrorChapter {
 				arr := strings.Split(ik, "/")
-				ii := strings.Split(arr[len(arr) - 1], ".")[0]
-				if _, exits := chapterAll[ii + "{]" + iv]; exits {
-					delete(novelTmp.Info.ErrorChapter, ii + "{]" + iv)
+				ii := strings.Split(arr[len(arr)-1], ".")[0]
+				if _, exits := chapterAll[ii+"{]"+iv]; exits {
+					delete(novelTmp.Info.ErrorChapter, ii+"{]"+iv)
 				}
 			}
 		}
@@ -290,7 +297,7 @@ func saveToMongo(mongo dcrawl.SMongoInfo, spiderName string, dn *sync.WaitGroup,
 
 		/* 重新封装章节内容 */
 		blockIds := []string{}
-		data := [] dcrawl.NovelData{}
+		data := []dcrawl.NovelData{}
 		dcrawl.GeneratorChapterContent(info.Name, info.Author, spiderName, chapterAll, &blockIds, &data)
 		novelTmp.Info.Blocks = blockIds
 		novelTmp.Data = data
@@ -323,7 +330,7 @@ func saveToMongo(mongo dcrawl.SMongoInfo, spiderName string, dn *sync.WaitGroup,
 		novelTmp.Info.ChapterNum = len(info.ChapterUrl)
 
 		blockIds := []string{}
-		data := [] dcrawl.NovelData{}
+		data := []dcrawl.NovelData{}
 		dcrawl.GeneratorChapterContent(info.Name, info.Author, spiderName, info.ChapterContent, &blockIds, &data)
 		novelTmp.Info.Blocks = blockIds
 		novelTmp.Data = data
@@ -340,7 +347,6 @@ RET_ERROR:
 	dn.Done()
 	return
 }
-
 
 func Mzhu8Run(np *dcrawl.SpiderContent) {
 	downloadNum := 10

@@ -40,8 +40,8 @@ import (
 	"time"
 
 	. "gopkg.in/check.v1"
-	"library/mgo.v2bson"
 	"gopkg.in/yaml.v2"
+	"library/mgo.v2bson"
 )
 
 func TestAll(t *testing.T) {

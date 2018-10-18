@@ -2,15 +2,599 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a54e1c57-bedf-4d8f-9029-7af6b338a077" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../web/.idea/webResources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../web/src/main/main.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../web/src/threadpool/threadpool.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../web/template/html/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../HTML/.idea/watcherTasks.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../HTML/html/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../HTML/img/logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../HTML/src/scss/common/_value.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../HTML/src/scss/common/common.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../HTML/src/scss/main.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../HTML/src/scss/module/_header.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../HTML/src/scss/normalize.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/.editorconfig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/.gitattributes" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/.hound.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/.travis.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/CHANGELOG.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/CNAME" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/CONTRIBUTING.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/Gemfile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/Gemfile.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/Gruntfile.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/ISSUE_TEMPLATE.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/_config.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/bower.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/composer.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/dist/css/bootstrap-theme.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/dist/css/bootstrap-theme.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/dist/css/bootstrap-theme.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/dist/css/bootstrap-theme.min.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/dist/css/bootstrap.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/dist/css/bootstrap.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/dist/css/bootstrap.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/dist/css/bootstrap.min.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/dist/fonts/glyphicons-halflings-regular.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/dist/fonts/glyphicons-halflings-regular.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/dist/fonts/glyphicons-halflings-regular.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/dist/fonts/glyphicons-halflings-regular.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/dist/fonts/glyphicons-halflings-regular.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/dist/js/bootstrap.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/dist/js/bootstrap.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/dist/js/npm.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/_data/browser-bugs.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/_data/browser-features.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/_data/core-team.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/_data/glyphicons.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/_data/sass-team.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/_data/showcase.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/_data/translations.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/_includes/ads.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/_includes/components/alerts.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/_includes/components/badges.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/_includes/components/breadcrumbs.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/_includes/components/button-dropdowns.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/_includes/components/button-groups.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/_includes/components/dropdowns.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/_includes/components/glyphicons.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/_includes/components/input-groups.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/_includes/components/jumbotron.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/_includes/components/labels.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/_includes/components/list-group.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/_includes/components/media.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/_includes/components/navbar.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/_includes/components/navs.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/_includes/components/page-header.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/_includes/components/pagination.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/_includes/components/panels.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/_includes/components/progress-bars.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/_includes/components/responsive-embed.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/_includes/components/thumbnails.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/_includes/components/wells.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/_includes/css/buttons.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/_includes/css/code.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/_includes/css/forms.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/_includes/css/grid.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/_includes/css/helpers.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/_includes/css/images.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/_includes/css/less.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/_includes/css/overview.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/_includes/css/responsive-utilities.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/_includes/css/sass.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/_includes/css/tables.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/_includes/css/type.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/_includes/customizer-variables.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/_includes/footer.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/_includes/getting-started/accessibility.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/_includes/getting-started/browser-device-support.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/_includes/getting-started/community.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/_includes/getting-started/disabling-responsiveness.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/_includes/getting-started/download.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/_includes/getting-started/examples.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/_includes/getting-started/grunt.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/_includes/getting-started/license.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/_includes/getting-started/template.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/_includes/getting-started/third-party-support.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/_includes/getting-started/tools.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/_includes/getting-started/translations.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/_includes/getting-started/whats-included.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/_includes/header.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/_includes/js/affix.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/_includes/js/alerts.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/_includes/js/buttons.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/_includes/js/carousel.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/_includes/js/collapse.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/_includes/js/dropdowns.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/_includes/js/modal.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/_includes/js/overview.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/_includes/js/popovers.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/_includes/js/scrollspy.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/_includes/js/tabs.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/_includes/js/tooltips.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/_includes/js/transitions.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/_includes/nav/about.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/_includes/nav/components.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/_includes/nav/css.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/_includes/nav/customize.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/_includes/nav/getting-started.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/_includes/nav/javascript.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/_includes/nav/main.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/_includes/nav/migration.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/_includes/skippy.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/_includes/v4.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/_layouts/default.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/_layouts/home.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/_plugins/bridge.rb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/_plugins/bugify.rb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/_pug/customizer-nav.pug" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/_pug/customizer-variables.pug" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/about.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/apple-touch-icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/assets/brand/bootstrap-outline.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/assets/brand/bootstrap-punchout.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/assets/brand/bootstrap-solid.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/assets/css/docs.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/assets/css/docs.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/assets/css/docs.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/assets/css/docs.min.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/assets/flash/ZeroClipboard.swf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/assets/img/bs-themes.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/assets/img/components.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/assets/img/devices.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/assets/img/expo-lyft.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/assets/img/expo-newsweek.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/assets/img/expo-riot.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/assets/img/expo-vogue.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/assets/img/sass-less.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/assets/js/customize.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/assets/js/docs.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/assets/js/ie-emulation-modes-warning.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/assets/js/ie10-viewport-bug-workaround.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/assets/js/ie8-responsive-file-warning.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/assets/js/raw-files.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/assets/js/src/application.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/assets/js/src/customizer.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/assets/js/vendor/Blob.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/assets/js/vendor/FileSaver.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/assets/js/vendor/ZeroClipboard.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/assets/js/vendor/anchor.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/assets/js/vendor/autoprefixer.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/assets/js/vendor/holder.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/assets/js/vendor/jquery.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/assets/js/vendor/jszip.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/assets/js/vendor/less.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/assets/js/vendor/uglify.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/assets/less/ads.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/assets/less/algolia.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/assets/less/anchor.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/assets/less/booticon.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/assets/less/brand.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/assets/less/buttons.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/assets/less/callouts.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/assets/less/customizer.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/assets/less/demos.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/assets/less/docs.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/assets/less/examples.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/assets/less/featured-sites.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/assets/less/featurettes.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/assets/less/footer.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/assets/less/glyphicons.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/assets/less/ie10-viewport-bug-workaround.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/assets/less/masthead.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/assets/less/misc.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/assets/less/nav.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/assets/less/page-header.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/assets/less/responsive-tests.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/assets/less/sidebar.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/assets/less/skip-link.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/assets/less/swatches.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/assets/less/syntax.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/assets/less/team.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/assets/less/zero-clipboard.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/browser-bugs.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/components.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/css.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/customize.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/dist/css/bootstrap-theme.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/dist/css/bootstrap-theme.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/dist/css/bootstrap-theme.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/dist/css/bootstrap-theme.min.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/dist/css/bootstrap.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/dist/css/bootstrap.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/dist/css/bootstrap.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/dist/css/bootstrap.min.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/dist/fonts/glyphicons-halflings-regular.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/dist/fonts/glyphicons-halflings-regular.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/dist/fonts/glyphicons-halflings-regular.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/dist/fonts/glyphicons-halflings-regular.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/dist/fonts/glyphicons-halflings-regular.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/dist/js/bootstrap.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/dist/js/bootstrap.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/dist/js/npm.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/examples/blog/blog.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/examples/blog/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/examples/carousel/carousel.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/examples/carousel/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/examples/cover/cover.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/examples/cover/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/examples/dashboard/dashboard.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/examples/dashboard/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/examples/grid/grid.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/examples/grid/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/examples/jumbotron-narrow/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/examples/jumbotron-narrow/jumbotron-narrow.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/examples/jumbotron/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/examples/jumbotron/jumbotron.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/examples/justified-nav/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/examples/justified-nav/justified-nav.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/examples/navbar-fixed-top/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/examples/navbar-fixed-top/navbar-fixed-top.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/examples/navbar-static-top/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/examples/navbar-static-top/navbar-static-top.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/examples/navbar/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/examples/navbar/navbar.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/examples/non-responsive/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/examples/non-responsive/non-responsive.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/examples/offcanvas/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/examples/offcanvas/offcanvas.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/examples/offcanvas/offcanvas.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/examples/screenshots/blog.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/examples/screenshots/carousel.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/examples/screenshots/cover.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/examples/screenshots/dashboard.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/examples/screenshots/equal-height-columns.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/examples/screenshots/grid.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/examples/screenshots/jumbotron-narrow.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/examples/screenshots/jumbotron.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/examples/screenshots/justified-nav.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/examples/screenshots/navbar-fixed.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/examples/screenshots/navbar-static.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/examples/screenshots/navbar.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/examples/screenshots/non-responsive.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/examples/screenshots/offcanvas.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/examples/screenshots/sign-in.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/examples/screenshots/starter-template.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/examples/screenshots/sticky-footer-navbar.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/examples/screenshots/sticky-footer.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/examples/screenshots/theme.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/examples/signin/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/examples/signin/signin.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/examples/starter-template/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/examples/starter-template/starter-template.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/examples/sticky-footer-navbar/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/examples/sticky-footer-navbar/sticky-footer-navbar.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/examples/sticky-footer/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/examples/sticky-footer/sticky-footer.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/examples/theme/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/examples/theme/theme.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/examples/tooltip-viewport/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/examples/tooltip-viewport/tooltip-viewport.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/examples/tooltip-viewport/tooltip-viewport.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/getting-started.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/javascript.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/migration.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/docs/robots.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/fonts/glyphicons-halflings-regular.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/fonts/glyphicons-halflings-regular.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/fonts/glyphicons-halflings-regular.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/fonts/glyphicons-halflings-regular.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/fonts/glyphicons-halflings-regular.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/grunt/.jshintrc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/grunt/.stylelintrc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/grunt/browsers.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/grunt/bs-commonjs-generator.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/grunt/bs-glyphicons-data-generator.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/grunt/bs-lessdoc-parser.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/grunt/bs-raw-files-generator.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/grunt/change-version.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/grunt/configBridge.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/grunt/karma.conf.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/grunt/npm-shrinkwrap.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/js/.jscsrc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/js/.jshintrc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/js/affix.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/js/alert.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/js/button.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/js/carousel.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/js/collapse.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/js/dropdown.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/js/modal.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/js/popover.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/js/scrollspy.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/js/tab.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/js/tests/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/js/tests/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/js/tests/unit/.jshintrc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/js/tests/unit/affix.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/js/tests/unit/alert.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/js/tests/unit/button.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/js/tests/unit/carousel.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/js/tests/unit/collapse.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/js/tests/unit/dropdown.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/js/tests/unit/modal.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/js/tests/unit/popover.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/js/tests/unit/scrollspy.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/js/tests/unit/tab.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/js/tests/unit/tooltip.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/js/tests/vendor/jquery.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/js/tests/visual/affix-with-sticky-footer.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/js/tests/visual/affix.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/js/tests/visual/alert.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/js/tests/visual/button.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/js/tests/visual/carousel.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/js/tests/visual/collapse.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/js/tests/visual/dropdown.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/js/tests/visual/modal.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/js/tests/visual/popover.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/js/tests/visual/scrollspy.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/js/tests/visual/tab.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/js/tests/visual/tooltip.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/js/tooltip.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/js/transition.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/less/alerts.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/less/badges.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/less/bootstrap.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/less/breadcrumbs.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/less/button-groups.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/less/buttons.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/less/carousel.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/less/close.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/less/code.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/less/component-animations.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/less/dropdowns.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/less/forms.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/less/glyphicons.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/less/grid.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/less/input-groups.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/less/jumbotron.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/less/labels.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/less/list-group.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/less/media.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/less/mixins.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/less/mixins/alerts.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/less/mixins/background-variant.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/less/mixins/border-radius.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/less/mixins/buttons.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/less/mixins/center-block.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/less/mixins/clearfix.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/less/mixins/forms.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/less/mixins/gradients.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/less/mixins/grid-framework.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/less/mixins/grid.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/less/mixins/hide-text.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/less/mixins/image.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/less/mixins/labels.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/less/mixins/list-group.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/less/mixins/nav-divider.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/less/mixins/nav-vertical-align.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/less/mixins/opacity.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/less/mixins/pagination.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/less/mixins/panels.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/less/mixins/progress-bar.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/less/mixins/reset-filter.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/less/mixins/reset-text.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/less/mixins/resize.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/less/mixins/responsive-visibility.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/less/mixins/size.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/less/mixins/tab-focus.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/less/mixins/table-row.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/less/mixins/text-emphasis.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/less/mixins/text-overflow.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/less/mixins/vendor-prefixes.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/less/modals.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/less/navbar.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/less/navs.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/less/normalize.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/less/pager.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/less/pagination.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/less/panels.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/less/popovers.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/less/print.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/less/progress-bars.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/less/responsive-embed.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/less/responsive-utilities.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/less/scaffolding.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/less/tables.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/less/theme.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/less/thumbnails.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/less/tooltip.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/less/type.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/less/utilities.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/less/variables.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/less/wells.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/nuget/MyGet.ps1" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/nuget/bootstrap.less.nuspec" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/nuget/bootstrap.nuspec" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/package.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HTML/package.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dcrawl/crawl.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/dcrawl/crawl.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/dcrawl/mongo.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/dcrawl/mongo.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dcrawl/novel_bean.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/dcrawl/novel_bean.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/dspider/mzhu8.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/dspider/mzhu8.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/library/andybalholm/cascadia/benchmark_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/andybalholm/cascadia/benchmark_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/library/andybalholm/cascadia/fuzz/fuzz.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/andybalholm/cascadia/fuzz/fuzz.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/library/andybalholm/cascadia/parser.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/andybalholm/cascadia/parser.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/library/andybalholm/cascadia/parser_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/andybalholm/cascadia/parser_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/library/andybalholm/cascadia/selector.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/andybalholm/cascadia/selector.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/library/andybalholm/cascadia/selector_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/andybalholm/cascadia/selector_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/library/cascadia/benchmark_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/cascadia/benchmark_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/library/cascadia/fuzz/fuzz.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/cascadia/fuzz/fuzz.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/library/cascadia/parser.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/cascadia/parser.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/library/cascadia/parser_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/cascadia/parser_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/library/cascadia/selector.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/cascadia/selector.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/library/cascadia/selector_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/cascadia/selector_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/library/go-logging/backend.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/go-logging/backend.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/library/go-logging/example_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/go-logging/example_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/library/go-logging/examples/example.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/go-logging/examples/example.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/library/go-logging/format.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/go-logging/format.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/library/go-logging/format_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/go-logging/format_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/library/go-logging/level.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/go-logging/level.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/library/go-logging/level_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/go-logging/level_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/library/go-logging/log_nix.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/go-logging/log_nix.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/library/go-logging/log_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/go-logging/log_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/library/go-logging/log_windows.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/go-logging/log_windows.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/library/go-logging/logger.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/go-logging/logger.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/library/go-logging/logger_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/go-logging/logger_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/library/go-logging/memory.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/go-logging/memory.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/library/go-logging/memory_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/go-logging/memory_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/library/go-logging/multi.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/go-logging/multi.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/library/go-logging/multi_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/go-logging/multi_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/library/go-logging/syslog.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/go-logging/syslog.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/library/go-logging/syslog_fallback.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/go-logging/syslog_fallback.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/library/gocolly/colly/cmd/colly/colly.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/gocolly/colly/cmd/colly/colly.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/library/gocolly/colly/colly.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/gocolly/colly/colly.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/library/gocolly/colly/colly_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/gocolly/colly/colly_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/library/gocolly/colly/context.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/gocolly/colly/context.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/library/gocolly/colly/context_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/gocolly/colly/context_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/library/gocolly/colly/debug/debug.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/gocolly/colly/debug/debug.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/library/gocolly/colly/debug/logdebugger.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/gocolly/colly/debug/logdebugger.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/library/gocolly/colly/debug/webdebugger.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/gocolly/colly/debug/webdebugger.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/library/gocolly/colly/extensions/extensions.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/gocolly/colly/extensions/extensions.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/library/gocolly/colly/extensions/random_user_agent.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/gocolly/colly/extensions/random_user_agent.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/library/gocolly/colly/extensions/referrer.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/gocolly/colly/extensions/referrer.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/library/gocolly/colly/extensions/url_length_filter.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/gocolly/colly/extensions/url_length_filter.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/library/gocolly/colly/htmlelement.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/gocolly/colly/htmlelement.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/library/gocolly/colly/http_backend.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/gocolly/colly/http_backend.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/library/gocolly/colly/proxy/proxy.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/gocolly/colly/proxy/proxy.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/library/gocolly/colly/queue/queue.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/gocolly/colly/queue/queue.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/library/gocolly/colly/request.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/gocolly/colly/request.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/library/gocolly/colly/response.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/gocolly/colly/response.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/library/gocolly/colly/storage/storage.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/gocolly/colly/storage/storage.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/library/gocolly/colly/unmarshal.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/gocolly/colly/unmarshal.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/library/gocolly/colly/unmarshal_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/gocolly/colly/unmarshal_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/library/gocolly/colly/xmlelement.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/gocolly/colly/xmlelement.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/library/gocolly/colly/xmlelement_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/gocolly/colly/xmlelement_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/library/goquery/array_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/goquery/array_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/library/goquery/bench_array_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/goquery/bench_array_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/library/goquery/bench_example_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/goquery/bench_example_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/library/goquery/bench_expand_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/goquery/bench_expand_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/library/goquery/bench_filter_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/goquery/bench_filter_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/library/goquery/bench_iteration_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/goquery/bench_iteration_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/library/goquery/bench_property_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/goquery/bench_property_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/library/goquery/bench_query_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/goquery/bench_query_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/library/goquery/bench_traversal_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/goquery/bench_traversal_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/library/goquery/doc.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/goquery/doc.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/library/goquery/example_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/goquery/example_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/library/goquery/expand.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/goquery/expand.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/library/goquery/expand_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/goquery/expand_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/library/goquery/filter.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/goquery/filter.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/library/goquery/filter_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/goquery/filter_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/library/goquery/iteration.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/goquery/iteration.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/library/goquery/iteration_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/goquery/iteration_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/library/goquery/manipulation.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/goquery/manipulation.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/library/goquery/manipulation_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/goquery/manipulation_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/library/goquery/property.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/goquery/property.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/library/goquery/property_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/goquery/property_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/library/goquery/query.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/goquery/query.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/library/goquery/query_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/goquery/query_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/library/goquery/traversal.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/goquery/traversal.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/library/goquery/traversal_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/goquery/traversal_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/library/goquery/type.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/goquery/type.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/library/goquery/type_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/goquery/type_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/library/goquery/utilities.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/goquery/utilities.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/library/goquery/utilities_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/goquery/utilities_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/library/htmlquery/query.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/htmlquery/query.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/library/htmlquery/query_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/htmlquery/query_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/library/iconv-go/converter.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/iconv-go/converter.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/library/iconv-go/examples/sample.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/iconv-go/examples/sample.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/library/iconv-go/iconv.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/iconv-go/iconv.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/library/iconv-go/iconv_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/iconv-go/iconv_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/library/iconv-go/reader.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/iconv-go/reader.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/library/iconv-go/writer.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/iconv-go/writer.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/library/mahonia/8bit.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mahonia/8bit.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/library/mahonia/ASCII.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mahonia/ASCII.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/library/mahonia/big5-data.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mahonia/big5-data.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/library/mahonia/big5.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mahonia/big5.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/library/mahonia/charset.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mahonia/charset.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/library/mahonia/convert_string.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mahonia/convert_string.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/library/mahonia/entity.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mahonia/entity.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/library/mahonia/entity_data.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mahonia/entity_data.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/library/mahonia/euc-jp.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mahonia/euc-jp.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/library/mahonia/fallback.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mahonia/fallback.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/library/mahonia/gb18030-data.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mahonia/gb18030-data.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/library/mahonia/gb18030.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mahonia/gb18030.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/library/mahonia/gbk-data.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mahonia/gbk-data.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/library/mahonia/gbk.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mahonia/gbk.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/library/mahonia/jis0201-data.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mahonia/jis0201-data.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/library/mahonia/jis0208-data.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mahonia/jis0208-data.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/library/mahonia/jis0212-data.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mahonia/jis0212-data.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/library/mahonia/mahonia_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mahonia/mahonia_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/library/mahonia/mahoniconv/mahoniconv.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mahonia/mahoniconv/mahoniconv.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/library/mahonia/mbcs.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mahonia/mbcs.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/library/mahonia/reader.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mahonia/reader.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/library/mahonia/shiftjis.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mahonia/shiftjis.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/library/mahonia/translate.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mahonia/translate.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/library/mahonia/utf16.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mahonia/utf16.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/library/mahonia/utf8.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mahonia/utf8.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/library/mahonia/writer.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mahonia/writer.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/library/mgo.v2/bson/bson.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/bson/bson.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/library/mgo.v2/bson/bson_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/bson/bson_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/library/mgo.v2/bson/decimal.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/bson/decimal.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/library/mgo.v2/bson/decimal_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/bson/decimal_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/library/mgo.v2/bson/decode.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/bson/decode.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/library/mgo.v2/bson/encode.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/bson/encode.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/library/mgo.v2/bson/specdata_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/bson/specdata_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/library/mgo.v2/cluster_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/cluster_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/library/mgo.v2/dbtest/dbserver.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/dbtest/dbserver.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/library/mgo.v2/dbtest/export_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/dbtest/export_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/library/mgo.v2/doc.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/doc.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/library/mgo.v2/export_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/export_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/library/mgo.v2/internal/json/bench_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/internal/json/bench_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/library/mgo.v2/internal/json/decode.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/internal/json/decode.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/library/mgo.v2/internal/json/decode_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/internal/json/decode_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/library/mgo.v2/internal/json/encode.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/internal/json/encode.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/library/mgo.v2/internal/json/encode_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/internal/json/encode_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/library/mgo.v2/internal/json/example_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/internal/json/example_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/library/mgo.v2/internal/json/extension.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/internal/json/extension.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/library/mgo.v2/internal/json/extension_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/internal/json/extension_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/library/mgo.v2/internal/json/fold.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/internal/json/fold.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/library/mgo.v2/internal/json/fold_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/internal/json/fold_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/library/mgo.v2/internal/json/indent.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/internal/json/indent.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/library/mgo.v2/internal/json/number_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/internal/json/number_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/library/mgo.v2/internal/json/scanner.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/internal/json/scanner.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/library/mgo.v2/internal/json/scanner_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/internal/json/scanner_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/library/mgo.v2/internal/json/stream.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/internal/json/stream.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/library/mgo.v2/internal/json/stream_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/internal/json/stream_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/library/mgo.v2/internal/json/tagkey_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/internal/json/tagkey_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/library/mgo.v2/internal/json/tags.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/internal/json/tags.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/library/mgo.v2/internal/json/tags_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/internal/json/tags_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/library/mgo.v2/internal/sasl/sasl.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/internal/sasl/sasl.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/library/mgo.v2/internal/sasl/sasl_windows.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/internal/sasl/sasl_windows.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/library/mgo.v2/internal/scram/scram.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/internal/scram/scram.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/library/mgo.v2/log.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/log.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/library/mgo.v2/queue.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/queue.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/library/mgo.v2/queue_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/queue_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/library/mgo.v2/raceoff.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/raceoff.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/library/mgo.v2/raceon.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/raceon.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/library/mgo.v2/saslstub.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/saslstub.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/library/mgo.v2/stats.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/stats.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/library/mgo.v2/syscall_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/syscall_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/library/mgo.v2/syscall_windows_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/syscall_windows_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/library/mgo.v2/txn/chaos.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/txn/chaos.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/library/mgo.v2/txn/dockey_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/txn/dockey_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/library/mgo.v2/txn/sim_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/txn/sim_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/library/mgo.v2/txn/tarjan_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/mgo.v2/txn/tarjan_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/library/xmlquery/node.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/xmlquery/node.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/library/xmlquery/node_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/xmlquery/node_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/library/xmlquery/query.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/xmlquery/query.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/library/xmlquery/query_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/xmlquery/query_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/library/xpath/build.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/xpath/build.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/library/xpath/doc_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/xpath/doc_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/library/xpath/func.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/xpath/func.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/library/xpath/func_go110.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/xpath/func_go110.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/library/xpath/func_pre_go110.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/xpath/func_pre_go110.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/library/xpath/operator.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/xpath/operator.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/library/xpath/parse.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/xpath/parse.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/library/xpath/query.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/xpath/query.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/library/xpath/xpath.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/xpath/xpath.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/library/xpath/xpath_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/library/xpath/xpath_test.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../web/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../web/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/norm/norm_info.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/norm/norm_info.go" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -36,17 +620,18 @@
     <session id="-906188954">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="10" />
+          <entry key="project.closed" value="11" />
           <entry key="project.open.time.0" value="3" />
           <entry key="project.open.time.16" value="2" />
           <entry key="project.open.time.17" value="2" />
           <entry key="project.open.time.18" value="1" />
+          <entry key="project.open.time.19" value="1" />
           <entry key="project.open.time.20" value="1" />
           <entry key="project.open.time.22" value="1" />
           <entry key="project.open.time.26" value="1" />
           <entry key="project.open.time.4" value="2" />
           <entry key="project.open.time.54" value="1" />
-          <entry key="project.opened" value="14" />
+          <entry key="project.opened" value="15" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -90,20 +675,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/dcrawl/novel_bean.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1216">
+            <state relative-caret-position="587">
               <caret line="68" column="5" selection-start-line="68" selection-start-column="5" selection-end-line="68" selection-end-column="5" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/dspider/mzhu8.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="350">
-              <caret line="161" column="16" selection-start-line="161" selection-start-column="16" selection-end-line="161" selection-end-column="16" />
+            <state relative-caret-position="133">
+              <caret line="19" column="22" selection-start-line="19" selection-start-column="22" selection-end-line="19" selection-end-column="22" />
             </state>
           </provider>
         </entry>
@@ -120,8 +705,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/dcrawl/mongo.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="159">
-              <caret line="36" column="9" selection-start-line="36" selection-start-column="4" selection-end-line="36" selection-end-column="9" />
+            <state relative-caret-position="608">
+              <caret line="36" column="9" selection-start-line="36" selection-start-column="9" selection-end-line="36" selection-end-column="9" />
             </state>
           </provider>
         </entry>
@@ -193,8 +778,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="558" />
-    <option name="y" value="78" />
+    <option name="x" value="276" />
+    <option name="y" value="260" />
     <option name="width" value="1496" />
     <option name="height" value="809" />
   </component>
@@ -206,6 +791,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -240,7 +826,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -305,10 +890,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="85" y="152" width="1496" height="809" extended-state="0" />
+    <frame x="276" y="260" width="1496" height="809" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49885583" visible="true" weight="0.2270195" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49885583" visible="true" weight="0.22980501" />
       <window_info id="Structure" order="1" sideWeight="0.50153375" side_tool="true" weight="0.25373134" />
       <window_info id="Favorites" order="2" sideWeight="0.5011442" side_tool="true" weight="0.25373134" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -484,9 +1069,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="725">
           <caret line="100" column="16" selection-start-line="100" selection-start-column="16" selection-end-line="100" selection-end-column="16" />
-          <folding>
-            <element signature="e#17#128#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -555,8 +1137,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/dcrawl/novel_bean.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1216">
+        <state relative-caret-position="587">
           <caret line="68" column="5" selection-start-line="68" selection-start-column="5" selection-end-line="68" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/dspider/mzhu8.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="19" column="22" selection-start-line="19" selection-start-column="22" selection-end-line="19" selection-end-column="22" />
         </state>
       </provider>
     </entry>
@@ -569,15 +1158,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/dcrawl/mongo.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="159">
-          <caret line="36" column="9" selection-start-line="36" selection-start-column="4" selection-end-line="36" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/dspider/mzhu8.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="350">
-          <caret line="161" column="16" selection-start-line="161" selection-start-column="16" selection-end-line="161" selection-end-column="16" />
+        <state relative-caret-position="608">
+          <caret line="36" column="9" selection-start-line="36" selection-start-column="9" selection-end-line="36" selection-end-column="9" />
         </state>
       </provider>
     </entry>

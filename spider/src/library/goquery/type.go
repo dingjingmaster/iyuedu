@@ -7,8 +7,6 @@ import (
 	"library/andybalholm/cascadia"
 	"net/http"
 	"net/url"
-
-
 )
 
 // Document represents an HTML document to be manipulated. Unlike jQuery, which

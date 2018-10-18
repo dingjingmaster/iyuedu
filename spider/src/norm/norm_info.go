@@ -28,7 +28,6 @@ func NormAuthor(mstr string) string {
 	return mstr
 }
 
-
 func NormCategory(mstr string) string {
 
 	// 删除字符开头
@@ -77,17 +76,21 @@ func NormChapterName(mstr string) string {
 	mstrt := mstr
 	reg := regexp.MustCompile(`[\[{【]\s*\S+[}\]】]$`)
 	mstr = reg.ReplaceAllString(mstr, "")
-	if "" == mstr {mstr = mstrt}
+	if "" == mstr {
+		mstr = mstrt
+	}
 
 	mstrt = mstr
 	reg = regexp.MustCompile(`[（(]\s*\S+[)）]$`)
-	for _,mmtr := range reg.FindAllString(mstr, -1) {
+	for _, mmtr := range reg.FindAllString(mstr, -1) {
 		subreg := regexp.MustCompile(`月票|感谢|求推荐|求点击|求订阅|求票|第\S更|加更|打赏`)
 		if len(subreg.FindAllString(mmtr, -1)) > 0 {
 			mstr = reg.ReplaceAllString(mstr, "")
 		}
 	}
-	if "" == mstr {mstr = mstrt}
+	if "" == mstr {
+		mstr = mstrt
+	}
 	// 删除整个字符
 	reg = regexp.MustCompile(`[/.@!~#$%^&*:";?\\+=-_,￥—=]`)
 	mstr = reg.ReplaceAllString(mstr, "")
@@ -98,7 +101,9 @@ func NormChapterName(mstr string) string {
 /* 检查是否为 篇、部 */
 func CheckSection(mstr string) bool {
 	reg := regexp.MustCompile(`^(第.+[部章篇集卷辑季]|代序|序)`)
-	if len(reg.FindAllString(mstr, -1)) > 0 {return true}
+	if len(reg.FindAllString(mstr, -1)) > 0 {
+		return true
+	}
 	return false
 }
 

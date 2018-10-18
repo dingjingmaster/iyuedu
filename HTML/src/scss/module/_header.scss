@@ -1,0 +1,63 @@
+@charset "utf-8";
+@import "../common/_value.scss";
+
+header {
+  width: 80%;
+  height: 80px;
+  min-width: $MIN_WIDTH * 1px;
+  margin: 0 auto;
+  & > div {
+    width: 49%;
+    min-width: $MIN_WIDTH / 2 *1px;
+    float: left;
+    & > img { // 主页头部图片
+      width: 180px;
+      height: 80px;
+      margin: 9px;
+      cursor: pointer;
+    }
+    & > input { // 主页头部输入框
+      width: 380px;
+      height: 24px;
+      margin-top: 28px;
+      padding: 6px;
+      border: 1px solid $THEME_COLOR;
+      border-radius: 5px;
+    }
+    & > button {
+      width: 86px;
+      height: 33px;
+      border: 1px $THEME_COLOR;
+      border-radius: 2px;
+      margin-left: 16px;
+      text-decoration: none;
+      background-color: $COLOR_WRITE;
+    }
+  }
+}
+
+@media screen and (max-width: 960px) {
+  header {
+    width: 100%;
+    min-width: $MIN_PHONE_WIDTH * 1px;
+    & > div {
+      width: 98%;
+      margin-left:6px;
+      min-width: 200px;
+      //width: 49%;
+      & > img {
+        width: 120px;
+        height: 60px;
+        margin: 0 6px;
+      }
+      & > input { // 主页头部输入框
+        width: 70%;
+        margin:2px;
+      }
+      & > button {
+        width: 20%;
+        margin-left:9px;
+      }
+    }
+  }
+}

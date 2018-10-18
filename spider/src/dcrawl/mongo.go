@@ -7,12 +7,12 @@ import (
 )
 
 type SMongoInfo struct {
-	IP 								string
-	Port 							int
-	Usr								string
-	Pwd								string
-	DatabaseName 					string
-	PrefixCollect					string
+	IP            string
+	Port          int
+	Usr           string
+	Pwd           string
+	DatabaseName  string
+	PrefixCollect string
 }
 
 func getStandaloneUrl(mi SMongoInfo) string {
@@ -90,14 +90,12 @@ func UpdateDoc(mi SMongoInfo, id string, doc *NovelBean) bool {
 		}
 	}
 
-
 	defer session.Close()
 
 	return flag
 }
 
-
-func FindDocById (mi SMongoInfo, id string, doc *NovelBean) bool {
+func FindDocById(mi SMongoInfo, id string, doc *NovelBean) bool {
 	flag := true
 	session, err := mgo.Dial(getStandaloneUrl(mi))
 	if nil != err {
@@ -121,16 +119,15 @@ func FindDocById (mi SMongoInfo, id string, doc *NovelBean) bool {
 	ndata := []NovelData{}
 	cdata := session.DB(mi.DatabaseName).C(mi.PrefixCollect + "_data")
 
-	for _, did := range ninfo.Blocks{
+	for _, did := range ninfo.Blocks {
 		tmp := NovelData{}
-		err = cdata.Find(bson.M{"_id":did}).One(&tmp)
-		if nil == err{
+		err = cdata.Find(bson.M{"_id": did}).One(&tmp)
+		if nil == err {
 			ndata = append(ndata, tmp)
 		} else {
 			flag = false
 		}
 	}
-
 
 	defer session.Close()
 
