@@ -21,6 +21,9 @@ header {
       padding: 6px;
       border: 1px solid $THEME_COLOR;
       border-radius: 5px;
+      &:focus {
+        outline: none;
+      }
     }
     & > button {
       width: 86px;

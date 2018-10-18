@@ -26,6 +26,8 @@ header {
       padding: 6px;
       border: 1px solid #BF3EFF;
       border-radius: 5px; }
+      header > div > input:focus {
+        outline: none; }
     header > div > button {
       width: 86px;
       height: 33px;
