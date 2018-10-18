@@ -2,13 +2,11 @@
 @import "../common/_value.scss";
 
 header {
-  width: 80%;
+  width: $DESKTOP_WIDTH * 1px;
   height: 80px;
-  min-width: $MIN_WIDTH * 1px;
   margin: 0 auto;
   & > div {
     width: 49%;
-    min-width: $MIN_WIDTH / 2 *1px;
     float: left;
     & > img { // 主页头部图片
       width: 180px;

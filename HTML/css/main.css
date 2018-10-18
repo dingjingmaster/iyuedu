@@ -8,13 +8,11 @@ body {
   user-select: none; }
 
 header {
-  width: 80%;
+  width: 1300px;
   height: 80px;
-  min-width: 1000px;
   margin: 0 auto; }
   header > div {
     width: 49%;
-    min-width: 500px;
     float: left; }
     header > div > img {
       width: 180px;
@@ -59,12 +57,11 @@ nav {
   width: 100%;
   height: 56px;
   margin-top: 18px;
-  min-width: 1000px;
+  min-width: 1300px;
   background-color: #3e3d43;
   overflow: hidden; }
   nav > ul {
-    width: 80%;
-    min-width: 1000px;
+    width: 1300px;
     margin: auto;
     font-size: 15pt;
     color: beige;
@@ -79,6 +76,7 @@ nav {
       background-color: #BF3EFF;
       cursor: pointer; }
     nav > ul > li:nth-child(5) {
+      margin-right: 100px;
       float: right; }
     nav > ul a {
       cursor: pointer; }
