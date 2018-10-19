@@ -1,0 +1,98 @@
+@charset "utf-8";
+@import "../common/value";
+
+.content {
+  width: $DESKTOP_WIDTH * 1px;
+  margin: 16px auto;
+  & > div {
+    width: $DESKTOP_WIDTH / 4 * 1px;
+    float: left;
+    & > div {
+      width: 98%;
+      float: left;
+      margin: 2px auto;
+      & > hr {width: 96%}
+      & > h3 {
+        margin: 4px;
+        font-size: 15pt;
+        font-family: 华文楷体, serif;
+        color: $THEME_COLOR;
+      }
+      & > ul {
+        margin: 0 auto;
+        overflow: hidden;
+        float: left;
+        list-style-type: none;
+        & > li {
+          width: 96%;
+          margin: 0 auto;
+          padding: 12px 2px;
+          float: left;
+          & > div {
+            width: 220px;
+            margin: 0 auto;
+            float: left;
+            & > h3 {
+              font-size: 14pt;
+              font-weight: 500;
+              color: dimgrey;
+              font-family: 华文楷体 sans-serif;
+              & > span {
+                padding: 3px;
+                font-size: 8pt;
+                background-color: #BF3EFF;
+                color: #fff;
+              }
+            }
+            & > p {
+              width: 210px;
+              height: 72px;
+              margin-top: 12px;
+              padding: 2px;
+              font-size: 10pt;
+              font-weight: 400;
+              word-wrap: break-word;
+              float: left;
+              color: dimgrey;
+              overflow: hidden;
+              font-family: 华文楷体 sans-serif;
+            }
+          }
+          & > img {
+            width: 80px;
+            height: 120px;
+            float: right;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 960px) {
+  .content {
+    width: 92%;
+    margin: 0 auto;
+    min-width: $MIN_PHONE_WIDTH * 1px;
+    & > div {
+      width: 100%;
+      & > div {
+        width: 100%;
+        hr {width: 100%}
+        & > ul {
+          width: 100%;
+          li {
+            width: 98%;
+            margin: 0 auto;
+            & > div {
+              & > p {
+                width: 230px;
+                overflow: hidden;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
