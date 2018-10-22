@@ -34,7 +34,6 @@ type SpiderContent struct {
 
 var SpiderGroup = sync.WaitGroup{}
 
-
 /* 获取 url get 请求 */
 func GetHTMLByUrl(url string, head *map[string]string) (bool, string) {
 
@@ -111,14 +110,8 @@ func Post(url string, head *map[string]string, para *map[string]string) (bool, s
 	return ret, html
 }
 
-
-
-
-
-
-
 /* 请求 http 返回 html */
-func GetHTTPRequest (url string, head *map[string]string) (bool, string) {
+func GetHTTPRequest(url string, head *map[string]string) (bool, string) {
 	ret := false
 	body := ""
 
@@ -154,7 +147,7 @@ func GetHTTPRequest (url string, head *map[string]string) (bool, string) {
 }
 
 /* 请求 https 返回 html */
-func GetHTTPSRequest (url string, head *map[string]string) (bool, string) {
+func GetHTTPSRequest(url string, head *map[string]string) (bool, string) {
 	ret := false
 	body := ""
 	tr := &http.Transport{
@@ -197,7 +190,6 @@ func GetHTTPSRequest (url string, head *map[string]string) (bool, string) {
 	return ret, body
 }
 
-
 /* 没有任何依赖的工具函数 */
 
 /* 从 []byte 读取数据并转为 strig */
@@ -218,7 +210,7 @@ func ReadByteToString(bt *io.ReadCloser) (bool, string) {
 }
 
 /* 获取页面的字符编码，返回字符编码 */
-func GetHTMLCharset (html *string) string {
+func GetHTMLCharset(html *string) string {
 	ret := false
 	cs := "utf8"
 
@@ -243,7 +235,7 @@ func GetHTMLCharset (html *string) string {
 }
 
 /* 检查请求类型，是 http 还是 https，返回请求类型和 url */
-func CheckHTTP (url string) (string, string) {
+func CheckHTTP(url string) (string, string) {
 	reqType := "http"
 	arr := strings.SplitN(url, "://", -1)
 	if (len(arr) >= 2) && ("https" == arr[0]) {
@@ -257,7 +249,7 @@ func CheckHTTP (url string) (string, string) {
 func ConvertToString(src string, srcCode string, tagCode string) string {
 	result := ""
 	// 修正网站上编码字符串错误问题
-	codes := map[string]string {
+	codes := map[string]string{
 		"gb2312": "gbk",
 	}
 
