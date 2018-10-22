@@ -30,7 +30,7 @@ type NovelField struct {
 }
 
 type NovelInfo struct {
-	Id         string `bson:"_id,omitempty"` // 主键 name + author + yuan 上线要映射
+	Id         string `bson:"_id,omitempty"` // 主键 数字
 	Name       string `bson:"name"`          // 书名
 	Author     string `bson:"author"`        // 作者名
 	NormName   string `bson:"norm_name"`     // 归一书名

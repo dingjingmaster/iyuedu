@@ -2,7 +2,7 @@ package main
 
 import (
 	"dcrawl"
-	"fmt"
+	"dspider"
 )
 
 /**
@@ -10,9 +10,9 @@ import (
  * 一个爬虫，一个线程
  */
 
-//var MI = dcrawl.SMongoInfo{"127.0.0.1", 27017, "", "", "novel_online", "online"}
+var MI = dcrawl.SMongoInfo{"127.0.0.1", 27017, "", "", "novel_online", "online"}
 
-//var SC = map[*dcrawl.SpiderContent]dcrawl.SpiderRun{}
+var SC = map[*dcrawl.SpiderContent]dcrawl.SpiderRun{}
 
 func main() {
 	/* mzhu8 爬虫 */
@@ -32,31 +32,28 @@ func main() {
 	//}
 
 	/* 顶点小说 */
-	//booktxt := dcrawl.SpiderContent{}
-	//booktxt.SpiderName = "booktxt"
-	//booktxt.BaseUrl = "http://www.mzhu8.com"
-	//booktxt.MI = MI
-	//booktxt.SeedUrl = map[string]int{
-	//}
+	booktxt := dcrawl.SpiderContent{}
+	booktxt.SpiderName = "booktxt"
+	booktxt.BaseUrl = "https://www.booktxt.net/"
+	booktxt.MI = MI
+	booktxt.SeedUrl = map[string]int{
+		"https://www.booktxt.net/xiaoshuodaquan/": 0,
+	}
 
 	/* 添加爬虫 */
 	//SC[&mzhu8] = dspider.Mzhu8Run
-	//SC[&booktxt] = dspider.Mzhu8Run
+	SC[&booktxt] = dspider.BookTxtRun
 
 	/* 开始运行爬虫 */
-	//for spp, spf := range SC {
-	//	dcrawl.SpiderGroup.Add(1)
-	//	go spf(spp)
-	//}
+	for spp, spf := range SC {
+		dcrawl.SpiderGroup.Add(1)
+		go spf(spp)
+	}
 
 	/* 等待所有爬虫执行完毕 */
-	//dcrawl.SpiderGroup.Wait()
+	dcrawl.SpiderGroup.Wait()
 
 
-
-	ret, html := dcrawl.GetHTMLByUrl("http://www.baiddu.com", nil)
-	fmt.Println(ret)
-	fmt.Println(html)
 
 
 }

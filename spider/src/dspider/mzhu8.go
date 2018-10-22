@@ -27,7 +27,7 @@ func mzhu8GetUrl(baseUrl string, seedUrl *map[string]int, bookUrl *map[string]bo
 
 	// 获取书籍 bookUrl
 	for _, v := range mulu {
-		ret, html := dcrawl.GetHTMLByUrl(&v, nil)
+		ret, html := dcrawl.GetHTMLByUrl(v, nil)
 		if !ret {
 			dcrawl.Log.Errorf("获取html失败:%s", v)
 			continue
@@ -64,7 +64,7 @@ func mzhu8ParseBook(baseUrl string, bookUrl *map[string]bool, data chan dcrawl.N
 		novelInfo.ImgContent = []byte{}
 		novelInfo.ErrorChapterUrl = map[string]string{}
 		novelInfo.ChapterContent = map[string]string{}
-		ret, html := dcrawl.GetHTMLByUrl(&url, nil)
+		ret, html := dcrawl.GetHTMLByUrl(url, nil)
 		if !ret {
 			dcrawl.Log.Errorf("获取html失败:%s", url)
 			continue
@@ -171,7 +171,7 @@ func downloadData(baseUrl string, downNum int, spiderName string, download *sync
 					head1["User-Agent"] = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36"
 					head1["Referer"] = info.NovelUrl
 
-					ret, body := dcrawl.GetHTMLByUrl(&url, &head1)
+					ret, body := dcrawl.GetHTMLByUrl(url, &head1)
 					if !ret {
 						info.ErrorChapterUrl[url] = cname
 						dcrawl.Log.Errorf("请求错误: %s", url)
@@ -207,7 +207,7 @@ func downloadData(baseUrl string, downNum int, spiderName string, download *sync
 					para["cid"] = arr[3]
 					para["r"] = "0.4814884913447719"
 
-					ret, body = dcrawl.Post(&post, &head2, &para)
+					ret, body = dcrawl.Post(post, &head2, &para)
 					if !ret {
 						info.ErrorChapterUrl[url] = cname
 						dcrawl.Log.Errorf("错误的响应: %s", url)
