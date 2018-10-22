@@ -56,78 +56,60 @@ func GetHTMLByUrl(url string, head *map[string]string) (bool, string) {
 	return ret, html
 }
 
-
-
-
-// 根据 url 获取页面 html 字符串
-func Post(url *string, head *map[string]string, para *map[string]string) (bool, string) {
-	charset := "utf8"
-	ret := true
-
-RET:
-	if !ret {
-		return ret, ""
-	}
-
-	if (nil == url) || ("" == *url) || (nil == para) {
-		Log.Errorf("错误的输入参数: %s", url)
-		goto RET
-	}
-
+func Post(url string, head *map[string]string, para *map[string]string) (bool, string) {
+	ret := false
+	html := ""
+	client := &http.Client{}
 	paras := []string{}
 	for k, v := range *para {
 		paras = append(paras, k+"="+v)
 	}
-	client := &http.Client{}
-	request, err := http.NewRequest("POST", *url, strings.NewReader(strings.Join(paras, "&")))
-	if nil != err {
-		Log.Errorf("错误的request post: %s|%s", url, err)
-		ret = false
-		goto RET
-	}
-	if nil != head {
-		for k, v := range *head {
-			request.Header.Add(k, v)
+
+	rtp, _ := CheckHTTP(url)
+	if "https" == rtp {
+		tr := &http.Transport{
+			TLSClientConfig: &tls.Config{InsecureSkipVerify: true},
+		}
+		cookieJar, _ := cookiejar.New(nil)
+		client = &http.Client{
+			Jar:       cookieJar,
+			Transport: tr,
 		}
 	}
 
-	resp, err := client.Do(request)
-	if (nil != err) || (200 != resp.StatusCode) {
+	if nil == para {
 		ret = false
-		Log.Errorf("无法访问url: %s|%s\n", url, err)
-		goto RET
-	}
-	defer resp.Body.Close()
-	body, err := ioutil.ReadAll(resp.Body)
-	if nil != err {
-		ret = false
-		Log.Errorf("byte转string失败:%s\n", url)
-		goto RET
+		Log.Errorf("post请求参数错误: %s", url)
 	}
 
-	doc, err := goquery.NewDocumentFromReader(strings.NewReader(string(body)))
-	if nil != err {
-		ret = false
-		Log.Errorf("HTML转string失败%s\n", url)
-		goto RET
-	}
-
-	// 获取页面编码
-	ic, errs := doc.Find("head").Find("meta[http-equiv]").Attr("content")
-	if errs {
-		ic = strings.TrimSpace(ic)
-		ict := strings.Split(ic, "=")
-		ic = ict[len(ict)-1]
-		if "" != ic {
-			charset = ic
+	if ret {
+		request, err := http.NewRequest("POST", url, strings.NewReader(strings.Join(paras, "&")))
+		if nil != err {
+			Log.Errorf("错误的request post: %s|%s", url, err)
 		}
+		if nil != head {
+			for k, v := range *head {
+				request.Header.Add(k, v)
+			}
+		}
+		resp, err := client.Do(request)
+		if (nil != err) || (200 != resp.StatusCode) {
+			ret = false
+			Log.Errorf("无法访问url: %s|%s\n", url, err)
+		} else {
+			err, htmp := ReadByteToString(&(resp.Body))
+			if !err {
+				ret = true
+				html = ConvertToString(string(htmp), GetHTMLCharset(&htmp), "utf8")
+			} else {
+				ret = false
+			}
+		}
+		defer resp.Body.Close()
 	}
 
-	return ret, ConvertToString(string(body), charset, "utf8")
+	return ret, html
 }
-
-
-
 
 
 
