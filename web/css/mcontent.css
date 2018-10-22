@@ -1,0 +1,80 @@
+@charset "UTF-8";
+.content {
+  width: 1300px;
+  margin: 16px auto; }
+  .content > div {
+    width: 325px;
+    float: left; }
+    .content > div > div {
+      width: 98%;
+      float: left;
+      margin: 2px auto; }
+      .content > div > div > hr {
+        width: 96%; }
+      .content > div > div > h3 {
+        margin: 4px;
+        font-size: 15pt;
+        font-family: 华文楷体, serif;
+        color: #BF3EFF; }
+      .content > div > div > ul {
+        margin: 0 auto;
+        overflow: hidden;
+        float: left;
+        list-style-type: none; }
+        .content > div > div > ul > li {
+          width: 96%;
+          margin: 0 auto;
+          padding: 12px 2px;
+          float: left; }
+          .content > div > div > ul > li > div {
+            width: 220px;
+            margin: 0 auto;
+            float: left; }
+            .content > div > div > ul > li > div > h3 {
+              font-size: 14pt;
+              font-weight: 500;
+              color: dimgrey;
+              font-family: 华文楷体 sans-serif; }
+              .content > div > div > ul > li > div > h3 > span {
+                padding: 3px;
+                font-size: 8pt;
+                background-color: #BF3EFF;
+                color: #fff; }
+            .content > div > div > ul > li > div > p {
+              width: 210px;
+              height: 72px;
+              margin-top: 12px;
+              padding: 2px;
+              font-size: 10pt;
+              font-weight: 400;
+              word-wrap: break-word;
+              float: left;
+              color: dimgrey;
+              overflow: hidden;
+              font-family: 华文楷体 sans-serif; }
+          .content > div > div > ul > li > img {
+            width: 80px;
+            height: 120px;
+            float: right; }
+
+@media screen and (max-width: 960px) {
+  .content {
+    width: 92%;
+    margin: 0 auto;
+    min-width: 300px; }
+    .content > div {
+      width: 100%; }
+      .content > div > div {
+        width: 100%; }
+        .content > div > div hr {
+          width: 100%; }
+        .content > div > div > ul {
+          width: 100%; }
+          .content > div > div > ul li {
+            width: 98%;
+            margin: 0 auto; }
+            .content > div > div > ul li > div > p {
+              width: 230px;
+              overflow: hidden; } }
+
+/*# sourceMappingURL=mcontent.css.map */
