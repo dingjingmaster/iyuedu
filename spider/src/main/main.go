@@ -13,7 +13,7 @@ import (
 var MI = dcrawl.SMongoInfo{"127.0.0.1", 27017, "", "", "novel_online", "online"}
 
 var SC = map[*dcrawl.SpiderContent]dcrawl.SpiderRun{}
-var saveToMongo = make(chan dcrawl.NovelField, 1)
+var saveToMongo = make(chan dcrawl.NovelField, 100)
 
 func main() {
 	/* mzhu8 爬虫 */

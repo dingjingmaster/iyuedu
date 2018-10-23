@@ -115,7 +115,7 @@ func GetHTTPRequest(url string, head *map[string]string) (bool, string) {
 	client := &http.Client{}
 	request, err := http.NewRequest("GET", url, nil)
 	if nil != err {
-		Log.Errorf("错误的 get 请求: %s|%s", url, err)
+		Log.Errorf("错误的 get 请求: %s | %s", url, err)
 	}
 	if nil != head {
 		for k, v := range *head {
@@ -125,7 +125,7 @@ func GetHTTPRequest(url string, head *map[string]string) (bool, string) {
 	resp, err := client.Do(request)
 	if (nil != err) || (200 != resp.StatusCode) {
 		ret = false
-		Log.Errorf("url访问错误: %s|%s\n", url, err)
+		Log.Errorf("url访问错误: %s | %s", url, err)
 	} else {
 		ret = true
 	}
@@ -173,7 +173,6 @@ func GetHTTPSRequest(url string, head *map[string]string) (bool, string) {
 	} else {
 		ret = true
 	}
-	defer resp.Body.Close()
 
 	if ret {
 		tret, html := ReadByteToString(&(resp.Body))
@@ -183,6 +182,8 @@ func GetHTTPSRequest(url string, head *map[string]string) (bool, string) {
 			ret = false
 		}
 	}
+
+	defer resp.Body.Close()
 
 	return ret, body
 }
