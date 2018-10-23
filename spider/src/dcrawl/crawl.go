@@ -17,7 +17,6 @@ import (
 	"net/http"
 	"net/http/cookiejar"
 	"strings"
-	"sync"
 )
 
 //
@@ -25,13 +24,12 @@ import (
 type SpiderRun func(np *SpiderContent)
 
 type SpiderContent struct {
-	BaseUrl    string         // 首页url
-	SpiderName string         // 爬虫名字
-	SeedUrl    map[string]int // 种子 url
-	MI         SMongoInfo     // mongodb 连接信息
+	BaseUrl    string           // 首页url
+	SpiderName string           // 爬虫名字
+	SeedUrl    map[string]int   // 种子 url
+	MI         SMongoInfo       // mongodb 连接信息
+	ToMongo    *chan NovelField // 保存到 mongodb
 }
-
-var SpiderGroup = sync.WaitGroup{}
 
 /* 获取 url get 请求 */
 func GetHTMLByUrl(url string, head *map[string]string) (bool, string) {

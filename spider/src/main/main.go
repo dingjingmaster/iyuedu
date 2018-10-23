@@ -13,6 +13,7 @@ import (
 var MI = dcrawl.SMongoInfo{"127.0.0.1", 27017, "", "", "novel_online", "online"}
 
 var SC = map[*dcrawl.SpiderContent]dcrawl.SpiderRun{}
+var saveToMongo = make(chan dcrawl.NovelField, 1)
 
 func main() {
 	/* mzhu8 爬虫 */
@@ -35,7 +36,7 @@ func main() {
 	booktxt := dcrawl.SpiderContent{}
 	booktxt.SpiderName = "booktxt"
 	booktxt.BaseUrl = "https://www.booktxt.net/"
-	booktxt.MI = MI
+	booktxt.ToMongo = &saveToMongo
 	booktxt.SeedUrl = map[string]int{
 		"https://www.booktxt.net/xiaoshuodaquan/": 0,
 	}
@@ -46,14 +47,16 @@ func main() {
 
 	/* 开始运行爬虫 */
 	for spp, spf := range SC {
-		dcrawl.SpiderGroup.Add(1)
 		go spf(spp)
 	}
 
-	/* 等待所有爬虫执行完毕 */
-	dcrawl.SpiderGroup.Wait()
-
-
-
+	/* 保存到 mongodb */
+	for {
+		if novelField, ok := <- saveToMongo; ok {
+			dcrawl.SaveToMongo(MI, novelField)
+		} else {
+			break
+		}
+	}
 
 }

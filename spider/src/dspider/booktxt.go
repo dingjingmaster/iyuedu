@@ -10,15 +10,16 @@ import (
 	"regexp"
 	"strconv"
 	"strings"
+	"sync"
 	"time"
 )
 
 func booktxtGetUrl(baseUrl string, seedUrl *map[string]int, bookUrl *map[string]bool) {
 
 	for url, _ := range *seedUrl {
-		head := map[string]string {
+		head := map[string]string{
 			"Referer": "https://www.booktxt.net/",
-			"Cookie": "__jsluid=adec22b5996125f9c7014a20d6a84d1c; Hm_lvt_3a0ea2f51f8d9b11a51868e48314bf4d=1538577486,1538577516; Hm_lpvt_3a0ea2f51f8d9b11a51868e48314bf4d=1540189295",
+			"Cookie":  "__jsluid=adec22b5996125f9c7014a20d6a84d1c; Hm_lvt_3a0ea2f51f8d9b11a51868e48314bf4d=1538577486,1538577516; Hm_lpvt_3a0ea2f51f8d9b11a51868e48314bf4d=1540189295",
 		}
 		ok, html := dcrawl.GetHTMLByUrl(url, &head)
 		if !ok {
@@ -54,9 +55,9 @@ func booktxtParserInfo(baseUrl string, bookUrls *map[string]bool, novelInfoChan 
 		novelInfo.ErrorChapterUrl = map[string]string{}
 		novelInfo.ChapterContent = map[string]string{}
 		/* 下载 url */
-		head := map[string]string {
+		head := map[string]string{
 			"Referer": "https://www.booktxt.net/",
-			"Cookie": "__jsluid=adec22b5996125f9c7014a20d6a84d1c; Hm_lvt_3a0ea2f51f8d9b11a51868e48314bf4d=1538577486,1538577516; Hm_lpvt_3a0ea2f51f8d9b11a51868e48314bf4d=1540189295",
+			"Cookie":  "__jsluid=adec22b5996125f9c7014a20d6a84d1c; Hm_lvt_3a0ea2f51f8d9b11a51868e48314bf4d=1538577486,1538577516; Hm_lpvt_3a0ea2f51f8d9b11a51868e48314bf4d=1540189295",
 		}
 		ok, html := dcrawl.GetHTMLByUrl(url, &head)
 		if !ok {
@@ -96,13 +97,14 @@ func booktxtParserInfo(baseUrl string, bookUrls *map[string]bool, novelInfoChan 
 		novelInfo.Author = norm.NormAuthor(author)
 
 		/* 图片 url */
+		dcrawl.Log.Infof("开始获取 %s 图片url!", novelInfo.Name)
 		imgUrl, _ := doc.Find("#fmimg>img").Attr("src")
 		if !strings.HasPrefix(imgUrl, baseUrl) {
 			imgUrl = baseUrl + imgUrl
 		}
 		novelInfo.ImgUrl = imgUrl
 		tpt := strings.Split(imgUrl, ".")
-		novelInfo.ImgType = tpt[len(tpt) - 1]
+		novelInfo.ImgType = tpt[len(tpt)-1]
 
 		/* 简介 */
 		desc := mainInfo.Find("#intro>p").Text()
@@ -120,6 +122,7 @@ func booktxtParserInfo(baseUrl string, bookUrls *map[string]bool, novelInfoChan 
 		/* 章节 及 url */
 		flg := false
 		cp := 0
+		dcrawl.Log.Infof("开始获取 %s 章节信息!", novelInfo.Name)
 		doc.Find(".box_con>#list>dl").Children().Each(func(i int, selection *goquery.Selection) {
 			if strings.Contains(selection.Text(), "正文") {
 				flg = true
@@ -127,30 +130,31 @@ func booktxtParserInfo(baseUrl string, bookUrls *map[string]bool, novelInfoChan 
 
 			if flg {
 				if selection.Is("dd") {
-					cp ++
+					cp++
 					chapter := norm.NormChapterName(selection.Text())
 					if href, ok := selection.Find("a").Attr("href"); ok {
 						novelInfo.ChapterUrl[novelInfo.NovelUrl + href] = strconv.Itoa(cp) + "{]" + chapter
+						dcrawl.Log.Infof("获取书籍 %s|%s 章节 %s  -->  %s...", novelInfo.Name, novelInfo.Author, chapter, novelInfo.NovelUrl + href)
 					}
 				}
 			}
 		})
 
 		*novelInfoChan <- novelInfo
+		dcrawl.Log.Infof("%s|%s基本信息提取完成!", novelInfo.Name, novelInfo.Author)
 	}
 }
 
 /* 下载小说 */
-func booktxtDownload(mongo dcrawl.SMongoInfo, novelInfo *chan dcrawl.NovelField, toSave *chan dcrawl.NovelField)  {
+func booktxtDownload(mongo dcrawl.SMongoInfo, wait *sync.WaitGroup, novelInfo *chan dcrawl.NovelField, toSave *chan dcrawl.NovelField) {
 	if (nil == novelInfo) || (nil == toSave) {
+		dcrawl.Log.Errorf("输入参数错误")
 		return
 	}
 
 	for {
-		if ninfo, ok := <- *novelInfo; ok {
-
+		if ninfo, ok := <-*novelInfo; ok {
 			novelTemp := dcrawl.NovelBean{}
-
 			// 找到数据库中的 书籍，看看章节信息相差大不大
 			name := ninfo.Name
 			author := ninfo.Author
@@ -160,12 +164,14 @@ func booktxtDownload(mongo dcrawl.SMongoInfo, novelInfo *chan dcrawl.NovelField,
 			if dcrawl.FindDocByField(mongo, &field, &novelTemp) {
 				// 比较章节数量是否相同
 				if (novelTemp.Info.ChapterNum == len(ninfo.ChapterUrl)) && (len(novelTemp.Info.ErrorChapter) <= 0) {
+					dcrawl.Log.Infof("数据库中已存在:%s|%s", name, author)
 					continue
 				}
 			}
 
 			/* 没有找到 或者 有错误章节 或者 有新章节 ---> 开始下载 */
 			// 下载图片
+			dcrawl.Log.Infof("开始下载 %s|%s 图片!", name, author)
 			img := ninfo.ImgUrl
 			resp, err := http.Get(img)
 			if nil != err {
@@ -180,17 +186,17 @@ func booktxtDownload(mongo dcrawl.SMongoInfo, novelInfo *chan dcrawl.NovelField,
 			}
 
 			// 下载章节
+			dcrawl.Log.Infof("开始下载 %s|%s 章节!", name, author)
 			for url, cname := range ninfo.ChapterUrl {
-
-				head := map[string]string {
-					"Referer": "https://www.booktxt.net/",
-					"Cookie": "__jsluid=adec22b5996125f9c7014a20d6a84d1c; Hm_lvt_3a0ea2f51f8d9b11a51868e48314bf4d=1538577486,1538577516; Hm_lpvt_3a0ea2f51f8d9b11a51868e48314bf4d=1540189295",
+				head := map[string]string{
+					"Referer": ninfo.NovelUrl,
+					"Cookie":  "__jsluid=adec22b5996125f9c7014a20d6a84d1c; Hm_lvt_3a0ea2f51f8d9b11a51868e48314bf4d=1538577486,1538577516; Hm_lpvt_3a0ea2f51f8d9b11a51868e48314bf4d=1540189295",
 				}
 				ok, html := dcrawl.GetHTMLByUrl(url, &head)
 				if !ok {
 					dcrawl.Log.Errorf("请求url:%s 错误!", url)
 					ninfo.ErrorChapterUrl[url] = cname
-					time.Sleep(time.Second)
+					time.Sleep(time.Second * 3)
 					continue
 				}
 
@@ -205,28 +211,29 @@ func booktxtDownload(mongo dcrawl.SMongoInfo, novelInfo *chan dcrawl.NovelField,
 				/* 获取文章内容 */
 				content := doc.Find("#content").Text()
 				ninfo.ChapterContent[cname] = norm.NormContent(content)
-
-				time.Sleep(time.Millisecond * 300)
+				time.Sleep(time.Millisecond * 3)
+				dcrawl.Log.Infof("书籍 %s|%s|%s 章节下载完成!", ninfo.Name, ninfo.Author, cname)
 			}
+			*toSave <- ninfo
+			dcrawl.Log.Infof("书籍 %s|%s 信息获取完成!", ninfo.Name, ninfo.Author)
+		} else {
+			break
 		}
 	}
-
+	wait.Done()
 }
 
-
-func BookTxtRun(np *dcrawl.SpiderContent)  {
+func BookTxtRun(np *dcrawl.SpiderContent) {
 
 	bookUrl := map[string]bool{}
 	novelChan := make(chan dcrawl.NovelField, 10)
-	saveChan := make(chan dcrawl.NovelField, 100)
-
-
-	//waitGroup := sync.WaitGroup{}
+	wait := sync.WaitGroup{}
+	downloadNum := 3
 
 	dcrawl.Log.Infof("bookTxt 开始执行,base url: %s", np.BaseUrl)
 
 	/* 获取 url */
-	booktxtGetUrl(np.BaseUrl,&(np.SeedUrl), &bookUrl)
+	booktxtGetUrl(np.BaseUrl, &(np.SeedUrl), &bookUrl)
 	dcrawl.Log.Infof("bookTxt 获取书籍url成功!")
 
 	/* 解析小说 */
@@ -235,15 +242,12 @@ func BookTxtRun(np *dcrawl.SpiderContent)  {
 	/**
 	 *  1. 检测数据库中是否存在 ---- 书名 + 作者名 + 解析器名
 	 *  2. 存在则匹配是否需要下载
+	 *  3. 下载 && 保存
 	 */
-	 booktxtDownload(np.MI, &novelChan, &saveChan)
-	
+	 for i := 0; i < downloadNum; i++ {
+	 	wait.Add(1)
+	 	go booktxtDownload(np.MI, &wait, &novelChan, np.ToMongo)
+	 }
 
-
-	 //time.Sleep(20 * time.Second)
-
-
-
-
-	dcrawl.SpiderGroup.Done()
+	 wait.Wait()
 }
