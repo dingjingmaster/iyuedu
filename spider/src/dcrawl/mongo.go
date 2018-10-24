@@ -288,7 +288,7 @@ func SaveToMongo(mongo SMongoInfo, info NovelField) {
 	if ok := FindDocByField(mongo, &fild, &novelTmp); ok {
 		/* 已有这一信息 */
 		if novelTmp.Info.MaskLevel > 0 {
-			Log.Debugf("不需要更新的书籍: %s|%s", novelTmp.Info.Name, novelTmp.Info.Author)
+			Log.Infof("不需要更新的书籍: %s|%s", novelTmp.Info.Name, novelTmp.Info.Author)
 			return
 		}
 
@@ -364,6 +364,8 @@ func SaveToMongo(mongo SMongoInfo, info NovelField) {
 		novelTmp.Data = data
 		if UpdateDoc(mongo, novelTmp.Info.Id, &novelTmp) {
 			Log.Infof("更新 %s|%s|%s 成功!!!", info.NovelParse, info.Name, info.Author)
+		} else {
+			Log.Errorf("更新 %s|%s|%s 失败!!!", info.NovelParse, info.Name, info.Author)
 		}
 	} else {
 		novelTmp.Info.Name = info.Name
@@ -397,6 +399,8 @@ func SaveToMongo(mongo SMongoInfo, info NovelField) {
 
 		if InserDoc(mongo, &novelTmp) {
 			Log.Infof("插入 %s|%s|%s 成功!!!", info.NovelParse, info.Name, info.Author)
+		} else {
+			Log.Errorf("插入 %s|%s|%s 失败!!!", info.NovelParse, info.Name, info.Author)
 		}
 	}
 }
