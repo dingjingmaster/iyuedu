@@ -10,6 +10,7 @@ logFile="${LOG_PATH}/spider_${today}.log"
 
 ## 开始执行
 cd ${workDir}
+rm -fr ${GOCACHE}
 rm -fr ./main
 go build ./src/main/
 
