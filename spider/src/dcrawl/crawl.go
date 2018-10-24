@@ -54,7 +54,7 @@ func Post(url string, head *map[string]string, para *map[string]string) (bool, s
 	client := &http.Client{}
 	paras := []string{}
 	for k, v := range *para {
-		paras = append(paras, k+"="+v)
+		paras = append(paras, k + "=" + v)
 	}
 
 	rtp, _ := CheckHTTP(url)
@@ -102,7 +102,7 @@ func GetHTTPRequest(url string, head *map[string]string) (bool, string) {
 				request.Header.Add(k, v)
 			}
 		}
-		if resp, err := client.Do(request); (nil == err) || (200 == resp.StatusCode) {
+		if resp, err := client.Do(request); (nil == err) && (200 == resp.StatusCode) {
 			defer resp.Body.Close()
 			ret = true
 			if rt, html := ReadByteToString(&(resp.Body)); rt {
@@ -112,7 +112,7 @@ func GetHTTPRequest(url string, head *map[string]string) (bool, string) {
 			Log.Errorf("url访问错误: %s | %s", url, err)
 		}
 
-	} else{
+	} else {
 		Log.Errorf("错误的 get 请求: %s | %s", url, err)
 	}
 
@@ -139,7 +139,7 @@ func GetHTTPSRequest(url string, head *map[string]string) (bool, string) {
 				request.Header.Add(k, v)
 			}
 		}
-		if resp, err := client.Do(request); (nil == err) || (200 == resp.StatusCode) {
+		if resp, err := client.Do(request); (nil == err) && (200 == resp.StatusCode) {
 			if tret, html := ReadByteToString(&(resp.Body)); tret {
 				body = ConvertToString(string(html), GetHTMLCharset(&html), "utf8")
 				ret = true

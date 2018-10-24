@@ -35,29 +35,41 @@ func InserDoc(mi SMongoInfo, doc *NovelBean) bool {
 		session.SetMode(mgo.Monotonic, true)
 		config := SMongoConfig{}
 		if ok := GetConfig(mi, &config); ok {
+			config.NovelNum++
 			doc.Info.Id = strconv.Itoa(config.NovelNum)
+
 			cinfo := session.DB(mi.DatabaseName).C(mi.PrefixCollect + "_info")
 			if err = cinfo.Insert(doc.Info); nil == err {
+
 				cdata := session.DB(mi.DatabaseName).C(mi.PrefixCollect + "_data")
 				for _, info := range doc.Data {
+
 					if err = cdata.Insert(info); nil == err {
 						/* 更新配置 */
-						config.NovelNum++
 						if ok := UpdateConfig(mi, &config); ok {
 							ret = true
 						} else {
+							cinfo.RemoveId(doc.Info.Id)
+							for _, ei := range doc.Info.Blocks {
+								cinfo.RemoveId(ei)
+							}
 							Log.Errorf("%s|%s|%s 更新 config 失败 ...", doc.Info.NovelParse, doc.Info.Name, doc.Info.Author)
 						}
 					} else {
+						cinfo.RemoveId(doc.Info.Id)
+						for _, ei := range doc.Info.Blocks {
+							cinfo.RemoveId(ei)
+						}
 						Log.Errorf("%s|%s|%s 更新 data 失败 ...", doc.Info.NovelParse, doc.Info.Name, doc.Info.Author)
 						break
 					}
 				}
 			} else {
+				cinfo.RemoveId(doc.Info.Id)
 				Log.Errorf("%s|%s|%s 更新 info 失败 ...", doc.Info.NovelParse, doc.Info.Name, doc.Info.Author)
 			}
 		} else {
-			Log.Errorf("%s|%s|%s 获取 confi 失败 ...", doc.Info.NovelParse, doc.Info.Name, doc.Info.Author)
+			Log.Errorf("%s|%s|%s 获取 config 失败 ...", doc.Info.NovelParse, doc.Info.Name, doc.Info.Author)
 		}
 	} else {
 		Log.Errorf("mongo获取 session 失败: %s", err)
@@ -79,6 +91,8 @@ func UpdateDoc(mi SMongoInfo, id string, doc *NovelBean) bool {
 				selectort := bson.M{"_id": sdata.Id}
 				if err = cdata.Update(selectort, sdata); nil == err {
 					ret = true
+				} else {
+					Log.Errorf("%s|%s|%s 更新 data 失败!", doc.Info.NovelParse, doc.Info.Name, doc.Info.Author)
 				}
 			}
 		} else {
@@ -105,14 +119,19 @@ func FindDocByField(mi SMongoInfo, field *bson.M, doc *NovelBean) bool {
 			cdata := session.DB(mi.DatabaseName).C(mi.PrefixCollect + "_data")
 			for _, did := range ninfo.Blocks {
 				tmp := NovelData{}
-				if err = cdata.Find(bson.M{"_id": did}).One(&tmp); (nil == err) {
+				if err = cdata.Find(bson.M{"_id": did}).One(&tmp); nil == err {
 					ndata = append(ndata, tmp)
 				} else {
 					ret = false
+					Log.Errorf("%s|%s|%s 获取 data 失败!", doc.Info.NovelParse, doc.Info.Name, doc.Info.Author)
 					break
 				}
 			}
+		} else {
+			Log.Errorf("%s|%s|%s 获取 info 失败!", doc.Info.NovelParse, doc.Info.Name, doc.Info.Author)
 		}
+	} else {
+		Log.Errorf("%s|%s|%s 获取 session 失败!", doc.Info.NovelParse, doc.Info.Name, doc.Info.Author)
 	}
 
 	if ret {
