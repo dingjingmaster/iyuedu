@@ -368,7 +368,7 @@ func SaveToMongo(mongo SMongoInfo, info NovelField) {
 		novelTmp.Info.Blocks = blockIds
 		novelTmp.Data = data
 		if UpdateDoc(mongo, novelTmp.Info.Id, &novelTmp) {
-			Log.Debugf("更新 %s|%s|%s 成功!!!", info.NovelParse, info.Name, info.Author)
+			Log.Infof("更新 %s|%s|%s 成功!!!", info.NovelParse, info.Name, info.Author)
 		}
 	} else {
 		novelTmp.Info.Name = info.Name
@@ -401,7 +401,7 @@ func SaveToMongo(mongo SMongoInfo, info NovelField) {
 		novelTmp.Data = data
 
 		if InserDoc(mongo, &novelTmp) {
-			Log.Debugf("插入 %s|%s|%s 成功!!!", info.NovelParse, info.Name, info.Author)
+			Log.Infof("插入 %s|%s|%s 成功!!!", info.NovelParse, info.Name, info.Author)
 		}
 	}
 }
