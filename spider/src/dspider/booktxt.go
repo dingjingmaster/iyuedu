@@ -122,7 +122,7 @@ func booktxtParserInfo(baseUrl string, bookUrls *map[string]bool, novelInfoChan 
 		/* 章节 及 url */
 		flg := false
 		cp := 0
-		dcrawl.Log.Infof("开始获取 %s 章节信息!", novelInfo.Name)
+		dcrawl.Log.Debugf("开始获取 %s 章节信息!", novelInfo.Name)
 		doc.Find(".box_con>#list>dl").Children().Each(func(i int, selection *goquery.Selection) {
 			if strings.Contains(selection.Text(), "正文") {
 				flg = true
@@ -134,14 +134,14 @@ func booktxtParserInfo(baseUrl string, bookUrls *map[string]bool, novelInfoChan 
 					chapter := norm.NormChapterName(selection.Text())
 					if href, ok := selection.Find("a").Attr("href"); ok {
 						novelInfo.ChapterUrl[novelInfo.NovelUrl + href] = strconv.Itoa(cp) + "{]" + chapter
-						dcrawl.Log.Infof("获取书籍 %s|%s 章节 %s  -->  %s...", novelInfo.Name, novelInfo.Author, chapter, novelInfo.NovelUrl + href)
+						dcrawl.Log.Debugf("获取书籍 %s|%s 章节 %s  -->  %s...", novelInfo.Name, novelInfo.Author, chapter, novelInfo.NovelUrl + href)
 					}
 				}
 			}
 		})
 
 		*novelInfoChan <- novelInfo
-		dcrawl.Log.Infof("%s|%s基本信息提取完成!", novelInfo.Name, novelInfo.Author)
+		dcrawl.Log.Debugf("%s|%s基本信息提取完成!", novelInfo.Name, novelInfo.Author)
 	}
 }
 
@@ -164,14 +164,14 @@ func booktxtDownload(mongo dcrawl.SMongoInfo, wait *sync.WaitGroup, novelInfo *c
 			if dcrawl.FindDocByField(mongo, &field, &novelTemp) {
 				// 比较章节数量是否相同
 				if (novelTemp.Info.ChapterNum == len(ninfo.ChapterUrl)) && (len(novelTemp.Info.ErrorChapter) <= 0) {
-					dcrawl.Log.Infof("数据库中已存在:%s|%s", name, author)
+					dcrawl.Log.Debugf("数据库中已存在:%s|%s", name, author)
 					continue
 				}
 			}
 
 			/* 没有找到 或者 有错误章节 或者 有新章节 ---> 开始下载 */
 			// 下载图片
-			dcrawl.Log.Infof("开始下载 %s|%s 图片!", name, author)
+			dcrawl.Log.Debugf("开始下载 %s|%s 图片!", name, author)
 			img := ninfo.ImgUrl
 			resp, err := http.Get(img)
 			if nil != err {
@@ -186,7 +186,7 @@ func booktxtDownload(mongo dcrawl.SMongoInfo, wait *sync.WaitGroup, novelInfo *c
 			}
 
 			// 下载章节
-			dcrawl.Log.Infof("开始下载 %s|%s 章节!", name, author)
+			dcrawl.Log.Debugf("开始下载 %s|%s 章节!", name, author)
 			for url, cname := range ninfo.ChapterUrl {
 				head := map[string]string{
 					"Referer": ninfo.NovelUrl,
@@ -215,7 +215,7 @@ func booktxtDownload(mongo dcrawl.SMongoInfo, wait *sync.WaitGroup, novelInfo *c
 				dcrawl.Log.Infof("书籍 %s|%s|%s 章节下载完成!", ninfo.Name, ninfo.Author, cname)
 			}
 			*toSave <- ninfo
-			dcrawl.Log.Infof("书籍 %s|%s 信息获取完成!", ninfo.Name, ninfo.Author)
+			dcrawl.Log.Debugf("书籍 %s|%s 信息获取完成!", ninfo.Name, ninfo.Author)
 		} else {
 			break
 		}
@@ -234,7 +234,7 @@ func BookTxtRun(np *dcrawl.SpiderContent) {
 
 	/* 获取 url */
 	booktxtGetUrl(np.BaseUrl, &(np.SeedUrl), &bookUrl)
-	dcrawl.Log.Infof("bookTxt 获取书籍url成功!")
+	dcrawl.Log.Debugf("bookTxt 获取书籍url成功!")
 
 	/* 解析小说 */
 	go booktxtParserInfo(np.BaseUrl, &bookUrl, &novelChan)

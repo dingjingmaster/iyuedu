@@ -283,7 +283,7 @@ func getStandaloneUrl(mi SMongoInfo) string {
  *  3. 未存在则插入数据库
  */
 func SaveToMongo(mongo SMongoInfo, info NovelField) {
-	Log.Infof("开始保存书籍: %s|%s|%s !!!", info.NovelParse, info.Name, info.Author)
+	Log.Debugf("开始保存书籍: %s|%s|%s !!!", info.NovelParse, info.Name, info.Author)
 	times := time.Now().Format("20060102150405")
 
 	// 1. 是否已有该书籍
@@ -293,7 +293,7 @@ func SaveToMongo(mongo SMongoInfo, info NovelField) {
 	if ok := FindDocByField(mongo, &fild, &novelTmp); ok {
 		/* 已有这一信息 */
 		if novelTmp.Info.MaskLevel > 0 {
-			Log.Infof("不需要更新的书籍: %s|%s", novelTmp.Info.Name, novelTmp.Info.Author)
+			Log.Debugf("不需要更新的书籍: %s|%s", novelTmp.Info.Name, novelTmp.Info.Author)
 			return
 		}
 
@@ -368,7 +368,7 @@ func SaveToMongo(mongo SMongoInfo, info NovelField) {
 		novelTmp.Info.Blocks = blockIds
 		novelTmp.Data = data
 		if UpdateDoc(mongo, novelTmp.Info.Id, &novelTmp) {
-			Log.Infof("更新 %s|%s|%s 成功!!!", info.NovelParse, info.Name, info.Author)
+			Log.Debugf("更新 %s|%s|%s 成功!!!", info.NovelParse, info.Name, info.Author)
 		}
 	} else {
 		novelTmp.Info.Name = info.Name
@@ -401,7 +401,7 @@ func SaveToMongo(mongo SMongoInfo, info NovelField) {
 		novelTmp.Data = data
 
 		if InserDoc(mongo, &novelTmp) {
-			Log.Infof("插入 %s|%s|%s 成功!!!", info.NovelParse, info.Name, info.Author)
+			Log.Debugf("插入 %s|%s|%s 成功!!!", info.NovelParse, info.Name, info.Author)
 		}
 	}
 }
