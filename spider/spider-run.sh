@@ -4,6 +4,8 @@
 today=`date -d "0 day" +%Y%m%d`
 workDir=$(cd $(dirname $0); pwd)
 
+export GOPATH=${workDir}
+
 logFile="${LOG_PATH}/spider_${today}.log"
 
 ## 开始执行
