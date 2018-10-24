@@ -45,10 +45,6 @@ func GetHTMLByUrl(url string, head *map[string]string) (bool, string) {
 		ret, html = GetHTTPRequest(url, head)
 	}
 
-	if !ret {
-		Log.Errorf("url: %s 请求错误!", url)
-	}
-
 	return ret, html
 }
 
@@ -129,7 +125,6 @@ func GetHTTPRequest(url string, head *map[string]string) (bool, string) {
 	} else {
 		ret = true
 	}
-	defer resp.Body.Close()
 
 	if ret {
 		err, html := ReadByteToString(&(resp.Body))
@@ -139,6 +134,8 @@ func GetHTTPRequest(url string, head *map[string]string) (bool, string) {
 			ret = false
 		}
 	}
+
+	defer resp.Body.Close()
 
 	return ret, body
 }
