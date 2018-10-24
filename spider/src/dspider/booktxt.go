@@ -97,7 +97,7 @@ func booktxtParserInfo(baseUrl string, bookUrls *map[string]bool, novelInfoChan 
 		novelInfo.Author = norm.NormAuthor(author)
 
 		/* 图片 url */
-		dcrawl.Log.Infof("开始获取 %s 图片url!", novelInfo.Name)
+		dcrawl.Log.Debugf("开始获取 %s 图片url!", novelInfo.Name)
 		imgUrl, _ := doc.Find("#fmimg>img").Attr("src")
 		if !strings.HasPrefix(imgUrl, baseUrl) {
 			imgUrl = baseUrl + imgUrl
@@ -212,7 +212,7 @@ func booktxtDownload(mongo dcrawl.SMongoInfo, wait *sync.WaitGroup, novelInfo *c
 				content := doc.Find("#content").Text()
 				ninfo.ChapterContent[cname] = norm.NormContent(content)
 				time.Sleep(time.Millisecond * 3)
-				dcrawl.Log.Infof("书籍 %s|%s|%s 章节下载完成!", ninfo.Name, ninfo.Author, cname)
+				dcrawl.Log.Debugf("书籍 %s|%s|%s 章节下载完成!", ninfo.Name, ninfo.Author, cname)
 			}
 			*toSave <- ninfo
 			dcrawl.Log.Debugf("书籍 %s|%s 信息获取完成!", ninfo.Name, ninfo.Author)
