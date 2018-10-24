@@ -53,6 +53,7 @@ func main() {
 	/* 保存到 mongodb */
 	for {
 		if novelField, ok := <- saveToMongo; ok {
+			dcrawl.Log.Infof("开始保存 %s|%s 书籍...", novelField.Name, novelField.Author)
 			dcrawl.SaveToMongo(MI, novelField)
 		} else {
 			break
