@@ -21,29 +21,27 @@ func booktxtGetUrl(baseUrl string, seedUrl *map[string]int, bookUrl *map[string]
 			"Referer": "https://www.booktxt.net/",
 			"Cookie":  "__jsluid=adec22b5996125f9c7014a20d6a84d1c; Hm_lvt_3a0ea2f51f8d9b11a51868e48314bf4d=1538577486,1538577516; Hm_lpvt_3a0ea2f51f8d9b11a51868e48314bf4d=1540189295",
 		}
-		ok, html := dcrawl.GetHTMLByUrl(url, &head)
-		if !ok {
+		if ok, html := dcrawl.GetHTMLByUrl(url, &head); ok {
+			// 获取书籍 url
+			if doc, err := goquery.NewDocumentFromReader(strings.NewReader(html)); nil == err {
+				doc.Find("a").Each(func(i int, selection *goquery.Selection) {
+					url, ret := selection.Attr("href")
+					if ret && strings.HasPrefix(url, baseUrl) && (strings.HasPrefix(url, "https://") || strings.HasPrefix(url, "http://")) {
+						// 过滤
+						if (url == baseUrl) || (url == (baseUrl + "/")) {
+							return
+						}
+						(*bookUrl)[url] = false
+					}
+				})
+			} else {
+				dcrawl.Log.Errorf("解析html失败:%s", url)
+				continue
+			}
+		} else {
 			dcrawl.Log.Errorf("请求url:%s 错误!", url)
 			continue
 		}
-
-		// 获取书籍 url
-		doc, err := goquery.NewDocumentFromReader(strings.NewReader(html))
-		if nil != err {
-			dcrawl.Log.Errorf("解析html失败:%s", url)
-			continue
-		}
-
-		doc.Find("a").Each(func(i int, selection *goquery.Selection) {
-			url, ret := selection.Attr("href")
-			if ret && strings.HasPrefix(url, baseUrl) && (strings.HasPrefix(url, "https://") || strings.HasPrefix(url, "http://")) {
-				// 过滤
-				if (url == baseUrl) || (url == (baseUrl + "/")) {
-					return
-				}
-				(*bookUrl)[url] = false
-			}
-		})
 	}
 }
 
@@ -59,87 +57,76 @@ func booktxtParserInfo(baseUrl string, bookUrls *map[string]bool, novelInfoChan 
 			"Referer": "https://www.booktxt.net/",
 			"Cookie":  "__jsluid=adec22b5996125f9c7014a20d6a84d1c; Hm_lvt_3a0ea2f51f8d9b11a51868e48314bf4d=1538577486,1538577516; Hm_lpvt_3a0ea2f51f8d9b11a51868e48314bf4d=1540189295",
 		}
-		ok, html := dcrawl.GetHTMLByUrl(url, &head)
-		if !ok {
+		if ok, html := dcrawl.GetHTMLByUrl(url, &head); ok {
+			/* 解析 url */
+			if doc, err := goquery.NewDocumentFromReader(strings.NewReader(html)); nil == err {
+				// 所有信息
+				mainInfo := doc.Find("#maininfo")
+				/* 小说 url */
+				novelInfo.NovelUrl = url
+				/* 解析器名字 */
+				novelInfo.NovelParse = "booktxt"
+				/* 书名 */
+				name := mainInfo.Find("#info>h1").Text()
+				novelInfo.Name = norm.NormName(name)
+				novelInfo.Status = "连载"
+				/* 作者名 */
+				author := ""
+				mainInfo.Find("#info>p").Each(func(i int, selection *goquery.Selection) {
+					part := regexp.MustCompile(`^作\S+者`)
+					if len(part.FindAllString(selection.Text(), -1)) > 0 {
+						author = part.ReplaceAllString(selection.Text(), "")
+					}
+				})
+				novelInfo.Author = norm.NormAuthor(author)
+				/* 图片 url */
+				dcrawl.Log.Debugf("开始获取 %s 图片url!", novelInfo.Name)
+				imgUrl, _ := doc.Find("#fmimg>img").Attr("src")
+				if !strings.HasPrefix(imgUrl, baseUrl) {
+					imgUrl = baseUrl + imgUrl
+				}
+				novelInfo.ImgUrl = imgUrl
+				tpt := strings.Split(imgUrl, ".")
+				novelInfo.ImgType = tpt[len(tpt)-1]
+				/* 简介 */
+				desc := mainInfo.Find("#intro>p").Text()
+				novelInfo.Desc = norm.NormDesc(desc)
+				/* 类别 */
+				category := ""
+				doc.Find(".box_con>.con_top>a").Each(func(i int, selection *goquery.Selection) {
+					if (!strings.Contains(selection.Text(), "顶点小说")) && (!strings.Contains(selection.Text(), name)) {
+						category = selection.Text()
+					}
+				})
+				novelInfo.Tags = norm.NormCategory(category)
+				/* 章节 及 url */
+				flg := false
+				cp := 0
+				dcrawl.Log.Debugf("开始获取 %s 章节信息!", novelInfo.Name)
+				doc.Find(".box_con>#list>dl").Children().Each(func(i int, selection *goquery.Selection) {
+					if strings.Contains(selection.Text(), "正文") {
+						flg = true
+					}
+					if flg {
+						if selection.Is("dd") {
+							cp++
+							chapter := norm.NormChapterName(selection.Text())
+							if href, ok := selection.Find("a").Attr("href"); ok {
+								novelInfo.ChapterUrl[novelInfo.NovelUrl+href] = strconv.Itoa(cp) + "{]" + chapter
+								dcrawl.Log.Debugf("获取书籍 %s|%s 章节 %s  -->  %s...", novelInfo.Name, novelInfo.Author, chapter, novelInfo.NovelUrl+href)
+							}
+						}
+					}
+				})
+			} else {
+				dcrawl.Log.Errorf("解析html失败:%s", url)
+				continue
+			}
+		} else {
 			dcrawl.Log.Errorf("请求url:%s 错误!", url)
 			time.Sleep(time.Second)
 			continue
 		}
-
-		/* 解析 url */
-		doc, err := goquery.NewDocumentFromReader(strings.NewReader(html))
-		if nil != err {
-			dcrawl.Log.Errorf("解析html失败:%s", url)
-			continue
-		}
-		// 所有信息
-		mainInfo := doc.Find("#maininfo")
-
-		/* 小说 url */
-		novelInfo.NovelUrl = url
-
-		/* 解析器名字 */
-		novelInfo.NovelParse = "booktxt"
-
-		/* 书名 */
-		name := mainInfo.Find("#info>h1").Text()
-		novelInfo.Name = norm.NormName(name)
-		novelInfo.Status = "连载"
-
-		/* 作者名 */
-		author := ""
-		mainInfo.Find("#info>p").Each(func(i int, selection *goquery.Selection) {
-			part := regexp.MustCompile(`^作\S+者`)
-			if len(part.FindAllString(selection.Text(), -1)) > 0 {
-				author = part.ReplaceAllString(selection.Text(), "")
-			}
-		})
-		novelInfo.Author = norm.NormAuthor(author)
-
-		/* 图片 url */
-		dcrawl.Log.Debugf("开始获取 %s 图片url!", novelInfo.Name)
-		imgUrl, _ := doc.Find("#fmimg>img").Attr("src")
-		if !strings.HasPrefix(imgUrl, baseUrl) {
-			imgUrl = baseUrl + imgUrl
-		}
-		novelInfo.ImgUrl = imgUrl
-		tpt := strings.Split(imgUrl, ".")
-		novelInfo.ImgType = tpt[len(tpt)-1]
-
-		/* 简介 */
-		desc := mainInfo.Find("#intro>p").Text()
-		novelInfo.Desc = norm.NormDesc(desc)
-
-		/* 类别 */
-		category := ""
-		doc.Find(".box_con>.con_top>a").Each(func(i int, selection *goquery.Selection) {
-			if (!strings.Contains(selection.Text(), "顶点小说")) && (!strings.Contains(selection.Text(), name)) {
-				category = selection.Text()
-			}
-		})
-		novelInfo.Tags = norm.NormCategory(category)
-
-		/* 章节 及 url */
-		flg := false
-		cp := 0
-		dcrawl.Log.Debugf("开始获取 %s 章节信息!", novelInfo.Name)
-		doc.Find(".box_con>#list>dl").Children().Each(func(i int, selection *goquery.Selection) {
-			if strings.Contains(selection.Text(), "正文") {
-				flg = true
-			}
-
-			if flg {
-				if selection.Is("dd") {
-					cp++
-					chapter := norm.NormChapterName(selection.Text())
-					if href, ok := selection.Find("a").Attr("href"); ok {
-						novelInfo.ChapterUrl[novelInfo.NovelUrl + href] = strconv.Itoa(cp) + "{]" + chapter
-						dcrawl.Log.Debugf("获取书籍 %s|%s 章节 %s  -->  %s...", novelInfo.Name, novelInfo.Author, chapter, novelInfo.NovelUrl + href)
-					}
-				}
-			}
-		})
-
 		*novelInfoChan <- novelInfo
 		dcrawl.Log.Infof("%s|%s基本信息提取完成!", novelInfo.Name, novelInfo.Author)
 	}
@@ -164,7 +151,7 @@ func booktxtDownload(mongo dcrawl.SMongoInfo, wait *sync.WaitGroup, novelInfo *c
 			if dcrawl.FindDocByField(mongo, &field, &novelTemp) {
 				// 比较章节数量是否相同
 				if (novelTemp.Info.ChapterNum == len(ninfo.ChapterUrl)) && (len(novelTemp.Info.ErrorChapter) <= 0) {
-					dcrawl.Log.Debugf("数据库中已存在:%s|%s", name, author)
+					dcrawl.Log.Debugf("数据库中已完整存在:%s|%s", name, author)
 					continue
 				}
 			}
@@ -192,30 +179,28 @@ func booktxtDownload(mongo dcrawl.SMongoInfo, wait *sync.WaitGroup, novelInfo *c
 					"Referer": ninfo.NovelUrl,
 					"Cookie":  "__jsluid=adec22b5996125f9c7014a20d6a84d1c; Hm_lvt_3a0ea2f51f8d9b11a51868e48314bf4d=1538577486,1538577516; Hm_lpvt_3a0ea2f51f8d9b11a51868e48314bf4d=1540189295",
 				}
-				ok, html := dcrawl.GetHTMLByUrl(url, &head)
-				if !ok {
+				if ok, html := dcrawl.GetHTMLByUrl(url, &head); ok {
+					/* 解析 url */
+					if doc, err := goquery.NewDocumentFromReader(strings.NewReader(html)); nil == err {
+						/* 获取文章内容 */
+						content := doc.Find("#content").Text()
+						ninfo.ChapterContent[cname] = norm.NormContent(content)
+						time.Sleep(time.Millisecond * 3)
+						dcrawl.Log.Debugf("书籍 %s|%s|%s 章节下载完成!", ninfo.Name, ninfo.Author, cname)
+					} else {
+						dcrawl.Log.Errorf("解析 html 失败:%s", url)
+						ninfo.ErrorChapterUrl[url] = cname
+						continue
+					}
+				} else {
 					dcrawl.Log.Errorf("请求url:%s 错误!", url)
 					ninfo.ErrorChapterUrl[url] = cname
 					time.Sleep(time.Second * 3)
 					continue
 				}
-
-				/* 解析 url */
-				doc, err := goquery.NewDocumentFromReader(strings.NewReader(html))
-				if nil != err {
-					dcrawl.Log.Errorf("解析html失败:%s", url)
-					ninfo.ErrorChapterUrl[url] = cname
-					continue
-				}
-
-				/* 获取文章内容 */
-				content := doc.Find("#content").Text()
-				ninfo.ChapterContent[cname] = norm.NormContent(content)
-				time.Sleep(time.Millisecond * 3)
-				dcrawl.Log.Debugf("书籍 %s|%s|%s 章节下载完成!", ninfo.Name, ninfo.Author, cname)
 			}
 			*toSave <- ninfo
-			dcrawl.Log.Infof("书籍 %s|%s 信息获取完成!", ninfo.Name, ninfo.Author)
+			dcrawl.Log.Infof("书籍 %s|%s 数据下载完成!", ninfo.Name, ninfo.Author)
 		} else {
 			break
 		}
@@ -244,10 +229,10 @@ func BookTxtRun(np *dcrawl.SpiderContent) {
 	 *  2. 存在则匹配是否需要下载
 	 *  3. 下载 && 保存
 	 */
-	 for i := 0; i < downloadNum; i++ {
-	 	wait.Add(1)
-	 	go booktxtDownload(np.MI, &wait, &novelChan, np.ToMongo)
-	 }
+	for i := 0; i < downloadNum; i++ {
+		wait.Add(1)
+		go booktxtDownload(np.MI, &wait, &novelChan, np.ToMongo)
+	}
 
-	 wait.Wait()
+	wait.Wait()
 }

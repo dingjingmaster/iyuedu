@@ -68,36 +68,23 @@ func Post(url string, head *map[string]string, para *map[string]string) (bool, s
 			Transport: tr,
 		}
 	}
-
-	if nil == para {
-		ret = false
-		Log.Errorf("post请求参数错误: %s", url)
-	}
-
-	if ret {
-		request, err := http.NewRequest("POST", url, strings.NewReader(strings.Join(paras, "&")))
-		if nil != err {
-			Log.Errorf("错误的request post: %s|%s", url, err)
-		}
+	if request, err := http.NewRequest("POST", url, strings.NewReader(strings.Join(paras, "&"))); nil == err {
 		if nil != head {
 			for k, v := range *head {
 				request.Header.Add(k, v)
 			}
 		}
-		resp, err := client.Do(request)
-		if (nil != err) || (200 != resp.StatusCode) {
-			ret = false
-			Log.Errorf("无法访问url: %s|%s\n", url, err)
-		} else {
-			err, htmp := ReadByteToString(&(resp.Body))
-			if !err {
+		if resp, err := client.Do(request); (nil == err) && (200 == resp.StatusCode) {
+			defer resp.Body.Close()
+			if err, htmp := ReadByteToString(&(resp.Body)); err {
 				ret = true
 				html = ConvertToString(string(htmp), GetHTMLCharset(&htmp), "utf8")
-			} else {
-				ret = false
 			}
+		} else {
+			Log.Errorf("无法访问url: %s|%s", url, err)
 		}
-		defer resp.Body.Close()
+	} else {
+		Log.Errorf("错误的 request post: %s|%s", url, err)
 	}
 
 	return ret, html
@@ -109,33 +96,25 @@ func GetHTTPRequest(url string, head *map[string]string) (bool, string) {
 	body := ""
 
 	client := &http.Client{}
-	request, err := http.NewRequest("GET", url, nil)
-	if nil != err {
+	if request, err := http.NewRequest("GET", url, nil); nil == err {
+		if nil != head {
+			for k, v := range *head {
+				request.Header.Add(k, v)
+			}
+		}
+		if resp, err := client.Do(request); (nil == err) || (200 == resp.StatusCode) {
+			defer resp.Body.Close()
+			ret = true
+			if rt, html := ReadByteToString(&(resp.Body)); rt {
+				body = ConvertToString(string(html), GetHTMLCharset(&html), "utf8")
+			}
+		} else {
+			Log.Errorf("url访问错误: %s | %s", url, err)
+		}
+
+	} else{
 		Log.Errorf("错误的 get 请求: %s | %s", url, err)
 	}
-	if nil != head {
-		for k, v := range *head {
-			request.Header.Add(k, v)
-		}
-	}
-	resp, err := client.Do(request)
-	if (nil != err) || (200 != resp.StatusCode) {
-		ret = false
-		Log.Errorf("url访问错误: %s | %s", url, err)
-	} else {
-		ret = true
-	}
-
-	if ret {
-		err, html := ReadByteToString(&(resp.Body))
-		if err {
-			body = ConvertToString(string(html), GetHTMLCharset(&html), "utf8")
-		} else {
-			ret = false
-		}
-	}
-
-	defer resp.Body.Close()
 
 	return ret, body
 }
@@ -154,33 +133,24 @@ func GetHTTPSRequest(url string, head *map[string]string) (bool, string) {
 		Transport: tr,
 	}
 
-	request, err := http.NewRequest("GET", url, nil)
-	if nil != err {
+	if request, err := http.NewRequest("GET", url, nil); nil == err {
+		if nil != head {
+			for k, v := range *head {
+				request.Header.Add(k, v)
+			}
+		}
+		if resp, err := client.Do(request); (nil == err) || (200 == resp.StatusCode) {
+			if tret, html := ReadByteToString(&(resp.Body)); tret {
+				body = ConvertToString(string(html), GetHTMLCharset(&html), "utf8")
+				ret = true
+			}
+		} else {
+			Log.Errorf("url访问错误: %s|%s\n", url, err)
+		}
+
+	} else {
 		Log.Errorf("错误的 get 请求: %s|%s", url, err)
 	}
-	if nil != head {
-		for k, v := range *head {
-			request.Header.Add(k, v)
-		}
-	}
-	resp, err := client.Do(request)
-	if (nil != err) || (200 != resp.StatusCode) {
-		ret = false
-		Log.Errorf("url访问错误: %s|%s\n", url, err)
-	} else {
-		ret = true
-	}
-
-	if ret {
-		tret, html := ReadByteToString(&(resp.Body))
-		if tret {
-			body = ConvertToString(string(html), GetHTMLCharset(&html), "utf8")
-		} else {
-			ret = false
-		}
-	}
-
-	defer resp.Body.Close()
 
 	return ret, body
 }
@@ -192,13 +162,11 @@ func ReadByteToString(bt *io.ReadCloser) (bool, string) {
 	ret := false
 	body := ""
 
-	tmp, err := ioutil.ReadAll(*bt)
-	if nil != err {
-		ret = false
-		Log.Errorf("io读取错误！%s", err)
-	} else {
+	if tmp, err := ioutil.ReadAll(*bt); nil == err {
 		ret = true
 		body = string(tmp)
+	} else {
+		Log.Errorf("io读取错误！%s", err)
 	}
 
 	return ret, body
@@ -206,17 +174,10 @@ func ReadByteToString(bt *io.ReadCloser) (bool, string) {
 
 /* 获取页面的字符编码，返回字符编码 */
 func GetHTMLCharset(html *string) string {
-	ret := false
 	cs := "utf8"
-
 	doc, err := goquery.NewDocumentFromReader(strings.NewReader(string(*html)))
 	if nil == err {
-		ret = true
-	}
-
-	if ret {
-		ic, errs := doc.Find("head").Find("meta[http-equiv]").Attr("content")
-		if errs {
+		if ic, ok := doc.Find("head").Find("meta[http-equiv]").Attr("content"); ok{
 			ic = strings.TrimSpace(ic)
 			ict := strings.Split(ic, "=")
 			ic = ict[len(ict)-1]
@@ -225,7 +186,6 @@ func GetHTMLCharset(html *string) string {
 			}
 		}
 	}
-
 	return cs
 }
 
@@ -257,10 +217,8 @@ func ConvertToString(src string, srcCode string, tagCode string) string {
 	}
 
 	srcResult := mahonia.NewDecoder(srcCode).ConvertString(src)
-	_, cdata, err := mahonia.NewDecoder(tagCode).Translate([]byte(srcResult), true)
-	if nil == err {
+	if _, cdata, err := mahonia.NewDecoder(tagCode).Translate([]byte(srcResult), true); nil == err {
 		result = string(cdata)
 	}
-
 	return result
 }
