@@ -141,7 +141,7 @@ func booktxtParserInfo(baseUrl string, bookUrls *map[string]bool, novelInfoChan 
 		})
 
 		*novelInfoChan <- novelInfo
-		dcrawl.Log.Debugf("%s|%s基本信息提取完成!", novelInfo.Name, novelInfo.Author)
+		dcrawl.Log.Infof("%s|%s基本信息提取完成!", novelInfo.Name, novelInfo.Author)
 	}
 }
 
@@ -215,7 +215,7 @@ func booktxtDownload(mongo dcrawl.SMongoInfo, wait *sync.WaitGroup, novelInfo *c
 				dcrawl.Log.Debugf("书籍 %s|%s|%s 章节下载完成!", ninfo.Name, ninfo.Author, cname)
 			}
 			*toSave <- ninfo
-			dcrawl.Log.Debugf("书籍 %s|%s 信息获取完成!", ninfo.Name, ninfo.Author)
+			dcrawl.Log.Infof("书籍 %s|%s 信息获取完成!", ninfo.Name, ninfo.Author)
 		} else {
 			break
 		}
