@@ -226,9 +226,9 @@ func booktxtDownload(mongo dcrawl.SMongoInfo, wait *sync.WaitGroup, novelInfo *c
 func BookTxtRun(np *dcrawl.SpiderContent) {
 
 	bookUrl := map[string]bool{}
-	novelChan := make(chan dcrawl.NovelField, 10)
+	novelChan := make(chan dcrawl.NovelField, 5)
 	wait := sync.WaitGroup{}
-	downloadNum := 3
+	downloadNum := 6
 
 	dcrawl.Log.Infof("bookTxt 开始执行,base url: %s", np.BaseUrl)
 
