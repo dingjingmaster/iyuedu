@@ -14,6 +14,6 @@ rm -fr ${GOCACHE}
 rm -fr ./main
 go build ./src/main/
 
-./main > ${logFile}
+./main > ${logFile} 2>&1
 
 rm -fr ./main

@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a54e1c57-bedf-4d8f-9029-7af6b338a077" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/dspider/booktxt.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/dspider/booktxt.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spider-run.sh" beforeDir="false" afterPath="$PROJECT_DIR$/spider-run.sh" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -53,13 +52,13 @@
           <entry key="go" value="166" />
           <entry key="jpg" value="1" />
           <entry key="md" value="1" />
-          <entry key="sh" value="2" />
+          <entry key="sh" value="3" />
           <entry key="test0" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Bash" value="1" />
+          <entry key="Bash" value="2" />
           <entry key="Go" value="166" />
           <entry key="Image" value="1" />
           <entry key="PLAIN_TEXT" value="7" />
@@ -68,12 +67,12 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="go" value="31225" />
-          <entry key="sh" value="190" />
+          <entry key="sh" value="195" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Bash" value="126" />
+          <entry key="Bash" value="131" />
           <entry key="Go" value="31225" />
           <entry key="PLAIN_TEXT" value="64" />
         </counts>
@@ -93,41 +92,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/main.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="157">
-              <caret line="15" column="49" lean-forward="true" selection-start-line="15" selection-start-column="49" selection-end-line="15" selection-end-column="49" />
-              <folding>
-                <element signature="e#14#45#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/norm/norm_info.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="817">
-              <caret line="72" column="5" selection-start-line="72" selection-start-column="5" selection-end-line="72" selection-end-column="5" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/dcrawl/mongo.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="157">
-              <caret line="128" column="13" lean-forward="true" selection-start-line="128" selection-start-column="13" selection-end-line="128" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/dspider/booktxt.go">
+        <entry file="file://$PROJECT_DIR$/spider-run.sh">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="314">
-              <caret line="230" column="19" lean-forward="true" selection-start-line="230" selection-start-column="19" selection-end-line="230" selection-end-column="19" />
+            <state relative-caret-position="304">
+              <caret line="16" column="24" selection-start-line="16" selection-start-column="24" selection-end-line="16" selection-end-column="24" />
             </state>
           </provider>
         </entry>
@@ -188,10 +157,10 @@
         <option value="$PROJECT_DIR$/src/dcrawl/novel_bean.go" />
         <option value="$PROJECT_DIR$/src/dspider/mzhu8.go" />
         <option value="$PROJECT_DIR$/src/dcrawl/crawl.go" />
-        <option value="$PROJECT_DIR$/spider-run.sh" />
         <option value="$PROJECT_DIR$/src/dcrawl/mongo.go" />
         <option value="$PROJECT_DIR$/src/main/main.go" />
         <option value="$PROJECT_DIR$/src/dspider/booktxt.go" />
+        <option value="$PROJECT_DIR$/spider-run.sh" />
       </list>
     </option>
   </component>
@@ -202,8 +171,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="439" />
-    <option name="y" value="165" />
+    <option name="x" value="428" />
+    <option name="y" value="284" />
     <option name="width" value="1700" />
     <option name="height" value="779" />
   </component>
@@ -320,7 +289,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="439" y="165" width="1700" height="779" extended-state="0" />
+    <frame x="428" y="284" width="1700" height="779" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49885583" visible="true" weight="0.225" />
@@ -634,13 +603,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/spider-run.sh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/dcrawl/novel_bean.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="190">
@@ -674,8 +636,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/dspider/booktxt.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="314">
+        <state relative-caret-position="4142">
           <caret line="230" column="19" lean-forward="true" selection-start-line="230" selection-start-column="19" selection-end-line="230" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spider-run.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="304">
+          <caret line="16" column="24" selection-start-line="16" selection-start-column="24" selection-end-line="16" selection-end-column="24" />
         </state>
       </provider>
     </entry>
