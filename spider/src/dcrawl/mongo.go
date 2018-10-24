@@ -140,7 +140,7 @@ func FindDocByField(mi SMongoInfo, field *bson.M, doc *NovelBean) bool {
 	ninfo := NovelInfo{}
 	cinfo := session.DB(mi.DatabaseName).C(mi.PrefixCollect + "_info")
 
-	err = cinfo.Find(field).One(&ninfo)
+	err = cinfo.Find(*field).One(&ninfo)
 	if nil != err {
 		flag = false
 		Log.Errorf("mongo查找数据info失败: %s", err)
@@ -223,24 +223,19 @@ func GetConfig(mi SMongoInfo, doc *SMongoConfig) bool {
 	conf.MainPage = map[string]list.List{}
 	conf.NovelNum = 0
 
-	session, err := mgo.Dial(getStandaloneUrl(mi))
-	if nil != err {
-		Log.Errorf("mongo获取session失败: %s", err)
-		return false
-	}
-
-	session.SetMode(mgo.Monotonic, true)
-	mconf := session.DB(mi.DatabaseName).C(mi.PrefixCollect + "_conf")
-	if err = mconf.Find(bson.M{"_id": "conf"}).One(doc); nil != err {
-		ret := mconf.Insert(conf)
-		if nil == ret {
-			doc = &conf
-			return true
+	if session, err := mgo.Dial(getStandaloneUrl(mi)); nil == err {
+		session.SetMode(mgo.Monotonic, true)
+		mconf := session.DB(mi.DatabaseName).C(mi.PrefixCollect + "_conf")
+		if err = mconf.Find(bson.M{"_id": "conf"}).One(doc); nil != err {
+			if ret := mconf.Insert(conf); nil == ret {
+				doc = &conf
+				return true
+			}
 		}
+		defer session.Close()
 	}
-	defer session.Close()
 
-	return true
+	return false
 }
 
 /* 更新配置信息 */
