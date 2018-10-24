@@ -60,16 +60,16 @@ func InserDoc(mi SMongoInfo, doc *NovelBean) bool {
 						for _, ei := range doc.Info.Blocks {
 							cinfo.RemoveId(ei)
 						}
-						Log.Errorf("%s|%s|%s 更新 data 失败 ...", doc.Info.NovelParse, doc.Info.Name, doc.Info.Author)
+						Log.Errorf("%s|%s|%s 更新 data 失败: %s", doc.Info.NovelParse, doc.Info.Name, doc.Info.Author, err)
 						break
 					}
 				}
 			} else {
 				cinfo.RemoveId(doc.Info.Id)
-				Log.Errorf("%s|%s|%s 更新 info 失败 ...", doc.Info.NovelParse, doc.Info.Name, doc.Info.Author)
+				Log.Errorf("%s|%s|%s 更新 info 失败: %s", doc.Info.NovelParse, doc.Info.Name, doc.Info.Author, err)
 			}
 		} else {
-			Log.Errorf("%s|%s|%s 获取 config 失败 ...", doc.Info.NovelParse, doc.Info.Name, doc.Info.Author)
+			Log.Errorf("%s|%s|%s 获取 config 失败: %s", doc.Info.NovelParse, doc.Info.Name, doc.Info.Author, err)
 		}
 	} else {
 		Log.Errorf("mongo获取 session 失败: %s", err)
@@ -92,7 +92,7 @@ func UpdateDoc(mi SMongoInfo, id string, doc *NovelBean) bool {
 				if err = cdata.Update(selectort, sdata); nil == err {
 					ret = true
 				} else {
-					Log.Errorf("%s|%s|%s 更新 data 失败!", doc.Info.NovelParse, doc.Info.Name, doc.Info.Author)
+					Log.Errorf("%s|%s|%s 更新 data 失败: %s", doc.Info.NovelParse, doc.Info.Name, doc.Info.Author, err)
 				}
 			}
 		} else {
@@ -123,15 +123,15 @@ func FindDocByField(mi SMongoInfo, field *bson.M, doc *NovelBean) bool {
 					ndata = append(ndata, tmp)
 				} else {
 					ret = false
-					Log.Errorf("%s|%s|%s 获取 data 失败!", doc.Info.NovelParse, doc.Info.Name, doc.Info.Author)
+					Log.Errorf("获取 data 失败: %s", err)
 					break
 				}
 			}
 		} else {
-			Log.Errorf("%s|%s|%s 获取 info 失败!", doc.Info.NovelParse, doc.Info.Name, doc.Info.Author)
+			Log.Errorf("获取 info 失败: %s", err)
 		}
 	} else {
-		Log.Errorf("%s|%s|%s 获取 session 失败!", doc.Info.NovelParse, doc.Info.Name, doc.Info.Author)
+		Log.Errorf("获取 session 失败: %s", err)
 	}
 
 	if ret {
@@ -160,15 +160,15 @@ func FindDocById(mi SMongoInfo, id string, doc *NovelBean) bool {
 					ndata = append(ndata, tmp)
 				} else {
 					ret = false
-					Log.Errorf("mongo查找数据 data 失败: %s", err)
+					Log.Errorf("查找数据 data 失败: %s", err)
 					break
 				}
 			}
 		} else {
-			Log.Errorf("mongo查找数据 info 失败: %s", err)
+			Log.Errorf("查找数据 info 失败: %s", err)
 		}
 	} else {
-		Log.Errorf("mongo获取 session 失败: %s", err)
+		Log.Errorf("获取 session 失败: %s", err)
 	}
 
 	if ret {
@@ -205,7 +205,7 @@ func GetConfig(mi SMongoInfo, doc *SMongoConfig) bool {
 		}
 	} else {
 		ret = false
-		Log.Errorf("获取 session 失败 ...")
+		Log.Errorf("获取 session 失败: %s", err)
 	}
 
 	return ret
@@ -225,7 +225,11 @@ func UpdateConfig(mi SMongoInfo, doc *SMongoConfig) bool {
 		selector := bson.M{"_id": "conf"}
 		if err = mconf.Update(selector, doc); nil == err {
 			ret = true
+		} else {
+			Log.Errorf("更新 config 失败: %s", err)
 		}
+	} else {
+		Log.Errorf("获取 session 失败: %s", err)
 	}
 
 	return ret
