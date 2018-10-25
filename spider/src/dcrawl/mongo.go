@@ -238,7 +238,7 @@ func UpdateConfig(mi SMongoInfo, doc *SMongoConfig) bool {
 func getStandaloneUrl(mi SMongoInfo) string {
 	url := "mongodb://"
 	if "" != mi.Usr {
-		url += mi.Usr + ":" + mi.Pwd + "@" + mi.IP + ":" + strconv.Itoa(mi.Port)
+		url += mi.Usr + ":" + mi.Pwd + "@" + mi.IP + ":" + strconv.Itoa(mi.Port) + "/admin"
 	} else {
 		url += mi.IP + ":" + strconv.Itoa(mi.Port)
 	}
