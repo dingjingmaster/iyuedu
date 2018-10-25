@@ -17,6 +17,7 @@ import (
 	"net/http"
 	"net/http/cookiejar"
 	"strings"
+	"sync"
 )
 
 //
@@ -29,6 +30,7 @@ type SpiderContent struct {
 	SeedUrl    map[string]int   // 种子 url
 	MI         SMongoInfo       // mongodb 连接信息
 	ToMongo    *chan NovelField // 保存到 mongodb
+	Exit 		*sync.WaitGroup
 }
 
 /* 获取 url get 请求 */

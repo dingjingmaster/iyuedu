@@ -130,6 +130,7 @@ func booktxtParserInfo(baseUrl string, bookUrls *map[string]bool, novelInfoChan 
 		*novelInfoChan <- novelInfo
 		dcrawl.Log.Infof("%s|%s基本信息提取完成!", novelInfo.Name, novelInfo.Author)
 	}
+	close(*novelInfoChan)
 }
 
 /* 下载小说 */
@@ -235,4 +236,5 @@ func BookTxtRun(np *dcrawl.SpiderContent) {
 	}
 
 	wait.Wait()
+	np.Exit.Done()
 }
