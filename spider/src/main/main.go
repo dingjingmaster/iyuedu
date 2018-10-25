@@ -51,11 +51,7 @@ func main() {
 	}
 
 	/* 保存到 mongodb */
-	for {
-		if novelField, ok := <-saveToMongo; ok {
-			dcrawl.SaveToMongo(MI, novelField)
-		} else {
-			break
-		}
+	for novelField := range saveToMongo {
+		dcrawl.SaveToMongo(MI, novelField)
 	}
 }

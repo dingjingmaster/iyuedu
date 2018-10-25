@@ -123,15 +123,15 @@ func FindDocByField(mi SMongoInfo, field *bson.M, doc *NovelBean) bool {
 					ndata = append(ndata, tmp)
 				} else {
 					ret = false
-					Log.Errorf("获取 data 失败: %s", err)
+					Log.Errorf("%s 获取 data 失败: %s", field, err)
 					break
 				}
 			}
 		} else {
-			Log.Errorf("获取 info 失败: %s", err)
+			Log.Errorf("%s 获取 info 失败: %s", field, err)
 		}
 	} else {
-		Log.Errorf("获取 session 失败: %s", err)
+		Log.Errorf("%s 获取 session 失败: %s", field, err)
 	}
 
 	if ret {
@@ -165,10 +165,10 @@ func FindDocById(mi SMongoInfo, id string, doc *NovelBean) bool {
 				}
 			}
 		} else {
-			Log.Errorf("查找数据 info 失败: %s", err)
+			Log.Errorf("%s 查找数据 info 失败: %s", id, err)
 		}
 	} else {
-		Log.Errorf("获取 session 失败: %s", err)
+		Log.Errorf("%s 获取 session 失败: %s", id, err)
 	}
 
 	if ret {
@@ -205,7 +205,7 @@ func GetConfig(mi SMongoInfo, doc *SMongoConfig) bool {
 		}
 	} else {
 		ret = false
-		Log.Errorf("获取 session 失败: %s", err)
+		Log.Errorf("config 获取 session 失败: %s", err)
 	}
 
 	return ret
@@ -226,10 +226,10 @@ func UpdateConfig(mi SMongoInfo, doc *SMongoConfig) bool {
 		if err = mconf.Update(selector, doc); nil == err {
 			ret = true
 		} else {
-			Log.Errorf("更新 config 失败: %s", err)
+			Log.Errorf("config 更新 config 失败: %s", err)
 		}
 	} else {
-		Log.Errorf("获取 session 失败: %s", err)
+		Log.Errorf("config 获取 session 失败: %s", err)
 	}
 
 	return ret
@@ -262,7 +262,7 @@ func SaveToMongo(mongo SMongoInfo, info NovelField) {
 	if ok := FindDocByField(mongo, &fild, &novelTmp); ok {
 		/* 已有这一信息 */
 		if novelTmp.Info.MaskLevel > 0 {
-			Log.Infof("不需要更新的书籍: %s|%s", novelTmp.Info.Name, novelTmp.Info.Author)
+			Log.Infof("不需要更新的书籍: %s|%s|%s", novelTmp.Info.NovelParse, novelTmp.Info.Name, novelTmp.Info.Author)
 			return
 		}
 
