@@ -26,7 +26,7 @@ var MWAIT = sync.WaitGroup{}
 func init() {
 	if sess, err := mgo.Dial(dcrawl.GetStandaloneUrl(mongoIp, mongoPort, mongoUser, mongoPwd)); nil == err {
 		sess.SetMode(mgo.Eventual, true)
-		//MI.Sess = sess
+		MI.Sess = sess
 		MI.PrefixCollect = "online"
 		MI.DatabaseName = "novel_online"
 	} else {

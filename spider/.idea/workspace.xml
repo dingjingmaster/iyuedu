@@ -2,9 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a54e1c57-bedf-4d8f-9029-7af6b338a077" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dcrawl/crawl.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/dcrawl/crawl.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dcrawl/mongo.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/dcrawl/mongo.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/main.go" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -104,11 +101,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/main.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="81" column="24" selection-start-line="81" selection-start-column="24" selection-end-line="81" selection-end-column="24" />
+            <state relative-caret-position="380">
+              <caret line="29" column="14" selection-start-line="29" selection-start-column="14" selection-end-line="29" selection-end-column="14" />
               <folding>
                 <element signature="e#14#45#0" expanded="true" />
               </folding>
@@ -125,10 +122,10 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/dcrawl/mongo.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1640">
+            <state relative-caret-position="-1298">
               <caret line="259" column="15" lean-forward="true" selection-start-line="259" selection-start-column="15" selection-end-line="259" selection-end-column="15" />
             </state>
           </provider>
@@ -665,20 +662,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/main.go">
+    <entry file="file://$PROJECT_DIR$/src/dcrawl/mongo.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="81" column="24" selection-start-line="81" selection-start-column="24" selection-end-line="81" selection-end-column="24" />
-          <folding>
-            <element signature="e#14#45#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="-1298">
+          <caret line="259" column="15" lean-forward="true" selection-start-line="259" selection-start-column="15" selection-end-line="259" selection-end-column="15" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/dcrawl/mongo.go">
+    <entry file="file://$PROJECT_DIR$/src/main/main.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1640">
-          <caret line="259" column="15" lean-forward="true" selection-start-line="259" selection-start-column="15" selection-end-line="259" selection-end-column="15" />
+        <state relative-caret-position="380">
+          <caret line="29" column="14" selection-start-line="29" selection-start-column="14" selection-end-line="29" selection-end-column="14" />
+          <folding>
+            <element signature="e#14#45#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
