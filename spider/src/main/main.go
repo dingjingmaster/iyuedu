@@ -3,6 +3,8 @@ package main
 import (
 	"dcrawl"
 	"dspider"
+	"library/mgo.v2"
+	"os"
 	"sync"
 )
 
@@ -11,11 +13,27 @@ import (
  * 一个爬虫，一个线程
  */
 
-var MI = dcrawl.SMongoInfo{"127.0.0.1", 27017, "", "", "novel_online", "online"}
+var MI = dcrawl.SMongoInfo{}
+var mongoIp = "127.0.0.1"
+var mongoPort = 27017
+var mongoUser = ""
+var mongoPwd = ""
 
 var SC = map[*dcrawl.SpiderContent]dcrawl.SpiderRun{}
 var saveToMongo = make(chan dcrawl.NovelField, 10)
 var MWAIT = sync.WaitGroup{}
+
+func init() {
+	if sess, err := mgo.Dial(dcrawl.GetStandaloneUrl(mongoIp, mongoPort, mongoUser, mongoPwd)); nil == err {
+		sess.SetMode(mgo.Eventual, true)
+		//MI.Sess = sess
+		MI.PrefixCollect = "online"
+		MI.DatabaseName = "novel_online"
+	} else {
+		dcrawl.Log.Fatalf("mongodb 开启 session 失败: %s", err)
+		os.Exit(-1)
+	}
+}
 
 func main() {
 	/* mzhu8 爬虫 */
@@ -40,9 +58,12 @@ func main() {
 	booktxt.BaseUrl = "https://www.booktxt.net/"
 	booktxt.ToMongo = &saveToMongo
 	booktxt.Exit = &MWAIT
+	booktxt.MI = MI
 	booktxt.SeedUrl = map[string]int{
 		"https://www.booktxt.net/xiaoshuodaquan/": 0,
 	}
+
+	defer MI.Sess.Close()
 
 	/* 添加爬虫 */
 	//SC[&mzhu8] = dspider.Mzhu8Run

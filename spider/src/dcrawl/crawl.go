@@ -30,7 +30,7 @@ type SpiderContent struct {
 	SeedUrl    map[string]int   // 种子 url
 	MI         SMongoInfo       // mongodb 连接信息
 	ToMongo    *chan NovelField // 保存到 mongodb
-	Exit 		*sync.WaitGroup
+	Exit       *sync.WaitGroup
 }
 
 /* 获取 url get 请求 */
@@ -56,7 +56,7 @@ func Post(url string, head *map[string]string, para *map[string]string) (bool, s
 	client := &http.Client{}
 	paras := []string{}
 	for k, v := range *para {
-		paras = append(paras, k + "=" + v)
+		paras = append(paras, k+"="+v)
 	}
 
 	rtp, _ := CheckHTTP(url)
@@ -179,7 +179,7 @@ func GetHTMLCharset(html *string) string {
 	cs := "utf8"
 	doc, err := goquery.NewDocumentFromReader(strings.NewReader(string(*html)))
 	if nil == err {
-		if ic, ok := doc.Find("head").Find("meta[http-equiv]").Attr("content"); ok{
+		if ic, ok := doc.Find("head").Find("meta[http-equiv]").Attr("content"); ok {
 			ic = strings.TrimSpace(ic)
 			ict := strings.Split(ic, "=")
 			ic = ict[len(ict)-1]

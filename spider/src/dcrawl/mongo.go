@@ -10,10 +10,7 @@ import (
 )
 
 type SMongoInfo struct {
-	IP            string
-	Port          int
-	Usr           string
-	Pwd           string
+	Sess          *mgo.Session
 	DatabaseName  string
 	PrefixCollect string
 }
@@ -25,21 +22,16 @@ type SMongoConfig struct {
 	MainPage    map[string]list.List `bson:"main_page"`
 }
 
-/* mongodb 锁 */
-//var mongoLock = sync.Mutex{}
-
 func InserDoc(mi SMongoInfo, doc *NovelBean) bool {
 	ret := false
-	if session, err := mgo.Dial(getStandaloneUrl(mi)); nil == err {
-		defer session.Close()
-		session.SetMode(mgo.Monotonic, true)
+	if session := mi.Sess; nil != session {
 		config := SMongoConfig{}
 		if ok := GetConfig(mi, &config); ok {
 			config.NovelNum++
 			doc.Info.Id = strconv.Itoa(config.NovelNum)
 
 			cinfo := session.DB(mi.DatabaseName).C(mi.PrefixCollect + "_info")
-			if err = cinfo.Insert(doc.Info); nil == err {
+			if err := cinfo.Insert(doc.Info); nil == err {
 
 				cdata := session.DB(mi.DatabaseName).C(mi.PrefixCollect + "_data")
 				for _, info := range doc.Data {
@@ -69,10 +61,10 @@ func InserDoc(mi SMongoInfo, doc *NovelBean) bool {
 				Log.Errorf("%s|%s|%s 更新 info 失败: %s", doc.Info.NovelParse, doc.Info.Name, doc.Info.Author, err)
 			}
 		} else {
-			Log.Errorf("%s|%s|%s 获取 config 失败: %s", doc.Info.NovelParse, doc.Info.Name, doc.Info.Author, err)
+			Log.Errorf("%s|%s|%s 获取 config 失败!", doc.Info.NovelParse, doc.Info.Name, doc.Info.Author)
 		}
 	} else {
-		Log.Errorf("mongo获取 session 失败: %s", err)
+		Log.Errorf("mongo获取 session 失败!")
 	}
 
 	return ret
@@ -80,12 +72,10 @@ func InserDoc(mi SMongoInfo, doc *NovelBean) bool {
 
 func UpdateDoc(mi SMongoInfo, id string, doc *NovelBean) bool {
 	ret := false
-	if session, err := mgo.Dial(getStandaloneUrl(mi)); nil == err {
-		defer session.Close()
-		session.SetMode(mgo.Monotonic, true)
+	if session := mi.Sess; nil != session {
 		selector := bson.M{"_id": id}
 		cinfo := session.DB(mi.DatabaseName).C(mi.PrefixCollect + "_info")
-		if err = cinfo.Update(selector, doc.Info); nil == err {
+		if err := cinfo.Update(selector, doc.Info); nil == err {
 			cdata := session.DB(mi.DatabaseName).C(mi.PrefixCollect + "_data")
 			for _, sdata := range doc.Data {
 				selectort := bson.M{"_id": sdata.Id}
@@ -96,25 +86,22 @@ func UpdateDoc(mi SMongoInfo, id string, doc *NovelBean) bool {
 				}
 			}
 		} else {
-			Log.Errorf("mongo更新 info 信息失败: %s", err)
+			Log.Errorf("mongo更新 info 信息失败!")
 		}
 	} else {
-		Log.Errorf("mongo获取 session 失败: %s", err)
+		Log.Errorf("mongo获取 session 失败!")
 	}
 
 	return ret
 }
 
 func FindDocByField(mi SMongoInfo, field *bson.M, doc *NovelBean) bool {
-
 	ret := false
 	ninfo := NovelInfo{}
 	ndata := []NovelData{}
-	if session, err := mgo.Dial(getStandaloneUrl(mi)); nil == err {
-		defer session.Close()
-		session.SetMode(mgo.Monotonic, true)
+	if session := mi.Sess; nil != session {
 		cinfo := session.DB(mi.DatabaseName).C(mi.PrefixCollect + "_info")
-		if err = cinfo.Find(*field).One(&ninfo); nil == err {
+		if err := cinfo.Find(*field).One(&ninfo); nil == err {
 			ret = true
 			cdata := session.DB(mi.DatabaseName).C(mi.PrefixCollect + "_data")
 			for _, did := range ninfo.Blocks {
@@ -131,7 +118,7 @@ func FindDocByField(mi SMongoInfo, field *bson.M, doc *NovelBean) bool {
 			Log.Errorf("%s 获取 info 失败: %s", field, err)
 		}
 	} else {
-		Log.Errorf("%s 获取 session 失败: %s", field, err)
+		Log.Errorf("%s 获取 session 失败!", field)
 	}
 
 	if ret {
@@ -147,11 +134,9 @@ func FindDocById(mi SMongoInfo, id string, doc *NovelBean) bool {
 	ret := false
 	ninfo := NovelInfo{}
 	ndata := []NovelData{}
-	if session, err := mgo.Dial(getStandaloneUrl(mi)); nil == err {
-		defer session.Close()
-		session.SetMode(mgo.Monotonic, true)
+	if session := mi.Sess; nil != session {
 		cinfo := session.DB(mi.DatabaseName).C(mi.PrefixCollect + "_info")
-		if err = cinfo.Find(bson.M{"_id": id}).One(&ninfo); nil == err {
+		if err := cinfo.Find(bson.M{"_id": id}).One(&ninfo); nil == err {
 			cdata := session.DB(mi.DatabaseName).C(mi.PrefixCollect + "_data")
 			for _, did := range ninfo.Blocks {
 				tmp := NovelData{}
@@ -168,7 +153,7 @@ func FindDocById(mi SMongoInfo, id string, doc *NovelBean) bool {
 			Log.Errorf("%s 查找数据 info 失败: %s", id, err)
 		}
 	} else {
-		Log.Errorf("%s 获取 session 失败: %s", id, err)
+		Log.Errorf("%s 获取 session 失败!", id)
 	}
 
 	if ret {
@@ -194,18 +179,16 @@ func GetConfig(mi SMongoInfo, doc *SMongoConfig) bool {
 	conf.MainPage = map[string]list.List{}
 	conf.NovelNum = 0
 
-	if session, err := mgo.Dial(getStandaloneUrl(mi)); nil == err {
-		defer session.Close()
-		session.SetMode(mgo.Monotonic, true)
+	if session := mi.Sess; nil != session {
 		mconf := session.DB(mi.DatabaseName).C(mi.PrefixCollect + "_conf")
-		if err = mconf.Find(bson.M{"_id": "conf"}).One(doc); nil != err {
+		if err := mconf.Find(bson.M{"_id": "conf"}).One(doc); nil != err {
 			if rt := mconf.Insert(conf); nil == rt {
 				doc = &conf
 			}
 		}
 	} else {
 		ret = false
-		Log.Errorf("config 获取 session 失败: %s", err)
+		Log.Errorf("config 获取 session 失败")
 	}
 
 	return ret
@@ -218,29 +201,27 @@ func UpdateConfig(mi SMongoInfo, doc *SMongoConfig) bool {
 	conf := SMongoConfig{}
 	conf.Id = "conf"
 
-	if session, err := mgo.Dial(getStandaloneUrl(mi)); nil == err {
-		defer session.Close()
-		session.SetMode(mgo.Monotonic, true)
+	if session := mi.Sess; nil != session {
 		mconf := session.DB(mi.DatabaseName).C(mi.PrefixCollect + "_conf")
 		selector := bson.M{"_id": "conf"}
-		if err = mconf.Update(selector, doc); nil == err {
+		if err := mconf.Update(selector, doc); nil == err {
 			ret = true
 		} else {
 			Log.Errorf("config 更新 config 失败: %s", err)
 		}
 	} else {
-		Log.Errorf("config 获取 session 失败: %s", err)
+		Log.Errorf("config 获取 session 失败")
 	}
 
 	return ret
 }
 
-func getStandaloneUrl(mi SMongoInfo) string {
+func GetStandaloneUrl(ip string, port int, user string, pwd string) string {
 	url := "mongodb://"
-	if "" != mi.Usr {
-		url += mi.Usr + ":" + mi.Pwd + "@" + mi.IP + ":" + strconv.Itoa(mi.Port) + "/admin"
+	if "" != user {
+		url += user + ":" + pwd + "@" + ip + ":" + strconv.Itoa(port) + "/admin"
 	} else {
-		url += mi.IP + ":" + strconv.Itoa(mi.Port)
+		url += ip + ":" + strconv.Itoa(port)
 	}
 
 	return url
@@ -259,6 +240,7 @@ func SaveToMongo(mongo SMongoInfo, info NovelField) {
 	/* 1. 是否已有该书籍 */
 	novelTmp := NovelBean{}
 	fild := bson.M{"name": info.Name, "author": info.Author, "novel_parse": info.NovelParse}
+
 	if ok := FindDocByField(mongo, &fild, &novelTmp); ok {
 		/* 已有这一信息 */
 		if novelTmp.Info.MaskLevel > 0 {
